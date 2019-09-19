@@ -52,7 +52,7 @@ html_theme = 'basic'
 # The “title” for HTML documentation generated with Sphinx’s own templates. This is appended to the <title> tag of individual pages, and used in the navigation bar as the “topmost” element. It defaults to '<project> v<revision> documentation'.
 html_title = 'Liferay Learn'
 
-# html_favicon
+html_favicon = '_static/img/favicon.ico'
 # html_logo
 # html_theme_path
 # html_css_files
