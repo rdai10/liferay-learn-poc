@@ -16,12 +16,20 @@ Liferay Learn is an initiative to organize, create, and curate resources for lea
 ### Prerequisites
 Checkout Sphinx's documentation for the python [prerequisites](http://www.sphinx-doc.org/en/master/intro.html#prerequisites) and [installation](http://www.sphinx-doc.org/en/master/usage/installation.html) steps.
 
+Please also install [node](https://nodejs.org/en/).
+
+### Installation
+
 Since the documentations here are written in `markdown`, you will also need to install _recommonmark_ via:
 ```
 pip install --upgrade recommonmark
 ```
+We are also using _sphinx-markdown-tables_ since markdown tables are not supported in Sphinx. To install, run:
+```
+pip install sphinx-markdown-tables
+```
 
-Please also install [node](https://nodejs.org/en/) and run:
+Finally, run:
 ```
 npm install
 ```

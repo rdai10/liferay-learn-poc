@@ -8,12 +8,15 @@ Welcome to Liferay Learn's documentation!
 
 .. toctree::
    :hidden:
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Contents:
 
-   commerce/developer-guide/introduction/*
+   commerce/developer-guide/*
+   commerce/developer-guide/*/*
    commerce/get-help/*/*
+   commerce/installation-and-upgrades/*
    commerce/installation-and-upgrades/*/*
+   commerce/user-guide/*/*
 
 
 Indices and tables
