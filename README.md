@@ -26,10 +26,23 @@ Please also install [node](https://nodejs.org/en/) and run:
 npm install
 ```
 
-## Generating Docs
+## Generating Files
 
 To generate `HTML`, run
 
 ```
 make html
 ```
+The generated html files will be in the `build/html` directory. 
+
+To generate `pdf`, run
+```
+make latexpdf
+```
+The generated pdf files will be in the `build/latex` directory. 
+
+To generate `epub`, run
+```
+make epub
+```
+The generated epub files will be in the `build/epub` directory.

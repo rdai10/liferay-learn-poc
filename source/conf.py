@@ -37,10 +37,6 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ['node_modules']
 
-source_parsers = {
-    '.md': 'recommonmark.parser.CommonMarkParser',
-}
-
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
 #
@@ -51,7 +47,20 @@ source_suffix = ['.rst', '.md']
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
+html_theme = 'basic'
+
+# The “title” for HTML documentation generated with Sphinx’s own templates. This is appended to the <title> tag of individual pages, and used in the navigation bar as the “topmost” element. It defaults to '<project> v<revision> documentation'.
+html_title = 'Liferay Learn'
+
+# html_favicon
+# html_logo
+# html_theme_path
+# html_css_files
+# html_js_files
+
+html_show_copyright = False
+
+html_show_sphinx = False
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
