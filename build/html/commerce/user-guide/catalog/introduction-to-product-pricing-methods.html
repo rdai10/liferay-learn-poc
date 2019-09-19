@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Introduction to Product Pricing Methods &#8212; Liferay Learn</title>
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="introduction-to-product-pricing-methods">
+<h1>Introduction to Product Pricing Methods<a class="headerlink" href="#introduction-to-product-pricing-methods" title="Permalink to this headline">¶</a></h1>
+<p>Liferay Commerce allows store managers to set different prices for the same product using a pricing hierarchy. Each type of pricing method works together to allow managers to offer different pricing methods based on specific sets of conditions. This article explains the pricing hierarchy and each pricing method.</p>
+<div class="section" id="pricing-hierarchy">
+<h2>Pricing Hierarchy<a class="headerlink" href="#pricing-hierarchy" title="Permalink to this headline">¶</a></h2>
+<p>The pricing hierarchy determines which price applies for any given combination of product, quantity, buyer, date/time, order total, etc. If more than one price applies to a given transaction, then the price nearest to the top of the hierarchy supersedes others.</p>
+<p>The hierarchy consists of these levels:</p>
+<p><strong>Base Price</strong>: This is the starting price of the product which is <a class="reference external" href="../base-price/setting-a-products-base-price/README">set</a> in the product SKU sub-tab.</p>
+<p><strong>Price List</strong>: This price applies to specific products for buyers in selected <a class="reference internal" href="../customers/creating-a-new-account.html"><span class="doc">Accounts</span></a> and <a class="reference internal" href="../customers/creating-a-new-account-group.html"><span class="doc">Account Groups</span></a>. Prices in the price list can be <em>higher</em> or <em>lower</em> than the base price. If a price list applies to a transaction, it supersedes the base price.</p>
+<p><strong>Tiered Price</strong>: This price applies to orders that meet specified minimum quantity requirements (bulk orders). It is only available in the context of a <a class="reference internal" href="creating-a-price-list.html"><span class="doc">price list</span></a> and it supersedes the list’s price.</p>
+<p><strong>Promo Price</strong>: This price can be applied to a base price, a price list price, and to a tiered price. Once applied, the promo price supersedes each of them. When a base price is superseded by a price list or tiered price, its promo price is superseded as well. <em>The applicable price and promo price appear together on the product page so that buyers see the markdown.</em></p>
+<p><strong>Discount</strong>: A discount <em>operates outside the price hierarchy and modifies a price</em> rather than superseding it. Unlike a price list, a discount always reduces the base price. There are two types of discounts: a flat amount or a percentage. A discount can be applied in the following ways:</p>
+<ul class="simple">
+<li><p>By product (individually, by category, or the entire catalog)</p></li>
+<li><p>To an order’s subtotal, shipping costs, or to an order total</p></li>
+<li><p>To all buyers, or buyers in selected Accounts and Account Groups</p></li>
+<li><p>To a select group of customers that meet certain qualifications such as minimum order total or purchase of a required product.</p></li>
+</ul>
+<p>The pricing hierarchy can be visualized in the following diagram:</p>
+<p><img alt="Pricing hierarchy" src="../../../_images/0126.png" /></p>
+</div>
+<div class="section" id="pricing-method-reference">
+<h2>Pricing Method Reference<a class="headerlink" href="#pricing-method-reference" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Pricing Method</th>
+<th>Summary</th>
+<th align="center">Overrides the Base Price?</th>
+<th>Where is it set?</th>
+<th>Applies to who?</th>
+<th align="center">Applies to what?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Base Price</td>
+<td>The base price</td>
+<td align="center">n/a</td>
+<td>Product SKU</td>
+<td>All buyers</td>
+<td align="center">Product SKU</td>
+</tr>
+<tr>
+<td>Base Promo</td>
+<td>Marked down price</td>
+<td align="center">Yes</td>
+<td>Product SKU</td>
+<td>All buyers</td>
+<td align="center">Product SKU</td>
+</tr>
+<tr>
+<td>Price List (List Price, List Promo)</td>
+<td>Special pricing (or currencies) per product and buyer</td>
+<td align="center">Yes</td>
+<td>Price Lists</td>
+<td>Selected buyers (Accounts &amp; Account Groups)</td>
+<td align="center">Individual product SKUs</td>
+</tr>
+<tr>
+<td>Tiered Price List (Tiered Price, Tiered Promo)</td>
+<td>Special pricing (or currencies) per product and buyer <em>at bulk quantities</em></td>
+<td align="center">Yes</td>
+<td>Price Lists</td>
+<td>Selected buyers (Accounts &amp; Account Groups)</td>
+<td align="center">Individual product SKUs</td>
+</tr>
+<tr>
+<td>Discount</td>
+<td>Modifies price for a group of products or buyers (Can limit quantity and use coupon codes)</td>
+<td align="center">No</td>
+<td>Discounts</td>
+<td>Selected Buyers (Accounts &amp; Account Groups or those who meet certain qualifications)</td>
+<td align="center">Groups of products (or Individual product SKUs)</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="additional-information">
+<h2>Additional Information<a class="headerlink" href="#additional-information" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="../base-price/setting-a-products-base-price/README">Setting a Product’s Base Price</a></p></li>
+<li><p><a class="reference internal" href="creating-a-price-list.html"><span class="doc">Creating a Price List</span></a></p></li>
+<li><p><a class="reference external" href="../price-lists/adding-products-to-a-price-list/README">Adding Products to a Price List</a></p></li>
+<li><p><a class="reference internal" href="adding-products-to-a-price-list.html"><span class="doc">Adding Tiered Pricing</span></a></p></li>
+<li><p><a class="reference internal" href="../marketing/adding-discounts-by-product.html"><span class="doc">Adding Discounts by Product</span></a></p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Introduction to Product Pricing Methods</a><ul>
+<li><a class="reference internal" href="#pricing-hierarchy">Pricing Hierarchy</a></li>
+<li><a class="reference internal" href="#pricing-method-reference">Pricing Method Reference</a></li>
+<li><a class="reference internal" href="#additional-information">Additional Information</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/commerce/user-guide/catalog/introduction-to-product-pricing-methods.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    </div>
+  </body>
+</html>

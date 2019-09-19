@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Creating a Catalog Page &#8212; Liferay Learn</title>
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="creating-a-catalog-page">
+<h1>Creating a Catalog Page<a class="headerlink" href="#creating-a-catalog-page" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="catalog.html"><span class="doc">Catalog</span></a> page is the primary entry point for users to browse products that are being offered in a store. It includes the following widgets: <em>Search Bar</em>, <em>Options Facets</em>, <em>Specification Facet</em>, <em>Category Facet</em> and <em>Search Results</em>. To learn more about Commerce widgets see the <a class="reference internal" href="widget-reference.html"><span class="doc">Widget Reference</span></a>.</p>
+<p>This article documents an example of how to build a Catalog page without the use of an <a class="reference internal" href="../getting-started/accelerators.html"><span class="doc">accelerator</span></a>.</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Review the Prerequisites.</p></li>
+<li><p>Add and Configure the Page.</p></li>
+<li><p>Add the Widgets to the Page.</p></li>
+<li><p>Configure the <em>Search Bar</em> Widget.</p></li>
+<li><p>Displaying the Full Catalog Without a Search (Optional).</p></li>
+<li><p>Configure Product Channel Filters (Optional).</p></li>
+</ol>
+</div>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>See the following links to learn more about Site and Page Creation:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://help.liferay.com/hc/en-us/articles/360018171331-Creating-Page-Fragments">Creating Page Fragments</a></p></li>
+<li><p><a class="reference external" href="https://help.liferay.com/hc/en-us/articles/360018171351-Building-Content-Pages-from-Fragments-">Building Content Pages from Fragments</a></p></li>
+<li><p><a class="reference external" href="https://help.liferay.com/hc/en-us/articles/360018171531-Creating-and-Managing-Navigation-Menus">Creating and Managing Navigation Menus</a></p></li>
+<li><p><a class="reference external" href="https://help.liferay.com/hc/en-us/articles/360017892632-Styling-Widgets-with-Application-Display-Templates">Using Application Display Templates</a></p></li>
+</ul>
+</div>
+<div class="section" id="add-and-configure-the-page">
+<h2>Add and Configure the Page<a class="headerlink" href="#add-and-configure-the-page" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Create a Page using the <em>Widget</em> template.</p></li>
+<li><p>The <em>30-70 Column</em> Layout is the default selection. This layout has a narrower left column for the widgets that refine the search and a wider right column for the <em>Search Results</em> widget. Storefront designers can choose different layouts for a different style.</p></li>
+</ol>
+</div>
+<div class="section" id="add-the-widgets-to-the-page">
+<h2>Add the Widgets to the Page<a class="headerlink" href="#add-the-widgets-to-the-page" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Drag and drop the widgets into the desired positions.</p></li>
+<li><p>Click the <em>3-dot icon</em> then <em>Look and Feel Configurations</em> to add or remove the widget titles.</p></li>
+</ol>
+<p>After creating and configuring the page with the widgets, a basic Catalog page might look like this:</p>
+<p><img alt="Blank Catalog Page" src="../../../_images/0228.png" /></p>
+</div>
+<div class="section" id="configure-the-search-bar-widget">
+<h2>Configure the <em>Search Bar</em> Widget<a class="headerlink" href="#configure-the-search-bar-widget" title="Permalink to this headline">¶</a></h2>
+<p>The <em>Search Bar</em> widget must be configured to display data from the Global site scope. This is because all products are stored at the global level and not the site level.</p>
+<ol>
+<li><p>Click the <em>3-dot icon</em> then <em>Configuration</em> on the <em>Search Bar</em> widget.</p>
+<p><img alt="Search Bar Configuration" src="../../../_images/0311.png" /></p>
+</li>
+<li><p>Select <em>Everything</em> from the <em>Scope</em> drop down menu.</p>
+<p><img alt="Everything scope" src="../../../_images/049.png" /></p>
+</li>
+<li><p>Click <em>Save</em>.</p></li>
+<li><p>Close the <em>Configuration</em> window.</p></li>
+</ol>
+<p>The <em>Search Bar</em> widget is now configured to display the content from the entire instance.</p>
+</div>
+<div class="section" id="displaying-the-full-catalog-without-a-search-optional">
+<h2>Displaying the Full Catalog Without a Search (Optional)<a class="headerlink" href="#displaying-the-full-catalog-without-a-search-optional" title="Permalink to this headline">¶</a></h2>
+<p>Liferay Commerce allows store managers to display all the products in a catalog in the <em>Search Results</em> widget without having buyers first enter a search query. This is done by configuring the <em>Search Options</em> widget.</p>
+<ol class="simple">
+<li><p>Click the <em>Configure additional search options in this page</em> in the <em>Search Options</em> widget.</p></li>
+<li><p>Check the checkbox for <em>Allow Empty Searches</em>.</p></li>
+<li><p>Click <em>Save</em>.</p></li>
+<li><p>Close the <em>Configuration</em> window.</p></li>
+</ol>
+<p>Once this option has been enabled, all the products in this catalog are displayed in the <em>Search Results</em> widget.</p>
+<p><img alt="Empty Search" src="../../../_images/0144.png" /></p>
+</div>
+<div class="section" id="configure-product-channel-filters-optional">
+<h2>Configure Product Channel Filters (Optional)<a class="headerlink" href="#configure-product-channel-filters-optional" title="Permalink to this headline">¶</a></h2>
+<p>If there is more than one store site that is housed on the Liferay Commerce instance, the entire catalog becomes searchable on every store site.</p>
+<p>To scope product to specific sites, see <a class="reference internal" href="../catalog/configuring-product-visibility-by-site-using-channels.html"><span class="doc">Configuring Product Visibility by Site using Channels</span></a>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Creating a Catalog Page</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#add-and-configure-the-page">Add and Configure the Page</a></li>
+<li><a class="reference internal" href="#add-the-widgets-to-the-page">Add the Widgets to the Page</a></li>
+<li><a class="reference internal" href="#configure-the-search-bar-widget">Configure the <em>Search Bar</em> Widget</a></li>
+<li><a class="reference internal" href="#displaying-the-full-catalog-without-a-search-optional">Displaying the Full Catalog Without a Search (Optional)</a></li>
+<li><a class="reference internal" href="#configure-product-channel-filters-optional">Configure Product Channel Filters (Optional)</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/commerce/user-guide/content/creating-a-catalog-page.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    </div>
+  </body>
+</html>

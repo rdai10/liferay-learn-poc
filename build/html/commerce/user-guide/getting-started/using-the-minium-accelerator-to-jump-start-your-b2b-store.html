@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Using the Minium Accelerator to Jump-Start Your B2B Store &#8212; Liferay Learn</title>
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="using-the-minium-accelerator-to-jump-start-your-b2b-store">
+<h1>Using the Minium Accelerator to Jump-Start Your B2B Store<a class="headerlink" href="#using-the-minium-accelerator-to-jump-start-your-b2b-store" title="Permalink to this headline">¶</a></h1>
+<p>Minium is a Liferay Commerce <a class="reference internal" href="../README.html"><span class="doc">Accelerator</span></a> that quickly and easily sets up a business-to-business (B2B) store designed to meet the needs of a manufacturer, showcasing a modern B2B digital commerce experience. It is designed with features that make the experience as smooth as possible by having elements that are both functional and elegant.</p>
+<p>The accelerator accomplishes this by providing the base hierarchy of site pages and design, sample data, and configurations for a site in a single action. Minium also highlights Liferay Commerce’s B2B Account Management functionality, enabling streamlined account management and self-service through the use of <a class="reference internal" href="../customers/account-roles.html"><span class="doc">Account Roles</span></a>, <a class="reference internal" href="../customers/creating-a-new-account-group.html"><span class="doc">Account Groups</span></a>, and <a class="reference external" href="../../../sales/order-management/order-workflows/">Order Workflows</a>.</p>
+<p>This article serves as a walk-through for the main features of the Minium Accelerator.</p>
+<div class="section" id="pages-and-design">
+<h2>Pages and Design<a class="headerlink" href="#pages-and-design" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pages">
+<h3>Pages<a class="headerlink" href="#pages" title="Permalink to this headline">¶</a></h3>
+<p>Minium populates a site with several pages and widgets, providing a complete user experience for buyers. To see the full list of pages created, go to <em>Site Menu → Build → Pages</em>.</p>
+<p><img alt="Minium Pages" src="../../../_images/0166.png" /></p>
+<p>In general, these pages work as their names suggest, with some differences. For example, instead of using a dedicated categories page, the site’s homepage displays the entire contents of the catalog. To display products of a single category, select a checkbox in the Category Facet widget.</p>
+<p><img alt="Catalog Page" src="../../../_images/0243.png" /></p>
+</div>
+<div class="section" id="design">
+<h3>Design<a class="headerlink" href="#design" title="Permalink to this headline">¶</a></h3>
+<p>The Minium accelerator includes a number of embedded features, including pop-up navigation and cart menus, and an Account selector. The navigation menu provides links to the catalog, pending and past orders, and account management, while the cart menu displays the current order. Lastly, an omni-search bar allows users to find quickly the products they are looking for.</p>
+<p><img alt="Minium Theme" src="../../../_images/0322.png" /></p>
+<p>Minium uses a link to the checkout page which is included in the theme-embedded cart menu.</p>
+<p>The Account selector displays accounts that the current user can access (administrators can access any account). Once an account is selected, its open orders are displayed. It is very easy for sales agents and buyers who service multiple accounts to switch back and forth between the accounts.</p>
+</div>
+</div>
+<div class="section" id="catalog-data">
+<h2>Catalog Data<a class="headerlink" href="#catalog-data" title="Permalink to this headline">¶</a></h2>
+<p>Minium’s catalog includes a range of sample products organized into several pre-defined categories:</p>
+<p><img alt="Pre-set Categories" src="../../../_images/0415.png" /></p>
+<blockquote>
+<div><p>Note that Categories are defined at the <em>Global</em> scope level. For more information see <a class="reference internal" href="../catalog/organizing-your-catalog-with-product-categories.html"><span class="doc">Product Categories</span></a>.</p>
+</div></blockquote>
+<p>Sample products also come with pre-set <a class="reference internal" href="../catalog/customizing-your-product-with-product-options.html"><span class="doc">Options</span></a>, <a class="reference internal" href="../catalog/specifications.html"><span class="doc">Specifications</span></a>, and Images.</p>
+<p><img alt="Product Specifications" src="../../../_images/0511.png" /></p>
+<p><em>The sample data is added for demonstration purposes and can be deleted safely if a store administrator plan to use Minium as a basis for their store site.</em></p>
+</div>
+<div class="section" id="search">
+<h2>Search<a class="headerlink" href="#search" title="Permalink to this headline">¶</a></h2>
+<p>Minium makes it easy for buyers to search the catalog quickly. In addition to the omni-search bar, Minium has a special keyboard shortcut to open the search bar. On the <em>Catalog</em> main page, pressing forward slash (/) will open and focus the Search bar.</p>
+<p><img alt="Search using forward slash" src="../../../_images/068.png" /></p>
+</div>
+<div class="section" id="other-configurations">
+<h2>Other Configurations<a class="headerlink" href="#other-configurations" title="Permalink to this headline">¶</a></h2>
+<p>Minium applies a number of other site configurations that are not set out-of-the-box for a blank site. The following table provides a list of notable additions or configurations that Minium makes to jump-start a B2B store:</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Feature</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../catalog/adding-a-new-warehouse.md">Warehouses</a></td>
+<td>Italy, United States Northeast, United States Southwest</td>
+</tr>
+<tr>
+<td><a href="../getting-started/sites-and-site-types.md">Site Type</a></td>
+<td>B2B</td>
+</tr>
+<tr>
+<td><a href="../sales/using-the-flat-rate-shipping-method.md">Shipping Method Options</a></td>
+<td>Standard Delivery, Expedited Delivery</td>
+</tr>
+<tr>
+<td>Channels</td>
+<td>Minium Portal</td>
+</tr>
+<tr>
+<td><a href="../getting-started/country-options.md">Countries</a></td>
+<td>France, China, United States, and 245 more</td>
+</tr>
+<tr>
+<td><a href="../getting-started/adding-a-new-currency.md">Currencies</a></td>
+<td>USD, AUD, GBP, and 7 more</td>
+</tr>
+<tr>
+<td>Default Image</td>
+<td>&#10003;</td>
+</tr>
+<tr>
+<td><a href="../sales/measurement-units.md">Measurement Units</a> - Dimensions</td>
+<td>inches, millimeters, feet, meters</td>
+</tr>
+<tr>
+<td><a href="../sales/measurement-units.md">Measurement Units</a> - Weight</td>
+<td>ounces, pounds, kilograms, grams</td>
+</tr>
+<tr>
+<td><a href="../customers/account-roles.md">Account Roles</a></td>
+<td>Buyer, Account Manager, Sales Agent</td>
+</tr>
+<tr>
+<td>Availability Estimates</td>
+<td>3-5 days, 5-7 days, 7-14 days</td>
+</tr>
+<tr>
+<td><a href="../catalog/related-products-up-sells-and-cross-sells.md">Product Relation Type</a></td>
+<td>Up-Sell, Spare, Related, Accessories, Cross-Sell</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Using the Minium Accelerator to Jump-Start Your B2B Store</a><ul>
+<li><a class="reference internal" href="#pages-and-design">Pages and Design</a><ul>
+<li><a class="reference internal" href="#pages">Pages</a></li>
+<li><a class="reference internal" href="#design">Design</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#catalog-data">Catalog Data</a></li>
+<li><a class="reference internal" href="#search">Search</a></li>
+<li><a class="reference internal" href="#other-configurations">Other Configurations</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/commerce/user-guide/getting-started/using-the-minium-accelerator-to-jump-start-your-b2b-store.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    </div>
+  </body>
+</html>

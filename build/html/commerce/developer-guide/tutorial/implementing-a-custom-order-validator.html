@@ -1,0 +1,292 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Implementing a Custom Order Validator &#8212; Liferay Learn</title>
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="implementing-a-custom-order-validator">
+<h1>Implementing a Custom Order Validator<a class="headerlink" href="#implementing-a-custom-order-validator" title="Permalink to this headline">¶</a></h1>
+<p>This tutorial will show you how to add a custom order validator by implementing the <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-api/src/main/java/com/liferay/commerce/order/CommerceOrderValidator.java">CommerceOrderValidator</a> interface.</p>
+<p>An order validator is a class that validates items in a customer’s cart when proceeding through checkout. Liferay Commerce provides multiple out-of-the-box order validators, including a <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-service/src/main/java/com/liferay/commerce/internal/order/DefaultCommerceOrderValidatorImpl.java">default</a>, as well as validators to check <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-service/src/main/java/com/liferay/commerce/internal/order/VersionCommerceOrderValidatorImpl.java">item versions</a> and <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-service/src/main/java/com/liferay/commerce/internal/order/SubscriptionCommerceOrderValidatorImpl.java">recurring items (subscriptions)</a>.</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p><a class="reference external" href="#deploy-an-example"><strong>Deploy an Example</strong></a></p></li>
+<li><p><a class="reference external" href="#walk-through-the-example"><strong>Walk Through the Example</strong></a></p></li>
+<li><p><a class="reference external" href="#additional-information"><strong>Additional Information</strong></a></p></li>
+</ol>
+</div>
+<div class="section" id="deploy-an-example">
+<h2>Deploy an Example<a class="headerlink" href="#deploy-an-example" title="Permalink to this headline">¶</a></h2>
+<p>In this section, we will get an example order validator up and running on your instance of Liferay Commerce. Follow these steps:</p>
+<ol>
+<li><p>Start Liferay Commerce.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run -it -p <span class="m">8080</span>:8080 liferay/commerce:2.0.5
+</pre></div>
+</div>
+</li>
+<li><p>Download and unzip <a class="reference external" href="#">Acme Commerce Order Validator</a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl liferay-n9b2.zip
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>unzip liferay-n9b2.zip
+</pre></div>
+</div>
+</li>
+<li><p>Go to <code class="docutils literal notranslate"><span class="pre">liferay-n9b2</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> liferay-n9b2
+</pre></div>
+</div>
+</li>
+<li><p>Build and deploy the example.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./gradlew deploy -Ddeploy.docker.container.id<span class="o">=</span><span class="k">$(</span>docker ps -lq<span class="k">)</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>Note:</strong> This command is the same as copying the deployed jars to /opt/liferay/osgi/modules on the Docker container.</p>
+</div></blockquote>
+</li>
+<li><p>Confirm the deployment in the Docker container console.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>STARTED com.acme.n9b2.impl_1.0.0
+</pre></div>
+</div>
+</li>
+<li><p>Verify that the example order validator was added by viewing the failure message. Open your browser to <code class="docutils literal notranslate"><span class="pre">https://localhost:8080</span></code> and navigate to a catalog with at least one item priced over $100. If no such product exists yet, add it yourself; see <a class="reference external" href="../../../user-guide/catalog/creating-and-managing-products/product-types/creating-a-simple-product">Creating a Simple Product</a> for more information.</p>
+<p>From the catalog, find the item with this price, then click “Add to Cart”. Increase the quantity to 11 or more, then click the arrow to continue. The error message that appears shows that the custom order validator successfully rejected adding the item.</p>
+<p><img alt="New order validation error message" src="../../../_images/015.png" /></p>
+</li>
+</ol>
+<p>Congratulations, you’ve successfully built and deployed a new order validator that implements <code class="docutils literal notranslate"><span class="pre">CommerceOrderValidator</span></code>.</p>
+<p>Next, let’s dive deeper to learn more.</p>
+</div>
+<div class="section" id="walk-through-the-example">
+<h2>Walk Through the Example<a class="headerlink" href="#walk-through-the-example" title="Permalink to this headline">¶</a></h2>
+<p>In this section, we will review the example we deployed. First, we will annotate the class for OSGi registration. Second, we will review the <code class="docutils literal notranslate"><span class="pre">CommerceOrderValidator</span></code> interface. And third, we will complete our implementation of <code class="docutils literal notranslate"><span class="pre">CommerceOrderValidator</span></code>.</p>
+<div class="section" id="annotate-the-class-for-osgi-registration">
+<h3>Annotate the Class for OSGi Registration<a class="headerlink" href="#annotate-the-class-for-osgi-registration" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Component</span><span class="o">(</span>
+    <span class="n">immediate</span> <span class="o">=</span> <span class="kc">true</span><span class="o">,</span>
+    <span class="n">property</span> <span class="o">=</span> <span class="o">{</span>
+        <span class="s">&quot;commerce.order.validator.key=&quot;</span> <span class="o">+</span> <span class="n">N9B2CommerceOrderValidator</span><span class="o">.</span><span class="na">KEY</span><span class="o">,</span>
+        <span class="s">&quot;commerce.order.validator.priority:Integer=9&quot;</span>
+    <span class="o">},</span>
+    <span class="n">service</span> <span class="o">=</span> <span class="n">CommerceOrderValidator</span><span class="o">.</span><span class="na">class</span>
+<span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">N9B2CommerceOrderValidator</span> <span class="kd">implements</span> <span class="n">CommerceOrderValidator</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">KEY</span> <span class="o">=</span> <span class="s">&quot;Example&quot;</span><span class="o">;</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>It is important to provide a distinct key for the order validator so that Liferay Commerce can distinguish the new order validator from others in the <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-service/src/main/java/com/liferay/commerce/internal/order/CommerceOrderValidatorRegistryImpl.java">order validator registry</a>. Reusing a key that is already in use will override the existing associated validator.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">commerce.order.validator.priority</span></code> value indicates when the order validator will perform its validation in sequence with other validators. For example, the <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-service/src/main/java/com/liferay/commerce/internal/order/DefaultCommerceOrderValidatorImpl.java">default order validator</a> has a value of 10. Giving our order validator a value of 9 ensures that it will perform its validation immediately before the default validator.</p>
+</div></blockquote>
+</div>
+<div class="section" id="review-the-commerceordervalidator-interface">
+<h3>Review the <code class="docutils literal notranslate"><span class="pre">CommerceOrderValidator</span></code> Interface<a class="headerlink" href="#review-the-commerceordervalidator-interface" title="Permalink to this headline">¶</a></h3>
+<p>Implement the following methods:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">String</span> <span class="nf">getKey</span><span class="o">();</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>This method provides a unique identifier for the order validator in the order validator registry. The key can be used to fetch the validator from the registry. Reusing a key that is already in use will override the existing associated validator.</p>
+</div></blockquote>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">CommerceOrderValidatorResult</span> <span class="nf">validate</span><span class="o">(</span><span class="n">Locale</span> <span class="n">locale</span><span class="o">,</span> <span class="n">CommerceOrder</span> <span class="n">commerceOrder</span><span class="o">,</span> <span class="n">CPInstance</span> <span class="n">cpInstance</span><span class="o">,</span> <span class="kt">int</span> <span class="n">quantity</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">PortalException</span><span class="o">;</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>This is one of the two validation methods where we will add our custom validation logic. This method is called whenever a customer adds an item to their cart. It does this by returning a <code class="docutils literal notranslate"><span class="pre">CommerceOrderValidatorResult</span></code>, which uses a boolean to signal whether or not the result passes validation; see <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-api/src/main/java/com/liferay/commerce/order/CommerceOrderValidatorResult.java">CommerceOrderValidatorResult.java</a>.</p>
+</div></blockquote>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">CommerceOrderValidatorResult</span> <span class="nf">validate</span><span class="o">(</span><span class="n">Locale</span> <span class="n">locale</span><span class="o">,</span> <span class="n">CommerceOrderItem</span> <span class="n">commerceOrderItem</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">PortalException</span><span class="o">;</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>This is the second validation method where we can add custom validation logic. This method is called for items already in the cart, whenever a customer proceeds to a new step in checkout.</p>
+</div></blockquote>
+</div>
+<div class="section" id="complete-the-order-validator">
+<h3>Complete the Order Validator<a class="headerlink" href="#complete-the-order-validator" title="Permalink to this headline">¶</a></h3>
+<p>The order validator is comprised of validation logic for both adding a product to the cart and proceeding to a new checkout step. Do the following:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#add-validation-logic-for-adding-a-product-to-cart">Add validation logic for adding a product to cart.</a></p></li>
+<li><p><a class="reference external" href="#add-validation-logic-for-proceeding-in-checkout">Add validation logic for proceeding in checkout.</a></p></li>
+<li><p><a class="reference external" href="#add-the-language-keys-to-languageproperties">Add the language keys to <code class="docutils literal notranslate"><span class="pre">Language.properties</span></code>.</a></p></li>
+</ul>
+<p>The two <code class="docutils literal notranslate"><span class="pre">validate</span></code> methods are where we define the custom validation logic for our order validator. In our example, we will add logic to reject orders with more than ten of an item over a certain price.</p>
+<div class="section" id="add-validation-logic-for-adding-a-product-to-cart">
+<h4>Add Validation Logic for Adding a Product to Cart<a class="headerlink" href="#add-validation-logic-for-adding-a-product-to-cart" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="n">CommerceOrderValidatorResult</span> <span class="nf">validate</span><span class="o">(</span>
+        <span class="n">Locale</span> <span class="n">locale</span><span class="o">,</span> <span class="n">CommerceOrder</span> <span class="n">commerceOrder</span><span class="o">,</span> <span class="n">CPInstance</span> <span class="n">cpInstance</span><span class="o">,</span>
+        <span class="kt">int</span> <span class="n">quantity</span><span class="o">)</span>
+    <span class="kd">throws</span> <span class="n">PortalException</span> <span class="o">{</span>
+
+    <span class="k">if</span> <span class="o">(</span><span class="n">cpInstance</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">CommerceOrderValidatorResult</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="n">BigDecimal</span> <span class="n">price</span> <span class="o">=</span> <span class="n">cpInstance</span><span class="o">.</span><span class="na">getPrice</span><span class="o">();</span>
+
+    <span class="k">if</span> <span class="o">((</span><span class="n">price</span><span class="o">.</span><span class="na">doubleValue</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mf">100.0</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="n">quantity</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="o">))</span> <span class="o">{</span>
+        <span class="n">ResourceBundle</span> <span class="n">resourceBundle</span> <span class="o">=</span> <span class="n">ResourceBundleUtil</span><span class="o">.</span><span class="na">getBundle</span><span class="o">(</span>
+            <span class="s">&quot;content.Language&quot;</span><span class="o">,</span> <span class="n">locale</span><span class="o">,</span> <span class="n">getClass</span><span class="o">());</span>
+
+        <span class="k">return</span> <span class="k">new</span> <span class="n">CommerceOrderValidatorResult</span><span class="o">(</span>
+            <span class="kc">false</span><span class="o">,</span>
+            <span class="n">LanguageUtil</span><span class="o">.</span><span class="na">get</span><span class="o">(</span>
+                <span class="n">resourceBundle</span><span class="o">,</span> <span class="s">&quot;this-item-has-a-maximum-quantity-of-10&quot;</span><span class="o">));</span>
+    <span class="o">}</span>
+
+    <span class="k">return</span> <span class="k">new</span> <span class="n">CommerceOrderValidatorResult</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>The main validation check for our example is to check if both the price (stored as a <code class="docutils literal notranslate"><span class="pre">BigDecimal</span></code>) is more than $100, and the quantity is greater than ten. We get the price information from the <code class="docutils literal notranslate"><span class="pre">CPInstance</span></code>, which contains information about the order the customer has added. To find more methods you can use with a <code class="docutils literal notranslate"><span class="pre">CPInstance</span></code>, see <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-product-api/src/main/java/com/liferay/commerce/product/model/CPInstance.java">CPInstance</a> and <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-product-api/src/main/java/com/liferay/commerce/product/model/CPInstanceModel.java">CPInstanceModel</a>.</p>
+<p>Note that it is best practice to include a localized message explaining why the validation failed for the main validation checks.</p>
+</div></blockquote>
+</div>
+<div class="section" id="add-validation-logic-for-proceeding-in-checkout">
+<h4>Add Validation Logic for Proceeding in Checkout<a class="headerlink" href="#add-validation-logic-for-proceeding-in-checkout" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="n">CommerceOrderValidatorResult</span> <span class="nf">validate</span><span class="o">(</span>
+        <span class="n">Locale</span> <span class="n">locale</span><span class="o">,</span> <span class="n">CommerceOrderItem</span> <span class="n">commerceOrderItem</span><span class="o">)</span>
+    <span class="kd">throws</span> <span class="n">PortalException</span> <span class="o">{</span>
+
+    <span class="n">BigDecimal</span> <span class="n">price</span> <span class="o">=</span> <span class="n">commerceOrderItem</span><span class="o">.</span><span class="na">getUnitPrice</span><span class="o">();</span>
+
+    <span class="k">if</span> <span class="o">((</span><span class="n">price</span><span class="o">.</span><span class="na">doubleValue</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mf">100.0</span><span class="o">)</span> <span class="o">&amp;&amp;</span>
+        <span class="o">(</span><span class="n">commerceOrderItem</span><span class="o">.</span><span class="na">getQuantity</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="o">))</span> <span class="o">{</span>
+
+        <span class="n">ResourceBundle</span> <span class="n">resourceBundle</span> <span class="o">=</span> <span class="n">ResourceBundleUtil</span><span class="o">.</span><span class="na">getBundle</span><span class="o">(</span>
+            <span class="s">&quot;content.Language&quot;</span><span class="o">,</span> <span class="n">locale</span><span class="o">,</span> <span class="n">getClass</span><span class="o">());</span>
+
+        <span class="k">return</span> <span class="k">new</span> <span class="n">CommerceOrderValidatorResult</span><span class="o">(</span>
+            <span class="kc">false</span><span class="o">,</span>
+            <span class="n">LanguageUtil</span><span class="o">.</span><span class="na">get</span><span class="o">(</span>
+                <span class="n">resourceBundle</span><span class="o">,</span>
+                <span class="s">&quot;expensive-items-have-a-maximum-quantity-of-10&quot;</span><span class="o">));</span>
+    <span class="o">}</span>
+
+    <span class="k">return</span> <span class="k">new</span> <span class="n">CommerceOrderValidatorResult</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>Add the same validation logic to this method, since it will be called for the items in the customer’s cart. The main difference in this case is we get the information from a <code class="docutils literal notranslate"><span class="pre">CommerceOrderItem</span></code> object; see <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-api/src/main/java/com/liferay/commerce/model/CommerceOrderItem.java">CommerceOrderItem</a> and <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-api/src/main/java/com/liferay/commerce/model/CommerceOrderItemModel.java">CommerceOrderItemModel</a> to find more methods you can use with a <code class="docutils literal notranslate"><span class="pre">CommerceOrderItem</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="add-the-language-keys-to-language-properties">
+<h4>Add the Language Keys to <code class="docutils literal notranslate"><span class="pre">Language.properties</span></code><a class="headerlink" href="#add-the-language-keys-to-language-properties" title="Permalink to this headline">¶</a></h4>
+<p>Add the language keys and their values to a <a class="reference external" href="./implementing-a-custom-order-validator/liferay-n9b2.zip/n9b2-impl/src/main/resources/content/Language.properties">Language.properties</a> file within our module:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">expensive</span><span class="o">-</span><span class="n">items</span><span class="o">-</span><span class="n">have</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="n">maximum</span><span class="o">-</span><span class="n">quantity</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="mi">10</span><span class="o">=</span><span class="n">Expensive</span> <span class="n">items</span> <span class="n">have</span> <span class="n">a</span> <span class="n">maximum</span> <span class="n">quantity</span> <span class="n">of</span> <span class="mf">10.</span>
+<span class="n">this</span><span class="o">-</span><span class="n">item</span><span class="o">-</span><span class="n">has</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="n">maximum</span><span class="o">-</span><span class="n">quantity</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="mi">10</span><span class="o">=</span><span class="n">This</span> <span class="n">item</span> <span class="n">has</span> <span class="n">a</span> <span class="n">maximum</span> <span class="n">quantity</span> <span class="n">of</span> <span class="mf">10.</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>See <a class="reference external" href="https://help.liferay.com/hc/en-us/articles/360018168251-Localizing-Your-Application">Localizing Your Application</a> for more information.</p>
+</div></blockquote>
+</div>
+</div>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>Congratulations! You now know the basics for implementing the <code class="docutils literal notranslate"><span class="pre">CommerceOrderValidator</span></code> interface, and have added a new order validator to Liferay Commerce.</p>
+</div>
+<div class="section" id="additional-information">
+<h2>Additional Information<a class="headerlink" href="#additional-information" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../user-guide/catalog/creating-a-simple-product.html"><span class="doc">Creating a Simple Product</span></a></p></li>
+<li><p><a class="reference external" href="https://help.liferay.com/hc/en-us/articles/360018168251-Localizing-Your-Application">Localizing Your Application</a></p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Implementing a Custom Order Validator</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#deploy-an-example">Deploy an Example</a></li>
+<li><a class="reference internal" href="#walk-through-the-example">Walk Through the Example</a><ul>
+<li><a class="reference internal" href="#annotate-the-class-for-osgi-registration">Annotate the Class for OSGi Registration</a></li>
+<li><a class="reference internal" href="#review-the-commerceordervalidator-interface">Review the <code class="docutils literal notranslate"><span class="pre">CommerceOrderValidator</span></code> Interface</a></li>
+<li><a class="reference internal" href="#complete-the-order-validator">Complete the Order Validator</a><ul>
+<li><a class="reference internal" href="#add-validation-logic-for-adding-a-product-to-cart">Add Validation Logic for Adding a Product to Cart</a></li>
+<li><a class="reference internal" href="#add-validation-logic-for-proceeding-in-checkout">Add Validation Logic for Proceeding in Checkout</a></li>
+<li><a class="reference internal" href="#add-the-language-keys-to-language-properties">Add the Language Keys to <code class="docutils literal notranslate"><span class="pre">Language.properties</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#conclusion">Conclusion</a></li>
+<li><a class="reference internal" href="#additional-information">Additional Information</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/commerce/developer-guide/tutorial/implementing-a-custom-order-validator.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    </div>
+  </body>
+</html>

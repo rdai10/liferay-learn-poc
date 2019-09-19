@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Adding Discounts by Product &#8212; Liferay Learn</title>
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="adding-discounts-by-product">
+<h1>Adding Discounts by Product<a class="headerlink" href="#adding-discounts-by-product" title="Permalink to this headline">¶</a></h1>
+<p>A discount applies a modifier to a product’s base price. It can be an absolute number or a percentage, and can be applied to a limited number of products or to the entire catalog. It can be available to all buyers, a defined Account Group, or to a more narrowly defined group of customers that meet certain qualifications. Unlike a price list, a discount always <em>reduces</em> the base price.</p>
+<p>There are five different types of discounts: Categories, Products, Shipment, Subtotal, and Total. This article is a walk through on how to add discounts by Product.</p>
+<div class="section" id="creating-a-discount-by-product">
+<h2>Creating a Discount by Product<a class="headerlink" href="#creating-a-discount-by-product" title="Permalink to this headline">¶</a></h2>
+<p>To create a discount by product:</p>
+<ol>
+<li><p>Go to the <em>Control Panel</em> → <em>Commerce</em> → <em>Discounts</em>.</p></li>
+<li><p>Click the (+) button to add a new Discount.</p></li>
+<li><p>Enter a name: <em>Christmas Sale</em>.</p></li>
+<li><p>Select a discount type from the <em>Target</em> drop down. Select <em>Apply to Product</em>.</p></li>
+<li><p>Check the box for which channel this discount applies to.</p></li>
+<li><p>Select which <a class="reference external" href="../../../customers/account-management/creating-a-new-account-group//README">Account Groups</a> this discount applies to. In this example, <em>US East Coast</em>.</p></li>
+<li><p>Switch the <em>Use Percentage</em> toggle to <em>Yes</em>.</p></li>
+<li><p>Enter the <em>Maximum Discount Amount</em>: 20%.</p></li>
+<li><p>Enter the <em>Level</em>: 1.00</p></li>
+<li><p>Switch the <em>Active</em> toggle to <em>YES</em>.</p>
+<p><img alt="New discount" src="../../../_images/0167.png" /></p>
+</li>
+<li><p>Click <em>Publish</em>.</p></li>
+</ol>
+<p>Your store now has an active discount with 20% off selected goods for those in the specified Account Group.</p>
+</div>
+<div class="section" id="adding-rules-to-a-discount">
+<h2>Adding Rules to a Discount<a class="headerlink" href="#adding-rules-to-a-discount" title="Permalink to this headline">¶</a></h2>
+<p>You can create rules that limit the buyer’s discount conditions. There are three types of rules:</p>
+<p><strong>Cart Total</strong>: Cart subtotal must meet a minimum threshold to receive the discount.</p>
+<p><strong>Has all of these products</strong>: Orders must include all specified products in order to receive the discount.</p>
+<p><strong>Has one of these products</strong>: Orders must contain at least one product from a list of specified products to receive the discount.</p>
+<p>These rules may be combined as needed to meet your sales and marketing goals.</p>
+<ol>
+<li><p>Once the discount has been created, there are 3 tabs: <em>Detail</em>, <em>Rules</em>, and <em>Products</em>. Click on the <em>Rules</em> tab.</p>
+<p><img alt="Discount rules tab" src="../../../_images/0244.png" /></p>
+</li>
+<li><p>Click (+) button to add a new Discount Rule.</p></li>
+<li><p>Select <em>Cart Total</em> from the <em>Type</em> drop down menu.</p></li>
+<li><p>Enter 25.00 in the <em>Cart Total Minimum Amount</em> field.</p></li>
+<li><p>Click <em>Save</em>.</p></li>
+</ol>
+<p>In this example, a Discount Rule has been applied to this particular Discount. Customers will receive this discount for all purchases over the set amount.</p>
+<p>The other two options (<strong>Has all of these products</strong> and <strong>Has one of these products</strong>) function by allowing the seller to select which products in the catalog are eligible for the discount.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>![Discount rule types dropdown](./adding-discounts-by-product/images/03.png)
+</pre></div>
+</div>
+<p>Select which products are to be included:</p>
+<p><img alt="Product selection for the discount" src="../../../_images/0416.png" /></p>
+<p>After selecting the applicable products, customers will receive a discount for these goods depending on which of these rules has been chosen.</p>
+</div>
+<div class="section" id="additional-information">
+<h2>Additional Information<a class="headerlink" href="#additional-information" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Adding Discounts by Category</p></li>
+<li><p>Adding Discounts by Shipment</p></li>
+<li><p>Adding Discounts by Total</p></li>
+<li><p><a class="reference internal" href="adding-discounts-to-the-subtotal.html"><span class="doc">Adding Discounts by Subtotal</span></a></p></li>
+<li><p><a class="reference internal" href="../customers/creating-a-new-account-group.html"><span class="doc">Creating a New Account Group</span></a></p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Adding Discounts by Product</a><ul>
+<li><a class="reference internal" href="#creating-a-discount-by-product">Creating a Discount by Product</a></li>
+<li><a class="reference internal" href="#adding-rules-to-a-discount">Adding Rules to a Discount</a></li>
+<li><a class="reference internal" href="#additional-information">Additional Information</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/commerce/user-guide/marketing/adding-discounts-by-product.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    </div>
+  </body>
+</html>

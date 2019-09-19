@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Applying Shipping Method Restrictions &#8212; Liferay Learn</title>
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="applying-shipping-method-restrictions">
+<h1>Applying Shipping Method Restrictions<a class="headerlink" href="#applying-shipping-method-restrictions" title="Permalink to this headline">¶</a></h1>
+<p>You may need to apply a shipping restriction for your store to specific countries or regions. This means these countries are not available during the checkout process. These restrictions will apply to all shipping options for a particular shipping method. For example, restrictions applied to the <em>Flat Rate</em> shipping method will not apply to the <em>Variable Rates</em> shipping method.</p>
+<p>To apply a restriction:</p>
+<ol>
+<li><p>Navigate to the <em>Site Administration</em> → <em>Commerce</em> → <em>Settings</em>.</p></li>
+<li><p>Click the <em>Shipping Methods</em> tab.</p></li>
+<li><p>Click any Shipping Method; in this example, <em>Flat Rate</em>.</p></li>
+<li><p>Click the <em>Restrictions</em> tab.</p></li>
+<li><p>Click the (+) button to add a new restriction.</p></li>
+<li><p>Check all the boxes for countries where you do not want to ship to; in this example; Antarctica and Bahrain.</p></li>
+<li><p>Click <em>Add</em>.</p>
+<p><img alt="Apply a shipping method restriction" src="../../../_images/0173.png" /></p>
+</li>
+</ol>
+<p>Your store is now restricted from shipping to those countries. Repeat these steps for all the other shipping methods such as <em>Variable Rate</em> and <em>FedEx</em>. If you are customizing Liferay Commerce by adding additional carrier shipping methods (UPS, DHL, and so forth) through an extension point, you may want to include the same function to restrict delivery by region.</p>
+<div class="section" id="additional-information">
+<h2>Additional Information<a class="headerlink" href="#additional-information" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="using-the-flat-rate-shipping-method.html"><span class="doc">Using the Flat Rate Shipping Method</span></a></p></li>
+<li><p><a class="reference external" href="#">Variable Rate</a></p></li>
+<li><p><a class="reference internal" href="using-fedex-as-a-carrier-method.html"><span class="doc">Using FedEx as a Carrier Method</span></a></p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Applying Shipping Method Restrictions</a><ul>
+<li><a class="reference internal" href="#additional-information">Additional Information</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/commerce/user-guide/sales/applying-shipping-method-restrictions.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    </div>
+  </body>
+</html>

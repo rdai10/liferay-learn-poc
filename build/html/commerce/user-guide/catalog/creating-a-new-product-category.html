@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Creating a New Product Category &#8212; Liferay Learn</title>
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="creating-a-new-product-category">
+<h1>Creating a New Product Category<a class="headerlink" href="#creating-a-new-product-category" title="Permalink to this headline">¶</a></h1>
+<p>Product Categories are used to organize your products. These groupings allow multiple products to be handled as a single unit. For example, a product category could be used to apply discounts or other offers to a set of products, to assist buyers in finding products, or to promote certain products to a specified account or account group.</p>
+<p>This article documents how to create a product category.</p>
+<div class="section" id="roadmap">
+<h2>Roadmap<a class="headerlink" href="#roadmap" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p><a class="reference external" href="#creating-a-vocabulary">Create a Vocabulary</a></p></li>
+<li><p><a class="reference external" href="#creating-a-category">Create a Category</a></p></li>
+<li><p><a class="reference external" href="#associating-categories-with-products">Associate Categories with Products</a></p></li>
+</ol>
+</div>
+<div class="section" id="creating-a-vocabulary">
+<h2>Creating a Vocabulary<a class="headerlink" href="#creating-a-vocabulary" title="Permalink to this headline">¶</a></h2>
+<ol>
+<li><p>Navigate to the <em>Control Panel</em> → <img alt="Navigation Compass" src="../../../_images/0120.png" /> <em>Go to Other Site</em> → <em>My Sites</em> → <em>Global</em>.</p></li>
+<li><p>Once on the <em>Global</em> site, click <em>Categorization</em> → <em>Categories</em>.</p></li>
+<li><p>Click the (+) button to create a Vocabulary first.</p></li>
+<li><p>Enter the following:</p>
+<ul>
+<li><p><strong>Name</strong>: Cosmetics</p></li>
+<li><p><strong>Description</strong>: All Cosmetics</p></li>
+<li><p><strong>Allow Multiple Categories</strong>: Yes</p></li>
+<li><p><strong>Choose Asset Type</strong>: Commerce Product</p></li>
+<li><p><strong>Required</strong>: Yes</p>
+<p><img alt="Creating a vocabulary" src="../../../_images/0215.png" /></p>
+</li>
+</ul>
+</li>
+<li><p>Click <em>Save</em>.</p></li>
+</ol>
+<p>The new Vocabulary has been created and Categories can now be added.</p>
+</div>
+<div class="section" id="creating-categories">
+<h2>Creating Categories<a class="headerlink" href="#creating-categories" title="Permalink to this headline">¶</a></h2>
+<p>Because categories can be nested, store owners can organize their categories with subcategories. For example, a category called <em>Hair Products</em> could have its own subcategories such as <em>Shampoo</em>, <em>Hair Gels</em>, and <em>Color Dyes</em>.</p>
+<p>To create a Category:</p>
+<ol class="simple">
+<li><p>Click the Vocabulary where the Categories are to be added. To continue the previous example, click <em>Cosmetics</em>.</p></li>
+<li><p>Click the (+) button to add a new Category.</p></li>
+<li><p>Enter the following:</p>
+<ul class="simple">
+<li><p><strong>Name</strong>: Hair Products</p></li>
+<li><p><strong>Description</strong>: All hair products</p></li>
+</ul>
+</li>
+</ol>
+<p><img alt="Creating a category" src="../../../_images/032.png" /></p>
+<ol class="simple">
+<li><p>Click <em>Save</em>.</p></li>
+</ol>
+<p>The new Category has been created. You can either create another Category for another product that sits parallel in the hierarchy or create a nested subcategory in the description above. To create a subcategory, click the <em>Hair Products</em> link and then click the (+) button to create another Category. Once the new Category has been created, the hierarchy can be observed in the breadcrumb navigation.</p>
+<p><img alt="Subcategories" src="../../../_images/041.png" /></p>
+</div>
+<div class="section" id="associating-categories-with-products">
+<h2>Associating Categories with Products<a class="headerlink" href="#associating-categories-with-products" title="Permalink to this headline">¶</a></h2>
+<p>Once the Categories have been created, begin associating them to the products in the catalog.</p>
+<ol>
+<li><p>Navigate to the <em>Control Panel</em> → <em>Commerce</em> → <em>Products</em>.</p></li>
+<li><p>Click on a product then the <em>Categorization</em> tab. (If you used Minium to create a site with sample data, click <em>Transmission Fluid</em>. Note that the <em>Transmission Fluid</em> product already has been linked to the sample Vocabulary and Category.)</p></li>
+<li><p>Click on the <em>Select</em> button under the label for the appropriate vocabulary, and in the pop-up that appears the check the box next to each category that applies.</p>
+<p><img alt="Managing categories" src="../../../_images/051.png" /></p>
+</li>
+<li><p>Click <em>Done</em>.</p></li>
+</ol>
+<p>The category is now associated with the product.</p>
+<p><img alt="Selecting a category" src="../../../_images/06.png" /></p>
+<p>Repeat as necessary for all other products that might fall under this category.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Creating a New Product Category</a><ul>
+<li><a class="reference internal" href="#roadmap">Roadmap</a></li>
+<li><a class="reference internal" href="#creating-a-vocabulary">Creating a Vocabulary</a></li>
+<li><a class="reference internal" href="#creating-categories">Creating Categories</a></li>
+<li><a class="reference internal" href="#associating-categories-with-products">Associating Categories with Products</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/commerce/user-guide/catalog/creating-a-new-product-category.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    </div>
+  </body>
+</html>

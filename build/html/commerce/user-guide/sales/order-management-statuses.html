@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Order Management Statuses &#8212; Liferay Learn</title>
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="order-management-statuses">
+<h1>Order Management Statuses<a class="headerlink" href="#order-management-statuses" title="Permalink to this headline">¶</a></h1>
+<p>Every order in Liferay Commerce contains important <a class="reference internal" href="order-information.html"><span class="doc">order information</span></a>, including order management statuses.</p>
+<p>This article gives a brief overview of the three order management status types – <em>Order Status</em>, <em>Payment Status</em>, and <em>Workflow Status</em> –  found on the <a class="reference internal" href="orders-menu.html"><span class="doc">Orders Menu</span></a>.</p>
+<p><img alt="Order Management Statuses" src="../../../_images/0185.png" /></p>
+<div class="section" id="order-status">
+<h2>Order Status<a class="headerlink" href="#order-status" title="Permalink to this headline">¶</a></h2>
+<p>The <em>Order Status</em> gives more precise information about where an order is in the <a class="reference internal" href="order-life-cycle.html"><span class="doc">order life cycle</span></a>. Each order status appears on only one tab on the <a class="reference internal" href="orders-menu.html"><span class="doc">Orders Menu</span></a>: either the <a class="reference external" href="../orders-menu/README.md#open"><em>Open</em></a>, <a class="reference external" href="../orders-menu/README.md#pending"><em>Pending</em></a>, or <a class="reference external" href="../orders-menu/README.md#transmitted"><em>Transmitted</em></a> tab.</p>
+<div class="section" id="open-tab">
+<h3>Open Tab<a class="headerlink" href="#open-tab" title="Permalink to this headline">¶</a></h3>
+<p>There are two order statuses available on the <em>Open</em> tab: <em>Open</em> and <em>In Progress</em>.</p>
+<p><img alt="Order Status Open Tab" src="../../../_images/0256.png" /></p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Order Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Open</td>
+<td>One or more products have been added to the cart. The order may be in the checkout process (up to the <em>Order Summary</em> page).</td>
+</tr>
+<tr>
+<td>In Progress</td>
+<td>The order has advanced through the checkout process beyond the <em>Order Summary</em> page to the payment step.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="pending-tab">
+<h3>Pending Tab<a class="headerlink" href="#pending-tab" title="Permalink to this headline">¶</a></h3>
+<p>There is one order status available on the <em>Pending</em> tab: <em>To Transmit</em>.</p>
+<p><img alt="Order Status Pending Tab" src="../../../_images/0329.png" /></p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Order Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>To Transmit</td>
+<td>The order has been placed by the buyer, but not yet transmitted by the seller.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="transmitted-tab">
+<h3>Transmitted Tab<a class="headerlink" href="#transmitted-tab" title="Permalink to this headline">¶</a></h3>
+<p>There are twelve order statuses available on the <em>Transmitted</em> tab, as listed below.</p>
+<p><img alt="Order Status Transmitted Tab" src="../../../_images/0421.png" /></p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Order Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Transmitted</td>
+<td>The order has been transmitted, with no additional status update. (This is the default order status of transmitted orders.)</td>
+</tr>
+<tr>
+<td>Awaiting Fulfillment</td>
+<td>The order has been transmitted and payment confirmed, but is not yet ready for shipment by the carrier.</td>
+</tr>
+<tr>
+<td>Awaiting Pickup</td>
+<td>The order has been prepared (and possibly shipped) and is awaiting pickup by the buyer from a seller-specified location.</td>
+</tr>
+<tr>
+<td>Awaiting Shipment</td>
+<td>The order is ready to ship, and is awaiting pickup and shipment by the carrier.</td>
+</tr>
+<tr>
+<td>Partially Refunded</td>
+<td>The seller refunded the buyer for less than the total price of the order.</td>
+</tr>
+<tr>
+<td>Partially Shipped</td>
+<td>Only a portion of the ordered products were shipped.</td>
+</tr>
+<tr>
+<td>Refunded</td>
+<td>The seller refunded the buyer for the total price of the order.</td>
+</tr>
+<tr>
+<td>Shipped</td>
+<td>The order was shipped, but not yet confirmed as received.</td>
+</tr>
+<tr>
+<td>Completed</td>
+<td>The order was shipped (or picked up) and confirmed as received; or the virtual products were paid for and are available for download.</td>
+</tr>
+<tr>
+<td>Cancelled</td>
+<td>The order was cancelled by the seller.</td>
+</tr>
+<tr>
+<td>Declined</td>
+<td>The order was shipped, but the buyer declined to receive it.</td>
+</tr>
+<tr>
+<td>Disputed</td>
+<td>The buyer initiated a dispute resolution for the payment transaction (such as via PayPal).</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section" id="payment-status">
+<h2>Payment Status<a class="headerlink" href="#payment-status" title="Permalink to this headline">¶</a></h2>
+<p>The <em>Payment Status</em> gives information about whether payment has been made and received for an order. On the <em>Pending</em> and <em>Transmitted</em> tabs on the <a class="reference internal" href="orders-menu.html"><span class="doc">Orders Menu</span></a>, there are three payment statuses available: <em>Authorized</em>, <em>Paid</em>, and <em>Pending</em>. (On the <em>Open</em> tab, an order’s payment status is always <em>Pending</em>.)</p>
+<p><img alt="Payment Status" src="../../../_images/0515.png" /></p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Payment Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Authorized</td>
+<td>Payment has been authorized by the  financial institutions involved, and steps will be taken to deposit the funds into the seller's account. (This may be the case for online payment methods such as PayPal, or a credit card or debit card.)</td>
+</tr>
+<tr>
+<td>Paid</td>
+<td>Payment for the order has been received by the seller.</td>
+</tr>
+<tr>
+<td>Pending</td>
+<td>Payment for the order has not been received or authorized. (This may be the case for offline payment methods such as money orders and purchase orders, if the payment has not yet been received or checked, or the payment status has not been updated. It may also be the case for online payment methods such as PayPal, if the buyer stops the payment process.)</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="workflow-status">
+<h2>Workflow Status<a class="headerlink" href="#workflow-status" title="Permalink to this headline">¶</a></h2>
+<p>The <em>Workflow Status</em> gives information about where an order is in one of the two <a class="reference internal" href="order-workflows.html"><span class="doc">order workflows</span></a>. (../sales/orders-menu.md) it is found.)</p>
+<div class="section" id="id1">
+<h3>Open Tab<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p><em>Workflow Status</em> on the <em>Open</em> tab refers to the order’s progress through the <a class="reference external" href="../order-workflows/README.md#approval-workflow-buyer-side-cart-approval-only"><em>Approval Workflow</em></a>. For this order workflow, there are three workflow statuses available: <em>Draft</em>, <em>Pending</em>, and <em>Approved</em>.</p>
+<p><img alt="Workflow Status Open Tab" src="../../../_images/0612.png" /></p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Workflow Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Draft</td>
+<td>Products have been added to the cart, but the cart has not yet been submitted for review and approval by the buyer.</td>
+</tr>
+<tr>
+<td>Pending</td>
+<td>The cart (order) has been submitted for review and approval, but it has not yet been approved by the buyer.</td>
+</tr>
+<tr>
+<td>Approved</td>
+<td>The order has been reviewed and approved by the buyer, and the order may now proceed to checkout.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="id2">
+<h3>Pending Tab<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p><em>Workflow Status</em> on the <em>Pending</em> tab refers to the order’s progress through the <a class="reference external" href="../order-workflows/README.md#transmission-workflow-seller-side-order-approval-only"><em>Transmission Workflow</em></a>. For this order workflow, there are two workflow statuses available: <em>Pending</em> and <em>Approved</em>.</p>
+<p><img alt="Workflow Status Pending and Transmitted Tab" src="../../../_images/071.png" /></p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Workflow Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pending</td>
+<td>The order has been placed, but it has not yet been approved by the seller.</td>
+</tr>
+<tr>
+<td>Approved</td>
+<td>The order has been reviewed and approved by the seller, and the order may now be transmitted. (Note: This workflow status appears also on the <em>Transmitted</em> tab.)</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section" id="additional-information">
+<h2>Additional Information<a class="headerlink" href="#additional-information" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="orders-menu.html"><span class="doc">Orders Menu</span></a></p></li>
+<li><p><a class="reference internal" href="order-information.html"><span class="doc">Order Information</span></a></p></li>
+<li><p><a class="reference internal" href="order-life-cycle.html"><span class="doc">Order Life Cycle</span></a></p></li>
+<li><p><a class="reference internal" href="order-workflows.html"><span class="doc">Order Workflows</span></a></p></li>
+<li><p><a class="reference internal" href="enabling-or-disabling-order-workflows.html"><span class="doc">Enabling or Disabling Order Workflows</span></a></p></li>
+<li><p><a class="reference internal" href="approving-or-rejecting-orders-in-order-workflows.html"><span class="doc">Approving or Rejecting Orders in Order Workflows</span></a></p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Order Management Statuses</a><ul>
+<li><a class="reference internal" href="#order-status">Order Status</a><ul>
+<li><a class="reference internal" href="#open-tab">Open Tab</a></li>
+<li><a class="reference internal" href="#pending-tab">Pending Tab</a></li>
+<li><a class="reference internal" href="#transmitted-tab">Transmitted Tab</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#payment-status">Payment Status</a></li>
+<li><a class="reference internal" href="#workflow-status">Workflow Status</a><ul>
+<li><a class="reference internal" href="#id1">Open Tab</a></li>
+<li><a class="reference internal" href="#id2">Pending Tab</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#additional-information">Additional Information</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/commerce/user-guide/sales/order-management-statuses.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    </div>
+  </body>
+</html>

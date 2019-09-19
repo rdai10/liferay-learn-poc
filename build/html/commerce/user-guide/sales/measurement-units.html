@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Measurement Units &#8212; Liferay Learn</title>
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="measurement-units">
+<h1>Measurement Units<a class="headerlink" href="#measurement-units" title="Permalink to this headline">¶</a></h1>
+<p>Liferay Commerce comes with a number of common measurement units already defined, but if you or your shipping provider use different units, you will need to change the default settings.</p>
+<p>There are two measurement units defined in Liferay Commerce: 1) dimensions and 2) weight. For each measurement unit, a primary unit must be designated. In Liferay Commerce, <em>Primary Unit</em> determines the system of measurement used in the store, as well as the default measurements displayed in the catalog. By default inches and pounds are the Primary Units for Dimension and Weight respectively. Whatever is set as the primary unit will be used by the catalog and by the variable-rate shipping method.</p>
+<div class="section" id="adding-a-new-measurement-unit">
+<h2>Adding A New Measurement Unit<a class="headerlink" href="#adding-a-new-measurement-unit" title="Permalink to this headline">¶</a></h2>
+<p>It may be necessary to add a new measurement unit; for example, centimeters is not listed as default measurement unit on the <em>Dimensions</em> page. Likewise, the products shipped might be measured in a larger increment such as metric tons (tonnes) instead of kilograms.</p>
+<p>To enter a new dimension measurement unit (for example, centimeters):</p>
+<ol>
+<li><p>Navigate to the <em>Control Panel</em> → <em>Commerce</em> → <em>Settings</em>.</p></li>
+<li><p>Click <em>Measurement Units</em></p></li>
+<li><p>Click the (+) button to add a new dimension.</p></li>
+<li><p>Enter the following:</p>
+<ul class="simple">
+<li><p><strong>Name</strong>: centimeters</p></li>
+<li><p><strong>Key</strong>: cm</p></li>
+<li><p><strong>Primary</strong>: <em>No</em></p></li>
+<li><p><strong>Ratio to inches</strong>: 2.54</p></li>
+<li><p><strong>Priority</strong>: 4.0</p></li>
+</ul>
+<p><img alt="Adding a measurement unit" src="../../../_images/0180.png" /></p>
+</li>
+<li><p>Click <em>Save</em>.</p></li>
+</ol>
+<p><em>Centimeters</em> has been added to the list of dimensions.</p>
+<p><strong>Note</strong>: Although the key is generated based on the Name field, it is best practice to replace the key with the accepted short hand for that measurement unit such as <strong>cm</strong> instead.</p>
+</div>
+<div class="section" id="additional-information">
+<h2>Additional Information<a class="headerlink" href="#additional-information" title="Permalink to this headline">¶</a></h2>
+<p>If you use the Carrier shipping method to integrate your shipping cost calculations with a shipping provider’s system, you must have the provider’s units defined as well. If the provider uses units that are different from your primary, the conversion is handled automatically.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Measurement Units</a><ul>
+<li><a class="reference internal" href="#adding-a-new-measurement-unit">Adding A New Measurement Unit</a></li>
+<li><a class="reference internal" href="#additional-information">Additional Information</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/commerce/user-guide/sales/measurement-units.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    </div>
+  </body>
+</html>

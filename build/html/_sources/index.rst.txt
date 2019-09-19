@@ -11,6 +11,12 @@ Welcome to Liferay Learn's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   commerce/developer-guide/*
+   commerce/developer-guide/*/*
+   commerce/get-help/*/*
+   commerce/installation-and-upgrades/*
+   commerce/installation-and-upgrades/*/*
+   commerce/user-guide/*/*
 
 
 Indices and tables

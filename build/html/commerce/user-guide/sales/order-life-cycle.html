@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Order Life Cycle &#8212; Liferay Learn</title>
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="order-life-cycle">
+<h1>Order Life Cycle<a class="headerlink" href="#order-life-cycle" title="Permalink to this headline">¶</a></h1>
+<p>An Order stores data regarding a potential or past transaction. This article provides an overview of the order life cycle from open cart to fulfilled order.</p>
+<p><img alt="Order life cycle" src="../../../_images/0184.png" /></p>
+<blockquote>
+<div><p><strong>Figure 1</strong>. Order Life Cycle</p>
+</div></blockquote>
+<div class="section" id="step-1-products-added-to-cart">
+<h2>Step 1: Products Added to Cart<a class="headerlink" href="#step-1-products-added-to-cart" title="Permalink to this headline">¶</a></h2>
+<p>A new order is created when a buyer places products into the cart. At this starting point, the data stored in the order includes the identity and quantity of the products, as well as the account which created it.</p>
+</div>
+<div class="section" id="step-2-order-placed">
+<h2>Step 2: Order Placed<a class="headerlink" href="#step-2-order-placed" title="Permalink to this headline">¶</a></h2>
+<p>After providing information – such as shipping address and payment method – to the seller and viewing an order summary, the buyer places the order.</p>
+</div>
+<div class="section" id="step-3-order-transmitted">
+<h2>Step 3: Order Transmitted<a class="headerlink" href="#step-3-order-transmitted" title="Permalink to this headline">¶</a></h2>
+<p>When the seller advances an order from pending to transmitted, the order is sent to an external system, such as Microsoft’s Dynamics GP, Oracle’s NetSuite, or SAP.</p>
+</div>
+<div class="section" id="step-4-order-fulfilled">
+<h2>Step 4: Order Fulfilled<a class="headerlink" href="#step-4-order-fulfilled" title="Permalink to this headline">¶</a></h2>
+<p>The seller completes the remaining steps to deliver the ordered products to the buyer. Additional information can be added to the order, such as an updated order status, shipping information, and estimated arrival time.</p>
+</div>
+<div class="section" id="additional-information">
+<h2>Additional Information<a class="headerlink" href="#additional-information" title="Permalink to this headline">¶</a></h2>
+<p><strong>Note 1</strong>: <a class="reference internal" href="order-workflows.html"><span class="doc">Order Workflows</span></a> may be implemented that alter or add additional steps to the workflow outlined above.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="orders-menu.html"><span class="doc">Orders Menu</span></a></p></li>
+<li><p><a class="reference internal" href="order-information.html"><span class="doc">Order Information</span></a></p></li>
+<li><p><a class="reference internal" href="order-workflows.html"><span class="doc">Order Workflows</span></a></p></li>
+<li><p>Order Management Statuses</p></li>
+<li><p>Advancing an Order to Transmitted</p></li>
+<li><p>Enabling Order Workflows</p></li>
+<li><p>Approving/Rejecting Orders in Order Workflows</p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Order Life Cycle</a><ul>
+<li><a class="reference internal" href="#step-1-products-added-to-cart">Step 1: Products Added to Cart</a></li>
+<li><a class="reference internal" href="#step-2-order-placed">Step 2: Order Placed</a></li>
+<li><a class="reference internal" href="#step-3-order-transmitted">Step 3: Order Transmitted</a></li>
+<li><a class="reference internal" href="#step-4-order-fulfilled">Step 4: Order Fulfilled</a></li>
+<li><a class="reference internal" href="#additional-information">Additional Information</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/commerce/user-guide/sales/order-life-cycle.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    </div>
+  </body>
+</html>

@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Mercanet &#8212; Liferay Learn</title>
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="mercanet">
+<h1>Mercanet<a class="headerlink" href="#mercanet" title="Permalink to this headline">¶</a></h1>
+<p>This article details how to enable Mercanet as a payment method. Because Mercanet accepts <strong>only EUR</strong>, the store’s primary currency must be EUR.</p>
+<div class="section" id="mercanet-guide">
+<h2>Mercanet Guide<a class="headerlink" href="#mercanet-guide" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p><a class="reference external" href="#prerequisites">Review prerequisites.</a></p></li>
+<li><p><a class="reference external" href="#set-eur-as-the-primary-store-currency">Set EUR as the primary store currency.</a></p></li>
+<li><p><a class="reference external" href="#activate-mercanet-as-a-payment-method">Activate Mercanet as a Payment Method.</a></p></li>
+</ol>
+</div>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>Before configuring your store to use <a class="reference external" href="https://documentation.mercanet.bnpparibas.net/index.php?title=Obtenir_sa_cl%C3%A9_secr%C3%A8te#">Mercanet</a>, it is necessary to generate the following:</p>
+<ol class="simple">
+<li><p>Mercanet Merchant ID</p></li>
+<li><p>Secret Key</p></li>
+<li><p>Key Version</p></li>
+</ol>
+</div>
+<div class="section" id="set-eur-as-the-primary-store-currency">
+<h2>Set EUR as the Primary Store Currency<a class="headerlink" href="#set-eur-as-the-primary-store-currency" title="Permalink to this headline">¶</a></h2>
+<p>When using Mercanet, your store must use Euros as the primary currency. To change the primary currency:</p>
+<ol class="simple">
+<li><p>Navigate to the <em>Control Panel → Commerce → Settings</em>.</p></li>
+<li><p>Click <em>Currencies</em>.</p></li>
+<li><p>Click the <em>3-dot icon</em> next to Euro.</p></li>
+<li><p>Click <em>Set as Primary</em>.</p></li>
+</ol>
+<p><em>Euro</em> is now set as the primary currency.</p>
+<p><img alt="Set Primary Currency" src="../../../_images/0181.png" /></p>
+</div>
+<div class="section" id="activate-mercanet-as-a-payment-method">
+<h2>Activate Mercanet as a payment method<a class="headerlink" href="#activate-mercanet-as-a-payment-method" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Navigate to <em>Site Administration → Commerce → Settings → Payment Methods</em>.</p></li>
+<li><p>Click <em>Payment Methods</em>.</p></li>
+<li><p>Click <em>Mercanet</em>.</p></li>
+<li><p>Click <em>Configuration</em>.</p></li>
+<li><p>Enter the following:</p>
+<ul class="simple">
+<li><p>Your <em>Merchant ID</em></p></li>
+<li><p>Your <em>Secret Key</em></p></li>
+<li><p>Your <em>Key Version</em></p></li>
+</ul>
+</li>
+<li><p>Select <em>Production</em> if it is a live site or <em>Test</em> or <em>Simulation</em> if it is a test environment.
+<img alt="Mercanet settings" src="../../../_images/0254.png" /></p></li>
+<li><p>Click <em>Save</em>.</p></li>
+<li><p>Click the <em>3-dot icon</em> next to <em>Mercanet</em> then <em>Activate</em>.</p></li>
+</ol>
+<p>Mercanet is now enabled for your store.</p>
+</div>
+<div class="section" id="additional-information">
+<h2>Additional Information<a class="headerlink" href="#additional-information" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../getting-started/currencies.html"><span class="doc">Currencies</span></a></p></li>
+<li><p><a class="reference internal" href="authorize.net.html"><span class="doc">Authorize.Net</span></a></p></li>
+<li><p><a class="reference internal" href="#"><span class="doc">PayPal</span></a></p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Mercanet</a><ul>
+<li><a class="reference internal" href="#mercanet-guide">Mercanet Guide</a></li>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#set-eur-as-the-primary-store-currency">Set EUR as the Primary Store Currency</a></li>
+<li><a class="reference internal" href="#activate-mercanet-as-a-payment-method">Activate Mercanet as a payment method</a></li>
+<li><a class="reference internal" href="#additional-information">Additional Information</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/commerce/user-guide/sales/mercanet.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    </div>
+  </body>
+</html>

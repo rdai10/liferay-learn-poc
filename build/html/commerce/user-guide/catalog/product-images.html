@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Product Images &#8212; Liferay Learn</title>
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="product-images">
+<h1>Product Images<a class="headerlink" href="#product-images" title="Permalink to this headline">¶</a></h1>
+<p>Product images help to ensure that customers know what they are buying and increase the likelihood of a sale. Store administrators can upload images for each product variant (different SKUs).</p>
+<p>This article documents how to add images to a product.</p>
+<div class="section" id="roadmap">
+<h2>Roadmap<a class="headerlink" href="#roadmap" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p><a class="reference external" href="#adding-a-single-product-image">Adding a single product image.</a></p></li>
+<li><p><a class="reference external" href="#adding-multiple-product-images">Adding multiple product images.</a></p></li>
+</ol>
+</div>
+<div class="section" id="adding-a-single-product-image">
+<h2>Adding a Single Product Image<a class="headerlink" href="#adding-a-single-product-image" title="Permalink to this headline">¶</a></h2>
+<ol>
+<li><p>Navigate to  <em>Control Panel</em> → <em>Commerce</em> → <em>Products</em>.</p></li>
+<li><p>Click on a product (in this example, <em>Microfiber Cloth</em>).</p></li>
+<li><p>Click the <em>Images</em> sub-tab.</p></li>
+<li><p>Click the (+) button to add a product image.</p></li>
+<li><p>Drag and drop an image or click <em>Select File</em> to upload an image.</p></li>
+<li><p>Enter a title: <em>Microfiber Cloth</em>.</p></li>
+<li><p>Set a priority: <em>1.0</em>.</p>
+<p><img alt="Adding a product image" src="../../../_images/0131.png" /></p>
+</li>
+<li><p>Click <em>Publish</em>.</p></li>
+</ol>
+<p>The new product image has been added to the product. Note that under <em>Options</em>, the message “<code class="docutils literal notranslate"><span class="pre">There</span> <span class="pre">are</span> <span class="pre">no</span> <span class="pre">options</span> <span class="pre">set</span> <span class="pre">as</span> <span class="pre">the</span> <span class="pre">SKU</span> <span class="pre">contributor.</span></code>” may appear. If this message appears, then the product does not have additional associated SKUs and the image added is the only one associated with the product. See the section below on how to associate multiple product images to product variants.</p>
+<p>To view the image in the catalog, go to the store site and then search for the product (<em>Microfiber Cloth</em>).</p>
+<p><img alt="Viewing product" src="../../../_images/0220.png" /></p>
+</div>
+<div class="section" id="adding-multiple-product-images">
+<h2>Adding Multiple Product Images<a class="headerlink" href="#adding-multiple-product-images" title="Permalink to this headline">¶</a></h2>
+<p>As noted above, multiple product images can be associated with a single product.</p>
+<div class="section" id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p><a class="reference internal" href="customizing-your-product-with-product-options.html"><span class="doc">Product Options</span></a> have been created for this product.</p></li>
+<li><p><a class="reference internal" href="adding-skus-to-your-products.html"><span class="doc">Multiple SKUs</span></a> have been generated for this product.</p></li>
+</ol>
+<p>Once you have created Product Options and generated the corresponding SKUs, you can then associate different product images. To add multiple images to the different SKUs:</p>
+<ol>
+<li><p>Navigate to <em>Control Panel</em> → <em>Commerce</em> → <em>Products</em>.</p></li>
+<li><p>Click on a product, in this example, <em>Hoses</em>.</p>
+<blockquote>
+<div><p>If you had used Minium to create your store and sample data, this product was added by the Minium accelerator.</p>
+</div></blockquote>
+</li>
+<li><p>Click the <em>Images</em> sub-tab.</p></li>
+<li><p>Click the (+) button to add a product image.</p></li>
+<li><p>Drag and drop an image or click <em>Select File</em> to insert an image.</p></li>
+<li><p>Click on the existing image.</p></li>
+<li><p>Select <em>6</em> under the <em>Package Quantity</em> drop down.</p>
+<p><img alt="Adding an image" src="../../../_images/044.png" /></p>
+</li>
+<li><p>Click <em>Publish</em>.</p></li>
+</ol>
+<p>The product image has been updated with the respective Product Option. Repeat these steps as desired for all other available SKUs, such as another package quantity. In this example, different images may be used for the different package quantities. When searching for a product, you can see that all images have been included inside the Product Detail widget.</p>
+<p><img alt="Images in Product Detail widget" src="../../../_images/054.png" /></p>
+</div>
+</div>
+<div class="section" id="additional-information">
+<h2>Additional Information<a class="headerlink" href="#additional-information" title="Permalink to this headline">¶</a></h2>
+<p><strong>Note</strong>: To configure a default placeholder image for products that do not have an image uploaded, see Setting a Default Catalog Image.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Product Images</a><ul>
+<li><a class="reference internal" href="#roadmap">Roadmap</a></li>
+<li><a class="reference internal" href="#adding-a-single-product-image">Adding a Single Product Image</a></li>
+<li><a class="reference internal" href="#adding-multiple-product-images">Adding Multiple Product Images</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#additional-information">Additional Information</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/commerce/user-guide/catalog/product-images.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    </div>
+  </body>
+</html>

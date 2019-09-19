@@ -1,0 +1,249 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Store Setup Overview &#8212; Liferay Learn</title>
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="store-setup-overview">
+<h1>Store Setup Overview<a class="headerlink" href="#store-setup-overview" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>This article is intended to provide a walk through for users who are new to building a store in Liferay Commerce. It assumes that Liferay Commerce (and Liferay DXP) have been appropriately installed and configured. For more information on installation, see the <a class="reference internal" href="../../installation-and-upgrades/installation-guide/installation-overview.html"><span class="doc">Installation Overview</span></a>.</p>
+</div>
+<div class="section" id="road-map">
+<h2>Road Map<a class="headerlink" href="#road-map" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="#store-setup">Store Setup</a></p></li>
+<li><p><a class="reference external" href="#creating-the-storefront">Creating the Storefront</a></p></li>
+<li><p><a class="reference external" href="#managing-customer-accounts">Managing Customer Accounts</a></p></li>
+<li><p><a class="reference external" href="#managing-orders-and-shipments">Managing Orders and Shipments</a></p></li>
+</ul>
+</div>
+<div class="section" id="store-setup">
+<h2>Store Setup<a class="headerlink" href="#store-setup" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p><strong>Note</strong>: An <a class="reference internal" href="accelerators.html"><span class="doc">Accelerator</span></a> may be used to create the store site. Using an Accelerator to create the store site will configure many of the settings mentioned in this section, see <a class="reference internal" href="using-the-minium-accelerator-to-jump-start-your-b2b-store.html"><span class="doc">Using the Minium Accelerator to Jump Start Your B2B Store</span></a> for further details.</p>
+</div></blockquote>
+<p>Initial store setup is done with the <a class="reference internal" href="introduction-to-the-admin-account.html"><span class="doc">Admin account</span></a>. Read the <a class="reference internal" href="liferay-commerce-configuration-overview.html"><span class="doc">Liferay Commerce Configuration Overview</span></a> to become more familiar with the Liferay Commerce configuration layout and available options.</p>
+<div class="section" id="configure-global-commerce-settings">
+<h3>Configure Global Commerce Settings<a class="headerlink" href="#configure-global-commerce-settings" title="Permalink to this headline">¶</a></h3>
+<p>Global configurations for Liferay Commerce include setting the store timezone, available languages, adding regions and region specific measurement units, and more. Learn more from the following articles:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="locale-options.html"><span class="doc">Setting Locale Options</span></a></p></li>
+<li><p><a class="reference internal" href="adding-regions.html"><span class="doc">Adding Regions</span></a></p></li>
+<li><p><a class="reference external" href="../../catalog/managing-inventory/warehouse-reference-guide/README">Setting up Warehouses</a></p></li>
+<li><p><a class="reference internal" href="../catalog/introduction-to-channels.html"><span class="doc">Creating Channels</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="create-a-store-site">
+<h3>Create a Store Site<a class="headerlink" href="#create-a-store-site" title="Permalink to this headline">¶</a></h3>
+<p>Liferay Commerce supports B2B, B2C, and B2C-B2B stores. <a class="reference internal" href="sites-and-site-types.html"><span class="doc">Site Types</span></a> designate a store’s business model and will determine how the storefront works with Accounts.</p>
+<p>Liferay Commerce is built on Liferay DXP; For more information about how Liferay DXP Sites work, see <a class="reference external" href="https://help.liferay.com/hc/en-us/articles/360018171231-Building-a-Site">Building a Site</a>.</p>
+</div>
+<div class="section" id="configure-store-site-commerce-settings">
+<h3>Configure Store Site Commerce Settings<a class="headerlink" href="#configure-store-site-commerce-settings" title="Permalink to this headline">¶</a></h3>
+<p>The following sections cover configurations that are store site specific.</p>
+<div class="section" id="accepting-payment">
+<h4>Accepting Payment<a class="headerlink" href="#accepting-payment" title="Permalink to this headline">¶</a></h4>
+<p>Liferay Commerce provides support for several third party payment processors and also allows for the use of money orders to accept payment. See:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="payments.html"><span class="doc">Payments</span></a></p></li>
+<li><p><a class="reference internal" href="managing-payment-methods.html"><span class="doc">Managing Payment Methods</span></a></p></li>
+<li><p><a class="reference internal" href="../sales/authorize.net.html"><span class="doc">Authorize.net</span></a></p></li>
+<li><p><a class="reference internal" href="../sales/mercanet.html"><span class="doc">PayPal</span></a></p></li>
+<li><p><a class="reference internal" href="../sales/mercanet.html"><span class="doc">Mercanet</span></a></p></li>
+<li><p><a class="reference internal" href="../sales/mercanet.html"><span class="doc">Money Orders</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="collecting-applicable-taxes">
+<h4>Collecting Applicable Taxes<a class="headerlink" href="#collecting-applicable-taxes" title="Permalink to this headline">¶</a></h4>
+<p>In order to collect the applicable taxes, Liferay Commerce has the ability to create tax categories and to set tax rates by address or by a fixed rate.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../operations/creating-tax-categories.html"><span class="doc">Creating Tax Categories</span></a></p></li>
+<li><p><a class="reference internal" href="../operations/setting-tax-rate-by-address.html"><span class="doc">Setting Tax Rate by Address</span></a></p></li>
+<li><p><a class="reference internal" href="../operations/setting-tax-rate-by-fixed-rate.html"><span class="doc">Setting Tax Rate by Fixed Rate</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="shipping-products">
+<h4>Shipping Products<a class="headerlink" href="#shipping-products" title="Permalink to this headline">¶</a></h4>
+<p>Liferay Commerce has several options to calculate shipping rates. Commerce Enterprise subscribers receive FedEx carrier integration out-of-the-box.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="shipping-methods.html"><span class="doc">Shipping Methods</span></a></p></li>
+<li><p><a class="reference internal" href="../sales/using-the-variable-rate-shipping-method.html"><span class="doc">Variable Rate</span></a></p></li>
+<li><p><a class="reference internal" href="../sales/using-the-flat-rate-shipping-method.html"><span class="doc">Flat Rate</span></a></p></li>
+<li><p><a class="reference internal" href="../sales/using-fedex-as-a-carrier-method.html"><span class="doc">Using FedEx as a Carrier</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="creating-the-catalog">
+<h2>Creating the Catalog<a class="headerlink" href="#creating-the-catalog" title="Permalink to this headline">¶</a></h2>
+<p>After setting up the store, begin <a class="reference external" href="../../catalog/creating-a-catalog/README">creating a catalog</a>.</p>
+<div class="section" id="adding-products-to-a-catalog">
+<h3>Adding Products to a Catalog<a class="headerlink" href="#adding-products-to-a-catalog" title="Permalink to this headline">¶</a></h3>
+<p>When adding a product, there are three product types: <strong>Simple</strong>, <strong>Grouped</strong>, and <strong>Virtual</strong>. See the <a class="reference internal" href="../catalog/introduction-to-product-types.html"><span class="doc">Introduction to Product Types</span></a> for more information.</p>
+<div class="section" id="adding-product-information">
+<h4>Adding Product Information<a class="headerlink" href="#adding-product-information" title="Permalink to this headline">¶</a></h4>
+<p>The Liferay Commerce Catalog supports storing and managing a wide variety of product information. The following articles cover some of the available options:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="../../catalog/creating-and-managing-products/customizing-your-product-with-product-options">Product Options</a></p></li>
+<li><p><a class="reference internal" href="../catalog/specifications.html"><span class="doc">Product Specifications</span></a></p></li>
+<li><p><a class="reference internal" href="../catalog/product-images.html"><span class="doc">Product Images</span></a></p></li>
+<li><p>Product Attachments</p></li>
+<li><p><a class="reference internal" href="../catalog/related-products-up-sells-and-cross-sells.html"><span class="doc">Product Relations</span></a></p></li>
+<li><p><a class="reference internal" href="../catalog/organizing-your-catalog-with-product-categories.html"><span class="doc">Product Categorization</span></a></p></li>
+<li><p><a class="reference internal" href="../catalog/availability-estimates.html"><span class="doc">Availability Estimates</span></a></p></li>
+<li><p><a class="reference external" href="../../catalog/managing-inventory/low-stock-activity/README">Low Stock Activity</a></p></li>
+<li><p>Applicable Tax Category</p></li>
+<li><p>Associated Channels</p></li>
+<li><p>Associated Account Groups</p></li>
+<li><p>BOM / Spare Parts</p></li>
+</ul>
+</div>
+<div class="section" id="product-pricing">
+<h4>Product Pricing<a class="headerlink" href="#product-pricing" title="Permalink to this headline">¶</a></h4>
+<p>There are several ways to price products and these methods are related to one another in a pricing hierarchy: base price, price list, tiered price, promo price and discount. Pricing is managed per SKU.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="../../catalog/managing-price/introduction-to-product-pricing-methods/README">Pricing</a></p></li>
+<li><p><a class="reference internal" href="../catalog/creating-a-price-list.html"><span class="doc">Price Lists</span></a></p></li>
+<li><p><a class="reference internal" href="../marketing/adding-discounts-by-product.html"><span class="doc">Discounts</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="managing-inventory">
+<h4>Managing Inventory<a class="headerlink" href="#managing-inventory" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="../../catalog/managing-inventory/introduction-to-managing-inventory/README">Introduction to Managing Inventory</a></p></li>
+<li><p>Subscriptions (if applicable)</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="creating-the-storefront">
+<h2>Creating the Storefront<a class="headerlink" href="#creating-the-storefront" title="Permalink to this headline">¶</a></h2>
+<p>Building a store in Liferay Commerce requires more than a complete catalog. Store administrators building a storefront from scratch will need to add a series of pages to display and sell their products.</p>
+<p>See <a class="reference internal" href="../content/creating-your-storefront.html"><span class="doc">Creating Your Storefront</span></a> to learn more.</p>
+</div>
+<div class="section" id="managing-customer-accounts">
+<h2>Managing Customer Accounts<a class="headerlink" href="#managing-customer-accounts" title="Permalink to this headline">¶</a></h2>
+<p>To learn more about how accounts, inviting users accounts, account roles, and more, read the following articles:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../customers/introduction-to-accounts.html"><span class="doc">Introduction to Accounts</span></a></p></li>
+<li><p><a class="reference internal" href="../customers/creating-a-new-account.html"><span class="doc">Creating a New Account</span></a></p></li>
+<li><p><a class="reference internal" href="../customers/inviting-users-to-an-account.html"><span class="doc">Inviting Users to an Account</span></a></p></li>
+<li><p><a class="reference internal" href="../customers/adding-addresses-to-an-account.html"><span class="doc">Adding Addresses to an Account</span></a></p></li>
+<li><p><a class="reference internal" href="../customers/account-roles.html"><span class="doc">Account Roles</span></a></p></li>
+<li><p><a class="reference internal" href="../customers/assigning-account-roles.html"><span class="doc">Assigning Account Roles</span></a></p></li>
+<li><p><a class="reference internal" href="../customers/creating-a-new-account-group.html"><span class="doc">Creating a New Account Group</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="managing-orders-and-shipments">
+<h2>Managing Orders and Shipments<a class="headerlink" href="#managing-orders-and-shipments" title="Permalink to this headline">¶</a></h2>
+<p>When an order has been received, the order may be transmitted to an ERP and optionally to a CRM. Once the requested goods are available for shipping, the store’s inventory specialists may track the shipment. See the following articles to learn about the life cycle of an order and the shipment processes.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../sales/order-life-cycle.html"><span class="doc">Order Life Cycle</span></a></p></li>
+<li><p><a class="reference internal" href="../sales/introduction-to-shipments.html"><span class="doc">Introduction to Shipments</span></a></p></li>
+<li><p><a class="reference internal" href="../sales/creating-a-shipment.html"><span class="doc">Creating a shipment</span></a></p></li>
+<li><p><a class="reference internal" href="../sales/cancelling-a-shipment.html"><span class="doc">Cancelling a Shipment</span></a></p></li>
+<li><p>Shipping Override</p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Store Setup Overview</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#road-map">Road Map</a></li>
+<li><a class="reference internal" href="#store-setup">Store Setup</a><ul>
+<li><a class="reference internal" href="#configure-global-commerce-settings">Configure Global Commerce Settings</a></li>
+<li><a class="reference internal" href="#create-a-store-site">Create a Store Site</a></li>
+<li><a class="reference internal" href="#configure-store-site-commerce-settings">Configure Store Site Commerce Settings</a><ul>
+<li><a class="reference internal" href="#accepting-payment">Accepting Payment</a></li>
+<li><a class="reference internal" href="#collecting-applicable-taxes">Collecting Applicable Taxes</a></li>
+<li><a class="reference internal" href="#shipping-products">Shipping Products</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#creating-the-catalog">Creating the Catalog</a><ul>
+<li><a class="reference internal" href="#adding-products-to-a-catalog">Adding Products to a Catalog</a><ul>
+<li><a class="reference internal" href="#adding-product-information">Adding Product Information</a></li>
+<li><a class="reference internal" href="#product-pricing">Product Pricing</a></li>
+<li><a class="reference internal" href="#managing-inventory">Managing Inventory</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#creating-the-storefront">Creating the Storefront</a></li>
+<li><a class="reference internal" href="#managing-customer-accounts">Managing Customer Accounts</a></li>
+<li><a class="reference internal" href="#managing-orders-and-shipments">Managing Orders and Shipments</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/commerce/user-guide/getting-started/store-setup-overview.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    </div>
+  </body>
+</html>

@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Checkout &#8212; Liferay Learn</title>
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="checkout">
+<h1>Checkout<a class="headerlink" href="#checkout" title="Permalink to this headline">¶</a></h1>
+<p>The Checkout page is a required page that contains the <em>Checkout</em> widget. This widget is populated once a buyer clicks <em>Checkout</em> to submit an order. Custom checkout steps can also be implemented using extension points. To learn more see <a class="reference internal" href="../../developer-guide/tutorial/implementing-a-custom-checkout-step.html"><span class="doc">Implementing a Custom Checkout Step</span></a>.</p>
+<p><img alt="Checkout widget" src="../../../_images/0142.png" /></p>
+<p>During the checkout process, there are several pages to enter the buyer’s shipping and billing addresses and choose a shipment method. The last two pages are the <em>Order Summary</em> and <em>Order Confirmation</em>.</p>
+<div class="section" id="entering-a-shipping-address">
+<h2>Entering a Shipping Address<a class="headerlink" href="#entering-a-shipping-address" title="Permalink to this headline">¶</a></h2>
+<p><img alt="Shipping Address step" src="../../../_images/0227.png" /></p>
+<p>Note that if the buyer checks the <em>Use shipping address as billing address</em>, this will skip the Billing Address page.</p>
+</div>
+<div class="section" id="selecting-shipping-method">
+<h2>Selecting Shipping Method<a class="headerlink" href="#selecting-shipping-method" title="Permalink to this headline">¶</a></h2>
+<p><img alt="Shipping Method step" src="../../../_images/0310.png" /></p>
+<p>Shipping methods available to a buyer are configured by changing <em>Shipping Methods</em> in <em>Site Administration</em> → <em>Commerce</em> → <em>Settings</em> -&gt; <em>Shipping Methods</em>. See <a class="reference internal" href="../sales/using-the-flat-rate-shipping-method.html"><span class="doc">Using the Flat Rate Shipping Method</span></a> for more information.</p>
+</div>
+<div class="section" id="entering-a-billing-address">
+<h2>Entering a Billing Address<a class="headerlink" href="#entering-a-billing-address" title="Permalink to this headline">¶</a></h2>
+<p>As noted above, this page appears only if the buyer’s billing address is different from the shipping address.</p>
+<p><img alt="Billing Address step" src="../../../_images/048.png" /></p>
+</div>
+<div class="section" id="viewing-the-order-summary">
+<h2>Viewing the Order Summary<a class="headerlink" href="#viewing-the-order-summary" title="Permalink to this headline">¶</a></h2>
+<p><img alt="Order Summary step" src="../../../_images/058.png" /></p>
+</div>
+<div class="section" id="confirming-the-order">
+<h2>Confirming the Order<a class="headerlink" href="#confirming-the-order" title="Permalink to this headline">¶</a></h2>
+<p><img alt="Order Confirmation step" src="../../../_images/066.png" /></p>
+<p>When an order is confirmed, the order is ready for processing by the seller. See <a class="reference internal" href="../sales/order-life-cycle.html"><span class="doc">Order Life Cycle</span></a> for more information.</p>
+</div>
+<div class="section" id="additional-information">
+<h2>Additional Information<a class="headerlink" href="#additional-information" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="widget-reference.html"><span class="doc">Widget Reference Guide</span></a></p></li>
+<li><p><a class="reference external" href="https://help.liferay.com/hc/en-us/articles/360018171291-Creating-Pages">Creating Pages</a></p></li>
+<li><p><a class="reference internal" href="../../developer-guide/tutorial/implementing-a-custom-checkout-step.html"><span class="doc">Implementing a Custom Checkout Step</span></a></p></li>
+<li><p><a class="reference internal" href="../sales/using-the-flat-rate-shipping-method.html"><span class="doc">Using the Flat Rate Shipping Method</span></a></p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Checkout</a><ul>
+<li><a class="reference internal" href="#entering-a-shipping-address">Entering a Shipping Address</a></li>
+<li><a class="reference internal" href="#selecting-shipping-method">Selecting Shipping Method</a></li>
+<li><a class="reference internal" href="#entering-a-billing-address">Entering a Billing Address</a></li>
+<li><a class="reference internal" href="#viewing-the-order-summary">Viewing the Order Summary</a></li>
+<li><a class="reference internal" href="#confirming-the-order">Confirming the Order</a></li>
+<li><a class="reference internal" href="#additional-information">Additional Information</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/commerce/user-guide/content/checkout.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    </div>
+  </body>
+</html>

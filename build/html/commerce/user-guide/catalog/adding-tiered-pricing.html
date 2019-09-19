@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Adding Tiered Pricing &#8212; Liferay Learn</title>
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="adding-tiered-pricing">
+<h1>Adding Tiered Pricing<a class="headerlink" href="#adding-tiered-pricing" title="Permalink to this headline">¶</a></h1>
+<p>Tiered pricing allows store owners to vary the price of a product based on the quantity ordered. A store could offer reduced prices for higher quantities ordered. Prices that are set via Tiered Pricing will take precedence over prices set directly against a given SKU for the associated users if a buyer meets the minimum quantity specified. This article describes how to add tiered pricing to a price list.</p>
+<p>To create a pricing tier for a product in a price list:</p>
+<ol>
+<li><p>Navigate to the <em>Control Panel</em> → <em>Commerce</em> → <em>Price Lists</em>.</p></li>
+<li><p>Click on a price list (<em>VIP Customers</em> in this example).</p></li>
+<li><p>Click the <em>Entries</em> sub-tab.</p></li>
+<li><p>Click on a product (<em>Premium Brake Fluid</em> in this example).</p></li>
+<li><p>Click the <em>Tier Price Entries</em> sub-tab.</p></li>
+<li><p>Click the (+) button.</p></li>
+<li><p>Enter the following fields (example values shown below):</p>
+<ul>
+<li><p><strong>Price</strong>: 90</p></li>
+<li><p><strong>Promo Price</strong>: (leave it blank)</p></li>
+<li><p><em>Minimum Quantity</em>: 20 (This is the minimum quantity needed to receive the price for bulk quantity.)</p>
+<p><img alt="Adding a tiered pricing entry" src="../../../_images/0115.png" /></p>
+</li>
+</ul>
+</li>
+<li><p>Click Save.</p></li>
+</ol>
+<p>A pricing tier ($90) has been created for orders that reach the minimum quantity (20) for the product (<em>Premium Brake Fluid</em>) on the price list (<em>VIP Customers</em>). Repeat the steps to add successive price tiers to the same product and price list (for other minimum quantities), or to add a price tier to another product and price list.</p>
+<div class="section" id="additional-information">
+<h2>Additional Information<a class="headerlink" href="#additional-information" title="Permalink to this headline">¶</a></h2>
+<p><strong>Note</strong>: Price Tier Entries can also be reached by directly viewing Product SKUs.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="creating-a-price-list.html"><span class="doc">Creating a Price List</span></a></p></li>
+<li><p><a class="reference external" href="../adding-products-to-a-price-list/README">Adding Products to a Price List</a></p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Adding Tiered Pricing</a><ul>
+<li><a class="reference internal" href="#additional-information">Additional Information</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/commerce/user-guide/catalog/adding-tiered-pricing.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    </div>
+  </body>
+</html>

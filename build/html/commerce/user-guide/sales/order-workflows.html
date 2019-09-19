@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Order Workflows &#8212; Liferay Learn</title>
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="order-workflows">
+<h1>Order Workflows<a class="headerlink" href="#order-workflows" title="Permalink to this headline">¶</a></h1>
+<p>This article explains <em>Order Workflows</em> and gives an overview of the order workflow options available.</p>
+<p><em>Order Workflows</em> are a site-specific setting that, if enabled, require the buyer or seller to give internal prior approval for an order before it can be processed.</p>
+<p><img alt="Order Workflows" src="../../../_images/0186.png" /></p>
+<blockquote>
+<div><p><strong>Figure 1</strong>. Order Life Cycle with both <em>Approval Workflow</em> and <em>Transmission Workflow</em></p>
+</div></blockquote>
+<p>With two <em>Order Workflows</em> to choose from, <em>Approval Workflow</em> and <em>Transmission Workflow</em>, there are four order workflow options available out-of-the-box.</p>
+<ol>
+<li><p><strong>No <em>Order Workflows</em></strong></p>
+<p>If no order workflows are enabled, buyers simply proceed from open cart to placed order, and sellers simply review <em>Pending</em> orders, advance the orders to <em>Transmitted</em> and fulfill them.</p>
+</li>
+<li><p><strong><em>Approval Workflow</em> (Buyer-Side Cart Approval) Only</strong></p>
+<p>If <em>Approval Workflow</em> is enabled, the <em>Checkout</em> button in the mini-cart is replaced with a <em>Submit</em> button, indicating that the buyer must submit the cart for internal review and approval prior to beginning checkout. Once approved, the rest of the order life cycle (order placed, order transmitted, order fulfilled) takes place as normal.</p>
+</li>
+<li><p><strong><em>Transmission Workflow</em> (Seller-Side Order Approval) Only</strong></p>
+<p>If <em>Transmission Workflow</em> is enabled, going from open cart to order placed happens as normal. However, when the <em>Pending</em> order arrives at the seller, he must review the <em>Pending</em> order and either approve it or reject it (sending it back to the buyer) prior to advancing the order. Once the order is approved, the rest of the order life cycle (order transmitted, order fulfilled) moves forward as normal.</p>
+</li>
+<li><p><strong>Both <em>Approval Workflow</em> and <em>Transmission Workflow Order Workflows</em></strong></p>
+<p>If both <em>Approval Workflow</em> and <em>Transmission Workflow</em> are enabled, then the additional steps from both <em>Order Workflows</em> are present.</p>
+</li>
+</ol>
+<div class="section" id="additional-information">
+<h2>Additional Information<a class="headerlink" href="#additional-information" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="order-life-cycle.html"><span class="doc">Order Life Cycle</span></a></p></li>
+<li><p>Enabling Order Workflows</p></li>
+<li><p>Approving/Rejecting Orders in Order Workflows</p></li>
+<li><p><a class="reference internal" href="orders-menu.html"><span class="doc">Orders Menu</span></a></p></li>
+<li><p>Order Management Statuses</p></li>
+<li><p>Advancing an Order to Transmitted</p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Order Workflows</a><ul>
+<li><a class="reference internal" href="#additional-information">Additional Information</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/commerce/user-guide/sales/order-workflows.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    </div>
+  </body>
+</html>

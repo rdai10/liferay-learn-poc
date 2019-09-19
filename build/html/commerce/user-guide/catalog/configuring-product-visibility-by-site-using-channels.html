@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Configuring Product Visibility by Site Using Channels &#8212; Liferay Learn</title>
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="configuring-product-visibility-by-site-using-channels">
+<h1>Configuring Product Visibility by Site Using Channels<a class="headerlink" href="#configuring-product-visibility-by-site-using-channels" title="Permalink to this headline">¶</a></h1>
+<p>By default in Liferay Commerce Products added to any catalog are visible globally - products are visible across all sites added to a Liferay Commerce installation. Store administrators may want to limit product visibility to particular channels based on their criteria.</p>
+<p>For the purpose of this example, we will consider a scenario of a multi-region seller providing products from a single catalog.</p>
+<p><img alt="Catalog organization" src="../../../_images/0117.png" /></p>
+<p>To learn more about the using Channels in Liferay Commerce, see: <a class="reference internal" href="introduction-to-channels.html"><span class="doc">Introduction to Channels</span></a>.</p>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>More than one site has been created.</p></li>
+<li><p>Each site has an associated channel.</p></li>
+<li><p>Products have been added to a catalog.</p></li>
+</ol>
+</div>
+<div class="section" id="configuring-product-filter-channels">
+<h2>Configuring Product Filter Channels<a class="headerlink" href="#configuring-product-filter-channels" title="Permalink to this headline">¶</a></h2>
+<p>To configure a product to be available in a specific channel, follow these steps:</p>
+<ol>
+<li><p>Navigate to the <em>Control Panel</em> → <em>Commerce</em> → <em>Products</em>.</p></li>
+<li><p>Click a product (<em>Torque Converters</em> in this example).</p></li>
+<li><p>Click the <em>Configuration</em> sub-tab.</p></li>
+<li><p>Click the <em>Channels</em> sidebar option.</p></li>
+<li><p>Switch the <em>Enable filter channels</em> toggle to <em>Yes</em>.</p></li>
+<li><p>Check the boxes for each Channel (in this case, the <em>NA Minium Store</em>) where the product should be visible.</p>
+<p><img alt="Product configuration" src="../../../_images/0212.png" /></p>
+</li>
+<li><p>Click <em>Save</em>.</p></li>
+</ol>
+<p>The product will be visible only in the selected Channels.</p>
+</div>
+<div class="section" id="additional-information">
+<h2>Additional Information<a class="headerlink" href="#additional-information" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="introduction-to-channels.html"><span class="doc">Introduction to Channels</span></a></p></li>
+<li><p><a class="reference internal" href="managing-channels.html"><span class="doc">Managing Channels</span></a></p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Configuring Product Visibility by Site Using Channels</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#configuring-product-filter-channels">Configuring Product Filter Channels</a></li>
+<li><a class="reference internal" href="#additional-information">Additional Information</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/commerce/user-guide/catalog/configuring-product-visibility-by-site-using-channels.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    </div>
+  </body>
+</html>

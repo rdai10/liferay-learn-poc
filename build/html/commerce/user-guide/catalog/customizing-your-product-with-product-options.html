@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Customizing Your Products with Product Options &#8212; Liferay Learn</title>
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="customizing-your-products-with-product-options">
+<h1>Customizing Your Products with Product Options<a class="headerlink" href="#customizing-your-products-with-product-options" title="Permalink to this headline">¶</a></h1>
+<p>Option Templates and Product Options provide an easy and flexible way to offer products that have a variety of options such as size, quantity, and color.</p>
+<p>Before applying an option to a product, it is <em>necessary</em> to create an option template first.</p>
+<p>An option template can be applied to any product in the catalog. This makes it easy to apply frequently-used options to a large number of products. This article describes how to create an option template. Option Templates are created independently from a product so that changes to the template do not affect the product’s description.</p>
+<div class="section" id="roadmap">
+<h2>Roadmap<a class="headerlink" href="#roadmap" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="#creating-an-option-template">Creating an Option Template</a></p></li>
+<li><p><a class="reference external" href="#adding-option-values">Adding Option Values</a></p></li>
+<li><p><a class="reference external" href="#applying-an-option-template-to-a-product">Applying an Option Template to a Product</a></p></li>
+</ul>
+</div>
+<div class="section" id="creating-an-option-template">
+<h2>Creating an Option Template<a class="headerlink" href="#creating-an-option-template" title="Permalink to this headline">¶</a></h2>
+<p>To create an option template:</p>
+<ol>
+<li><p>Navigate to the <em>Control Panel</em> → <em>Commerce</em> → <em>Product</em>.</p></li>
+<li><p>Click on the <em>Options</em> tab. This displays a list of existing templates on the left of the page and the <em>Option Template Detail</em> form on the right.</p></li>
+<li><p>Click the (+) to add an Option Template.</p></li>
+<li><p>Enter the following:</p>
+<ul>
+<li><p><strong>Title</strong>: Color</p></li>
+<li><p><strong>Description</strong>: Choice of colors</p></li>
+<li><p><strong>Field Type</strong>: Select from List</p></li>
+<li><p><strong>Use in Faceted Navigation</strong>: Yes</p></li>
+<li><p><strong>Required</strong>: Yes</p></li>
+<li><p><strong>SKU Contributor:</strong> No</p></li>
+<li><p><strong>Key</strong>: (automatically generated)</p>
+<p><img alt="Option Template" src="../../../_images/0124.png" /></p>
+</li>
+</ul>
+</li>
+<li><p>Click <em>Save</em>.</p></li>
+</ol>
+<p>The Option Template has been added and can be applied to all products.</p>
+<p><strong>Note 1</strong>: When <em>Use in Faceted Navigation</em> is switched to <em>Active</em>, this enable to allow search results to be filtered for this option.</p>
+<p><strong>Note 2</strong>: A SKU contributor can be assigned a unique price and other attributes for each variant via <a class="reference internal" href="adding-skus-to-your-products.html"><span class="doc">SKUs</span></a>. If enabled, the option must have a SKU in order to be sold.</p>
+</div>
+<div class="section" id="adding-option-values">
+<h2>Adding Option Values<a class="headerlink" href="#adding-option-values" title="Permalink to this headline">¶</a></h2>
+<p>Depending on the Field Type used in the template, you may need to create values for that option. In this example, <em>Select from List</em> requires Option Values, such as the different product colors.</p>
+<p>To add multiple Option Values:</p>
+<ol>
+<li><p>Click the <em>Values</em> link next to <em>Color</em>.</p></li>
+<li><p>Click the (+) Add Option Values button.</p></li>
+<li><p>Enter the following:</p>
+<ul>
+<li><p><strong>Name:</strong> Black</p></li>
+<li><p><strong>Priority:</strong> 1.0</p></li>
+<li><p><strong>Key:</strong> (autogenerated from the <em>Name</em> field)</p>
+<p><img alt="Adding option values" src="../../../_images/0218.png" /></p>
+</li>
+</ul>
+</li>
+<li><p>Click <em>Save</em>.</p></li>
+</ol>
+<p><em>Black</em> is now added to the Color options. To add more colors, repeat the steps and increment the priority. For example, you can add <em>White</em> and priority set as 2.0 followed by <em>Blue</em> with priority 3.0, and so forth. Remember the priority field determines the order in which the options are displayed with the lowest values being displayed first.</p>
+</div>
+<div class="section" id="applying-an-option-template-to-a-product">
+<h2>Applying an Option Template to a Product<a class="headerlink" href="#applying-an-option-template-to-a-product" title="Permalink to this headline">¶</a></h2>
+<p>Once you apply a template to a product, you can make any changes to the product’s option. These changes will not affect the option template or any other product.</p>
+<p>To apply an option template to a product:</p>
+<ol>
+<li><p>Navigate to the <em>Control Panel</em> → <em>Commerce</em> → <em>Products</em>.</p></li>
+<li><p>Click the <em>Products</em> tab.</p></li>
+<li><p>Click on any product listed there. For example, if the Minium accelerator was used to create the site, one sample product is the <em>Torque Converters</em>.</p>
+<p><img alt="Selecting a product" src="../../../_images/033.png" /></p>
+</li>
+<li><p>Click <em>Torque Converters</em>.</p></li>
+<li><p>Click the <em>Options</em> tab.</p>
+<p><img alt="Options tab" src="../../../_images/042.png" /></p>
+</li>
+<li><p>Click the (+) button to add an Option.</p></li>
+<li><p>Check the box for <em>Package Quantity</em>.</p></li>
+<li><p>Enter <strong>1.0</strong> in the <em>Priority</em> field.</p>
+<p><img alt="Adding an option" src="../../../_images/052.png" /></p>
+</li>
+<li><p>Click <em>Save</em>.</p></li>
+</ol>
+<p>The Option Template is now applied; when the product is displayed on the catalog page, buyers may now select different quantities for Torque Converters.</p>
+</div>
+<div class="section" id="additional-information">
+<h2>Additional Information<a class="headerlink" href="#additional-information" title="Permalink to this headline">¶</a></h2>
+<p>Note that you can apply more than one option template per product and each option has its own unique display priority. In addition to <em>Package Quantity</em> (created by default in the Minium accelerator), there is the <em>Color</em> Option created in the Options Template section above. You may also change the Option Values on this screen without having to change the template itself.</p>
+<ol>
+<li><p>Click the <em>Values</em> link next to <em>Package Quantity</em>.</p></li>
+<li><p>Click the (+) button to add a new value.</p></li>
+<li><p>Enter the following:</p>
+<ul class="simple">
+<li><p><strong>Name:</strong> 60</p></li>
+<li><p><strong>Priority:</strong> 5.0</p></li>
+<li><p><strong>Key:</strong> (autogenerated)</p></li>
+</ul>
+</li>
+<li><p>Click <em>Save</em>.</p>
+<p><img alt="Adding value details" src="../../../_images/061.png" /></p>
+</li>
+</ol>
+<p>The new option has been added to the possible quantities a buyer can choose from.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Customizing Your Products with Product Options</a><ul>
+<li><a class="reference internal" href="#roadmap">Roadmap</a></li>
+<li><a class="reference internal" href="#creating-an-option-template">Creating an Option Template</a></li>
+<li><a class="reference internal" href="#adding-option-values">Adding Option Values</a></li>
+<li><a class="reference internal" href="#applying-an-option-template-to-a-product">Applying an Option Template to a Product</a></li>
+<li><a class="reference internal" href="#additional-information">Additional Information</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/commerce/user-guide/catalog/customizing-your-product-with-product-options.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    </div>
+  </body>
+</html>

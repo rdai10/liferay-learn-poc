@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Orders Menu &#8212; Liferay Learn</title>
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="orders-menu">
+<h1>Orders Menu<a class="headerlink" href="#orders-menu" title="Permalink to this headline">¶</a></h1>
+<p>All orders in Liferay Commerce can be viewed and managed by an administrator in the <em>Orders</em> menu. Here, orders are displayed in the <em>Open</em>, <em>Pending</em>, and <em>Transmitted</em> tabs according to the order’s progress through the <a class="reference internal" href="order-life-cycle.html"><span class="doc">order life cycle</span></a>.</p>
+<p><img alt="Orders Menu Overview" src="../../../_images/0187.png" /></p>
+<p>This article gives an overview of the <em>Open</em>, <em>Pending</em>, and <em>Transmitted</em> tabs.</p>
+<div class="section" id="open">
+<h2>Open<a class="headerlink" href="#open" title="Permalink to this headline">¶</a></h2>
+<p>In this tab, the order activity is exclusively on the buyer’s side. A new order is created in the <em>Open</em> tab when a buyer adds products to their cart. The order remains in this tab until the buyer places the order.</p>
+<blockquote>
+<div><p><strong>Note</strong>: If <em>Approval Workflow</em> is enabled, orders remain in the <em>Open</em> tab until the workflow process has completed and the order is placed.</p>
+</div></blockquote>
+<p><img alt="Open Tab" src="../../../_images/0257.png" /></p>
+</div>
+<div class="section" id="pending">
+<h2>Pending<a class="headerlink" href="#pending" title="Permalink to this headline">¶</a></h2>
+<p>The <em>Pending</em> tab serves as a holding place for orders – this is helpful for business contexts where not all placed orders are immediately transmitted. When a buyer places an order, the order moves to the <em>Pending</em> tab. Here, the seller can modify, cancel or transmit the order.</p>
+<blockquote>
+<div><p><strong>Note</strong>: If <em>Transmission Workflow</em> is enabled, orders remain in the <em>Pending</em> tab throughout the workflow process, even if the seller rejects an order, sending it back to the buyer.</p>
+</div></blockquote>
+<p><img alt="Pending Tab" src="../../../_images/0330.png" /></p>
+</div>
+<div class="section" id="transmitted">
+<h2>Transmitted<a class="headerlink" href="#transmitted" title="Permalink to this headline">¶</a></h2>
+<p>In this tab, the order activity is exclusively on the seller’s side. The seller transmits a <em>Pending</em> order by changing the order status (manually or via automation) from the “<em>To Transmit</em>” status to any other order status. At this point, the order moves to the <em>Transmitted</em> tab and, if configured,  is sent to an external system, such as Microsoft’s Dynamics GP, Oracle’s NetSuite, or SAP. The seller may then proceed with delivery of the ordered products to the buyer. Additional information may also be added to the order, such as an updated order status, shipping information and estimated arrival time.</p>
+<p><img alt="Transmitted Tab" src="../../../_images/0422.png" /></p>
+</div>
+<div class="section" id="additional-information">
+<h2>Additional Information<a class="headerlink" href="#additional-information" title="Permalink to this headline">¶</a></h2>
+<p>Order information in the <em>Orders</em> menu can also be presented to other users – particularly buyers – using the <em>Open Carts</em> widget (for orders on the <em>Open</em> tab) and the <em>Orders</em> widget (for orders on the <em>Pending</em> or <em>Transmitted</em> tabs). See <a class="reference internal" href="../content/pending-orders.html"><span class="doc">Pending Orders</span></a> and <a class="reference internal" href="../content/placed-orders.html"><span class="doc">Placed Orders</span></a> for details.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="order-life-cycle.html"><span class="doc">Order Life Cycle</span></a></p></li>
+<li><p><a class="reference internal" href="order-information.html"><span class="doc">Order Information</span></a></p></li>
+<li><p><a class="reference internal" href="order-workflows.html"><span class="doc">Order Workflows</span></a></p></li>
+<li><p>Order Management Statuses</p></li>
+<li><p>Advancing an Order to Transmitted</p></li>
+<li><p>Enabling Order Workflows</p></li>
+<li><p>Approving/Rejecting Orders in Order Workflows</p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Orders Menu</a><ul>
+<li><a class="reference internal" href="#open">Open</a></li>
+<li><a class="reference internal" href="#pending">Pending</a></li>
+<li><a class="reference internal" href="#transmitted">Transmitted</a></li>
+<li><a class="reference internal" href="#additional-information">Additional Information</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/commerce/user-guide/sales/orders-menu.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    </div>
+  </body>
+</html>

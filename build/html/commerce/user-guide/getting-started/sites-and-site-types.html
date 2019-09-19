@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Sites and Site Types &#8212; Liferay Learn</title>
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="sites-and-site-types">
+<h1>Sites and Site Types<a class="headerlink" href="#sites-and-site-types" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="sites">
+<h2>Sites<a class="headerlink" href="#sites" title="Permalink to this headline">¶</a></h2>
+<p>Liferay Commerce deployments consist of a hierarchy of Sites, Pages, Widgets, and Accounts. Creating and configuring a site in Liferay Commerce is one of the first steps to launching a store. You may use an <a class="reference internal" href="accelerators.html"><span class="doc">Accelerator</span></a> to jump start your site, or create a blank site and add the Commerce widgets and pages you require.</p>
+<p>Liferay Commerce is built on Liferay DXP. For more information about how Liferay DXP Sites work, see <a class="reference external" href="https://help.liferay.com/hc/en-us/articles/360018171231-Building-a-Site">Building a Site</a>.</p>
+<p>See the <a class="reference internal" href="store-setup-overview.html"><span class="doc">Store Setup Overview</span></a> for more information on creating a store site.</p>
+</div>
+<div class="section" id="site-types">
+<h2>Site Types<a class="headerlink" href="#site-types" title="Permalink to this headline">¶</a></h2>
+<p>Liferay Commerce uses Liferay Sites in combination with Site Types. Site Types designate your store’s business model and will determine how your storefront works with <a class="reference internal" href="../customers/introduction-to-accounts.html"><span class="doc">Accounts</span></a>.</p>
+<p>The following site types are available:</p>
+<ul class="simple">
+<li><p><strong>B2B</strong>: A business-to-business site that requires business accounts. In order to make purchases, individual user accounts <em>must</em> be associated with a business account. Using the <em>Minium</em> accelerator will jump start a site using the B2B site type.</p></li>
+<li><p><strong>B2C</strong>: A business-to-consumer site that requires personal accounts. Any authenticated user may make a purchase. Using the <em>Speedwell</em> accelerator (coming soon) will jump start a site using the B2C site type.</p></li>
+<li><p><strong>B2X</strong>: A B2C-B2B site recognizes personal and business accounts. Users may be associated with business accounts, but may also make purchases individually.</p></li>
+</ul>
+</div>
+<div class="section" id="setting-a-site-type">
+<h2>Setting a Site Type<a class="headerlink" href="#setting-a-site-type" title="Permalink to this headline">¶</a></h2>
+<p>It is best practice to set a site’s type as soon as you create it and avoid changing it in the future.</p>
+<p>To set your site’s type, navigate to <em>Site Administration</em> → <em>Commerce</em> → _<em>Settings</em> and select the Site Type tab. Select a type from the dropdown menu and click <em>Save</em>.</p>
+<p><img alt="Site Type" src="../../../_images/0165.png" /></p>
+<p>Changing a site’s type also changes which accounts appear in its Accounts widget. If an instance contains business accounts but a site’s type is set to B2C, those accounts still exist in the database but do not appear in the Accounts widget and are inaccessible to users.</p>
+</div>
+<div class="section" id="additional-information">
+<h2>Additional Information<a class="headerlink" href="#additional-information" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="store-setup-overview.html"><span class="doc">Store Setup Overview</span></a></p></li>
+<li><p><a class="reference external" href="https://help.liferay.com/hc/en-us/articles/360018171231-Building-a-Site">Building a Site</a></p></li>
+<li><p><a class="reference internal" href="../customers/introduction-to-accounts.html"><span class="doc">Introduction to Accounts</span></a></p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Sites and Site Types</a><ul>
+<li><a class="reference internal" href="#sites">Sites</a></li>
+<li><a class="reference internal" href="#site-types">Site Types</a></li>
+<li><a class="reference internal" href="#setting-a-site-type">Setting a Site Type</a></li>
+<li><a class="reference internal" href="#additional-information">Additional Information</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/commerce/user-guide/getting-started/sites-and-site-types.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    </div>
+  </body>
+</html>

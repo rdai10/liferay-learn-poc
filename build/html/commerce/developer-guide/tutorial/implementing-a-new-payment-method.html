@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Implementing a New Payment Method &#8212; Liferay Learn</title>
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="implementing-a-new-payment-method">
+<h1>Implementing a New Payment Method<a class="headerlink" href="#implementing-a-new-payment-method" title="Permalink to this headline">¶</a></h1>
+<p>This tutorial will show you how to add a new payment method by implementing the <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-api/src/main/java/com/liferay/commerce/payment/method/CommercePaymentMethod.java">CommercePaymentMethod</a> interface.</p>
+<p>Payment methods represent various ways customers can pay for orders. Liferay Commerce provides several out-of-the-box payment methods including <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-payment-method-authorize-net/src/main/java/com/liferay/commerce/payment/method/authorize/net/internal/AuthorizeNetCommercePaymentMethod.java">Authorize.Net</a>, <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-payment-method-mercanet/src/main/java/com/liferay/commerce/payment/method/mercanet/internal/MercanetCommercePaymentMethod.java">Mercanet</a>, <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-payment-method-money-order/src/main/java/com/liferay/commerce/payment/method/money/order/internal/MoneyOrderCommercePaymentMethod.java">Money Order</a>, and <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-payment-method-paypal/src/main/java/com/liferay/commerce/payment/method/paypal/internal/PayPalCommercePaymentMethod.java">PayPal</a>.</p>
+<p><img alt="Out-of-the-box payment methods" src="../../../_images/017.png" /></p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p><a class="reference external" href="#deploy-an-example"><strong>Deploy an Example</strong></a></p></li>
+<li><p><a class="reference external" href="#walk-through-the-example"><strong>Walk Through the Example</strong></a></p></li>
+<li><p><a class="reference external" href="#additional-information"><strong>Additional Information</strong></a></p></li>
+</ol>
+</div>
+<div class="section" id="deploy-an-example">
+<h2>Deploy an Example<a class="headerlink" href="#deploy-an-example" title="Permalink to this headline">¶</a></h2>
+<p>In this section, we will get an example payment method up and running on your instance of Liferay Commerce. Follow these steps:</p>
+<ol>
+<li><p>Start Liferay Commerce.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run -it -p <span class="m">8080</span>:8080 liferay/commerce:2.0.5
+</pre></div>
+</div>
+</li>
+<li><p>Download and unzip <a class="reference external" href="#">Acme Commerce Payment Method</a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl liferay-b1c3.zip
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>unzip liferay-b1c3.zip
+</pre></div>
+</div>
+</li>
+<li><p>Go to <code class="docutils literal notranslate"><span class="pre">liferay-b1c3</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> liferay-b1c3
+</pre></div>
+</div>
+</li>
+<li><p>Build and deploy the example.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./gradlew deploy -Ddeploy.docker.container.id<span class="o">=</span><span class="k">$(</span>docker ps -lq<span class="k">)</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>Note:</strong> This command is the same as copying the deployed jars to /opt/liferay/osgi/modules on the Docker container.</p>
+</div></blockquote>
+</li>
+<li><p>Confirm the deployment in the Docker container console.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>STARTED com.acme.b1c3.impl_1.0.0
+</pre></div>
+</div>
+</li>
+<li><p>Verify that the example payment method was added. Open your browser to <code class="docutils literal notranslate"><span class="pre">https://localhost:8080</span></code> and navigate to <em>Site Administration</em> → <em>Commerce</em> → <em>Settings</em> → <em>Payment Methods</em>.</p>
+<p><img alt="New payment method" src="../../../_images/026.png" /></p>
+</li>
+</ol>
+<p>Congratulations, you’ve successfully built and deployed a new payment method that implements <code class="docutils literal notranslate"><span class="pre">CommercePaymentMethod</span></code>.</p>
+<p>Next, let’s dive deeper to learn more.</p>
+</div>
+<div class="section" id="walk-through-the-example">
+<h2>Walk Through the Example<a class="headerlink" href="#walk-through-the-example" title="Permalink to this headline">¶</a></h2>
+<p>In this section, we will review the example we deployed. First, we will annotate the class for OSGi registration. Second, we will review the <code class="docutils literal notranslate"><span class="pre">CommercePaymentMethod</span></code> interface. And third, we will complete our implementation of <code class="docutils literal notranslate"><span class="pre">CommercePaymentMethod</span></code>.</p>
+<div class="section" id="annotate-the-class-for-osgi-registration">
+<h3>Annotate the Class for OSGi Registration<a class="headerlink" href="#annotate-the-class-for-osgi-registration" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Component</span><span class="o">(</span>
+	<span class="n">immediate</span> <span class="o">=</span> <span class="kc">true</span><span class="o">,</span>
+	<span class="n">property</span> <span class="o">=</span> <span class="s">&quot;commerce.payment.engine.method.key=&quot;</span> <span class="o">+</span> <span class="n">B1C3CommercePaymentMethod</span><span class="o">.</span><span class="na">KEY</span><span class="o">,</span>
+	<span class="n">service</span> <span class="o">=</span> <span class="n">CommercePaymentMethod</span><span class="o">.</span><span class="na">class</span>
+<span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">B1C3CommercePaymentMethod</span> <span class="kd">implements</span> <span class="n">CommercePaymentMethod</span> <span class="o">{</span>
+
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">KEY</span> <span class="o">=</span> <span class="s">&quot;Example&quot;</span><span class="o">;</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>It is important to provide a distinct key for the payment method so that Liferay Commerce can distinguish our new payment method from others in the <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-payment-service/src/main/java/com/liferay/commerce/payment/internal/method/CommercePaymentMethodRegistryImpl.java">payment method registry</a>. Reusing a key that is already in use will override the existing associated payment method.</p>
+</div></blockquote>
+</div>
+<div class="section" id="review-the-commercepaymentmethod-interface">
+<h3>Review the <code class="docutils literal notranslate"><span class="pre">CommercePaymentMethod</span></code> Interface<a class="headerlink" href="#review-the-commercepaymentmethod-interface" title="Permalink to this headline">¶</a></h3>
+<p>Implement the following methods:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span>	<span class="kd">public</span> <span class="n">String</span> <span class="nf">getDescription</span><span class="o">(</span><span class="n">Locale</span> <span class="n">locale</span><span class="o">);</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>This populates the “Description” column in the <em>Payment Methods</em> administration page. See the implementation in <a class="reference external" href="./implementing-a-new-payment-method/liferay-b1c3.zip/b1c3-impl/src/main/java/com/acme/b1c3/internal/commerce/payment/method/B1C3CommercePaymentMethod.java">B1C3CommercePaymentMethod.java</a> for a reference in retrieving the description with a language key.</p>
+</div></blockquote>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span>	<span class="kd">public</span> <span class="n">String</span> <span class="nf">getKey</span><span class="o">();</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>This provides a unique identifier for the payment method in the payment method registry. The key can be used to fetch the payment method from the registry. Reusing a key that is already in use will override the existing associated payment method.</p>
+</div></blockquote>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span>	<span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">(</span><span class="n">Locale</span> <span class="n">locale</span><span class="o">);</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>This populates the “Name” column in the <em>Payment Methods</em> administration page. It works similarly to the <code class="docutils literal notranslate"><span class="pre">getDescription</span></code> method.</p>
+</div></blockquote>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span>	<span class="kd">public</span> <span class="kt">int</span> <span class="nf">getPaymentType</span><span class="o">();</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>This identifies how the payment engine will use a given payment method.</p>
+<p>We use the value <code class="docutils literal notranslate"><span class="pre">COMMERCE_PAYMENT_METHOD_TYPE_OFFLINE</span></code> to inform the payment engine that there are no online processing requirements for this payment method. There are two other payment type constants available out-of-the-box: <code class="docutils literal notranslate"><span class="pre">COMMERCE_PAYMENT_METHOD_TYPE_ONLINE_STANDARD</span></code> and <code class="docutils literal notranslate"><span class="pre">COMMERCE_PAYMENT_METHOD_TYPE_ONLINE_REDIRECT</span></code>.</p>
+</div></blockquote>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span>	<span class="kd">public</span> <span class="n">String</span> <span class="nf">getServletPath</span><span class="o">();</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>A servlet may be required to enable proper interfacing with an external payment provider for online payment methods. Since no servlet path is required for an offline payment method, <code class="docutils literal notranslate"><span class="pre">getServletPath</span></code> must return <code class="docutils literal notranslate"><span class="pre">null</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="complete-the-payment-method">
+<h3>Complete the Payment Method<a class="headerlink" href="#complete-the-payment-method" title="Permalink to this headline">¶</a></h3>
+<p>The payment method is comprised of backend logic for processing and completing payments, as well as many more optional custom behaviors. Do the following:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#implement-payment-processing-logic">Implement payment processing logic.</a></p></li>
+<li><p><a class="reference external" href="#implement-payment-completion-logic">Implement payment completion logic.</a></p></li>
+<li><p><a class="reference external" href="#implement-optional-methods">Implement optional methods.</a></p></li>
+<li><p><a class="reference external" href="#add-the-language-keys-to-languageproperties">Add the language keys to <code class="docutils literal notranslate"><span class="pre">Language.properties</span></code>.</a></p></li>
+</ul>
+<div class="section" id="implement-payment-processing-logic">
+<h4>Implement Payment Processing Logic<a class="headerlink" href="#implement-payment-processing-logic" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isProcessPaymentEnabled</span><span class="o">()</span> <span class="o">{</span>
+	<span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>This method must return true for the payment method to process payments. This informs the payment engine what functionality is supported by our payment method.</p>
+</div></blockquote>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="n">CommercePaymentResult</span> <span class="nf">processPayment</span><span class="o">(</span>
+		<span class="n">CommercePaymentRequest</span> <span class="n">commercePaymentRequest</span><span class="o">)</span>
+	<span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+
+	<span class="k">return</span> <span class="k">new</span> <span class="n">CommercePaymentResult</span><span class="o">(</span>
+		<span class="kc">null</span><span class="o">,</span> <span class="n">commercePaymentRequest</span><span class="o">.</span><span class="na">getCommerceOrderId</span><span class="o">(),</span>
+		<span class="n">CommerceOrderConstants</span><span class="o">.</span><span class="na">PAYMENT_STATUS_AUTHORIZED</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span>
+		<span class="n">Collections</span><span class="o">.</span><span class="na">emptyList</span><span class="o">(),</span> <span class="kc">true</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>Implement custom payment logic in this method. The <code class="docutils literal notranslate"><span class="pre">CommercePaymentResult</span></code> should store information relevant to the processing of a payment. See <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-api/src/main/java/com/liferay/commerce/payment/result/CommercePaymentResult.java">CommercePaymentResult.java</a> for more information.</p>
+</div></blockquote>
+</div>
+<div class="section" id="implement-payment-completion-logic">
+<h4>Implement Payment Completion Logic<a class="headerlink" href="#implement-payment-completion-logic" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isCompleteEnabled</span><span class="o">()</span> <span class="o">{</span>
+	<span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>This must return true for the payment method to complete payments. This informs the payment engine what functionality is supported by our payment method.</p>
+</div></blockquote>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="n">CommercePaymentResult</span> <span class="nf">completePayment</span><span class="o">(</span>
+		<span class="n">CommercePaymentRequest</span> <span class="n">commercePaymentRequest</span><span class="o">)</span>
+	<span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+
+	<span class="k">return</span> <span class="k">new</span> <span class="n">CommercePaymentResult</span><span class="o">(</span>
+		<span class="kc">null</span><span class="o">,</span> <span class="n">commercePaymentRequest</span><span class="o">.</span><span class="na">getCommerceOrderId</span><span class="o">(),</span>
+		<span class="n">CommerceOrderConstants</span><span class="o">.</span><span class="na">PAYMENT_STATUS_PAID</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span>
+		<span class="n">Collections</span><span class="o">.</span><span class="na">emptyList</span><span class="o">(),</span> <span class="kc">true</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>Implement custom payment completion logic in this method.  <code class="docutils literal notranslate"><span class="pre">CommercePaymentResult</span></code> is a container that stores information relevant to the completion of a payment process. See <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-api/src/main/java/com/liferay/commerce/payment/result/CommercePaymentResult.java">CommercePaymentResult.java</a> for more information.</p>
+</div></blockquote>
+</div>
+<div class="section" id="implement-optional-methods">
+<h4>Implement Optional Methods<a class="headerlink" href="#implement-optional-methods" title="Permalink to this headline">¶</a></h4>
+<p>There are additional methods that may be implemented to provide additional functionality, such as subscriptions, recurring payments, and refunds. These can be seen in <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-api/src/main/java/com/liferay/commerce/payment/method/CommercePaymentMethod.java">CommercePaymentMethod.java</a>. These methods come in pairs: one method to enable and the other to implement a given piece of functionality.</p>
+<p>Many of these methods are important for payment methods using online APIs. See <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-payment-method-paypal/src/main/java/com/liferay/commerce/payment/method/paypal/internal/PayPalCommercePaymentMethod.java">PayPalCommercePaymentMethod</a> for an example of an online payment method.</p>
+<p>Our example does not override any of these optional methods.</p>
+</div>
+<div class="section" id="add-the-language-keys-to-language-properties">
+<h4>Add the Language Keys to <code class="docutils literal notranslate"><span class="pre">Language.properties</span></code><a class="headerlink" href="#add-the-language-keys-to-language-properties" title="Permalink to this headline">¶</a></h4>
+<p>Add the language keys and their values to a <a class="reference external" href="./implementing-a-new-payment-method/liferay-b1c3.zip/b1c3-impl/src/main/resources/content/Language.properties">Language.properties</a> file within our module:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">example</span><span class="o">=</span><span class="n">Example</span>
+<span class="n">this</span><span class="o">-</span><span class="ow">is</span><span class="o">-</span><span class="n">the</span><span class="o">-</span><span class="n">example</span><span class="o">-</span><span class="n">payment</span><span class="o">-</span><span class="n">method</span><span class="o">=</span><span class="n">This</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">Example</span> <span class="n">Payment</span> <span class="n">Method</span><span class="o">.</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>See <a class="reference external" href="https://help.liferay.com/hc/en-us/articles/360018168251-Localizing-Your-Application">Localizing Your Application</a> for more information.</p>
+</div></blockquote>
+</div>
+</div>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>Congratulations! You now know the basics for implementing the <code class="docutils literal notranslate"><span class="pre">CommercePaymentMethod</span></code> interface and have added a new payment method to Liferay Commerce.</p>
+</div>
+<div class="section" id="additional-information">
+<h2>Additional Information<a class="headerlink" href="#additional-information" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://help.liferay.com/hc/en-us/articles/360018168251-Localizing-Your-Application">Localizing Your Application</a></p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Implementing a New Payment Method</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#deploy-an-example">Deploy an Example</a></li>
+<li><a class="reference internal" href="#walk-through-the-example">Walk Through the Example</a><ul>
+<li><a class="reference internal" href="#annotate-the-class-for-osgi-registration">Annotate the Class for OSGi Registration</a></li>
+<li><a class="reference internal" href="#review-the-commercepaymentmethod-interface">Review the <code class="docutils literal notranslate"><span class="pre">CommercePaymentMethod</span></code> Interface</a></li>
+<li><a class="reference internal" href="#complete-the-payment-method">Complete the Payment Method</a><ul>
+<li><a class="reference internal" href="#implement-payment-processing-logic">Implement Payment Processing Logic</a></li>
+<li><a class="reference internal" href="#implement-payment-completion-logic">Implement Payment Completion Logic</a></li>
+<li><a class="reference internal" href="#implement-optional-methods">Implement Optional Methods</a></li>
+<li><a class="reference internal" href="#add-the-language-keys-to-language-properties">Add the Language Keys to <code class="docutils literal notranslate"><span class="pre">Language.properties</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#conclusion">Conclusion</a></li>
+<li><a class="reference internal" href="#additional-information">Additional Information</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/commerce/developer-guide/tutorial/implementing-a-new-payment-method.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    </div>
+  </body>
+</html>

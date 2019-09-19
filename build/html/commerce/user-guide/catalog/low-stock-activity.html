@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Low Stock Activity &#8212; Liferay Learn</title>
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="low-stock-activity">
+<h1>Low Stock Activity<a class="headerlink" href="#low-stock-activity" title="Permalink to this headline">¶</a></h1>
+<p>This article documents how to set up automated actions for when product inventory falls below a specified threshold. Out-of-the-box, Liferay Commerce allows users to automatically set products as unpublished when they reach the defined inventory threshold. Store owners may also  configure the catalog to display remaining product quantity in inventory.</p>
+<p>To configure a Low Stock Activity:</p>
+<ol>
+<li><p>Navigate to the <em>Control Panel</em> → <em>Commerce</em> → <em>Products</em>.</p></li>
+<li><p>Click on a product (for example, <em>U-Joint</em>)</p></li>
+<li><p>Click the <em>Configurations</em> sub-tab.</p></li>
+<li><p>Enter the following:</p>
+<ul class="simple">
+<li><p><strong>Inventory Engine</strong>: Default</p></li>
+<li><p><strong>Availability Estimate</strong>: 5-7 Days</p></li>
+<li><p><strong>Display Availability</strong>: YES</p></li>
+<li><p><strong>Display Stock Quantity</strong>: YES</p></li>
+<li><p><strong>Low Stock Threshold</strong>: 5</p></li>
+<li><p><strong>Low Stock Action</strong>: Set as Unpublished</p></li>
+<li><p><strong>Allow Back Orders</strong>: Yes</p></li>
+<li><p><strong>Minimum Order Quantity</strong>: 1</p></li>
+<li><p><strong>Maximum Order Quantity</strong>: 5</p></li>
+<li><p><strong>Allowed Order Quantities</strong>: 1</p></li>
+<li><p><strong>Multiple Order Quantity</strong>: 1</p></li>
+</ul>
+<p><img alt="Product Configuration for Low Stock Activity" src="../../../_images/0128.png" /></p>
+</li>
+<li><p>Click <em>Save</em>.</p></li>
+</ol>
+<p>The Low Stock Activity for this product has been configured. In the future, should the number of stock fall below <em>5</em>, the “U-Joint” product will be unpublished.</p>
+<div class="section" id="additional-information">
+<h2>Additional Information<a class="headerlink" href="#additional-information" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="../product-inventory-configuration-reference/README">Product Inventory Configuration Reference</a></p></li>
+<li><p><a class="reference internal" href="../../developer-guide/tutorial/implementing-a-custom-low-stock-activity.html"><span class="doc">Implementing a Custom Low Stock Activity</span></a></p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Low Stock Activity</a><ul>
+<li><a class="reference internal" href="#additional-information">Additional Information</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/commerce/user-guide/catalog/low-stock-activity.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    </div>
+  </body>
+</html>

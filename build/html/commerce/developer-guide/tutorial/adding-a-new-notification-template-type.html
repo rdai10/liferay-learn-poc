@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Adding a New Notification Template Type &#8212; Liferay Learn</title>
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="adding-a-new-notification-template-type">
+<h1>Adding a New Notification Template Type<a class="headerlink" href="#adding-a-new-notification-template-type" title="Permalink to this headline">¶</a></h1>
+<p>This tutorial will show you how to add a new notification template type by implementing the <code class="docutils literal notranslate"><span class="pre">Foo</span></code> interface.</p>
+<p><Introduce the thing> Liferay Commerce provides …</p>
+<p>(Establishing Image Placeholder)</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p><a class="reference external" href="#deploy-an-example"><strong>Deploy an Example</strong></a></p></li>
+<li><p><a class="reference external" href="#walk-through-the-example"><strong>Walk Through the Example</strong></a></p></li>
+<li><p><a class="reference external" href="#additional-information"><strong>Additional Information</strong></a></p></li>
+</ol>
+</div>
+<div class="section" id="deploy-an-example">
+<h2>Deploy an Example<a class="headerlink" href="#deploy-an-example" title="Permalink to this headline">¶</a></h2>
+<p>In this section, we will get an example … up and running on your instance of Liferay Commerce. Follow these steps:</p>
+<ol>
+<li><p>Start Liferay Commerce.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run -it -p <span class="m">8080</span>:8080 liferay/commerce:2.0.5
+</pre></div>
+</div>
+</li>
+<li><p>Download and unzip <a class="reference external" href="#">Acme Commerce …</a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl liferay-xxxx.zip
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>unzip liferay-xxxx.zip
+</pre></div>
+</div>
+</li>
+<li><p>Go to <code class="docutils literal notranslate"><span class="pre">liferay-xxxx</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> liferay-xxxx
+</pre></div>
+</div>
+</li>
+<li><p>Build and deploy the example.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./gradlew deploy -Ddeploy.docker.container.id<span class="o">=</span><span class="k">$(</span>docker ps -lq<span class="k">)</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>Note: This command is the same as copying the deployed jars to /opt/liferay/osgi/modules on the Docker container.</p>
+</div></blockquote>
+</li>
+<li><p>Confirm the deployment in the Liferay Docker container console.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>STARTED com.acme.xxxx.impl_1.0.0
+</pre></div>
+</div>
+</li>
+<li><p>Verify that the example … was added. Open your browser to <code class="docutils literal notranslate"><span class="pre">https://localhost:8080</span></code> and navigate to …</p></li>
+</ol>
+<p>(Deployed Sample Image Placeholder)</p>
+<p>Congratulations, you’ve successfully built and deployed a new … that implements <code class="docutils literal notranslate"><span class="pre">Foo</span></code>.</p>
+<p>Next, let’s dive deeper to learn more.</p>
+</div>
+<div class="section" id="walk-through-the-example">
+<h2>Walk Through the Example<a class="headerlink" href="#walk-through-the-example" title="Permalink to this headline">¶</a></h2>
+<p>In this section, we will review the example we deployed. First, we will annotate the class for OSGi registration. Second, we will review the <code class="docutils literal notranslate"><span class="pre">Foo</span></code> interface. And third, we will complete our implementation of <code class="docutils literal notranslate"><span class="pre">Foo</span></code>.</p>
+<div class="section" id="annotate-your-class-for-osgi-registration">
+<h3>Annotate Your Class for OSGi Registration<a class="headerlink" href="#annotate-your-class-for-osgi-registration" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="review-the-foo-interface">
+<h3>Review the <code class="docutils literal notranslate"><span class="pre">Foo</span></code> Interface<a class="headerlink" href="#review-the-foo-interface" title="Permalink to this headline">¶</a></h3>
+<p>Implement the following methods:</p>
+<p>…</p>
+</div>
+<div class="section" id="complete-the">
+<h3>Complete the …<a class="headerlink" href="#complete-the" title="Permalink to this headline">¶</a></h3>
+<p>The … is comprised of …. Do the following:</p>
+<p>…</p>
+</div>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>Congratulations! You now know the basics for implementing the <code class="docutils literal notranslate"><span class="pre">Foo</span></code> interface, and have added a new … to Liferay Commerce.</p>
+</div>
+<div class="section" id="additional-information">
+<h2>Additional Information<a class="headerlink" href="#additional-information" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Adding a New Notification Template Type</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#deploy-an-example">Deploy an Example</a></li>
+<li><a class="reference internal" href="#walk-through-the-example">Walk Through the Example</a><ul>
+<li><a class="reference internal" href="#annotate-your-class-for-osgi-registration">Annotate Your Class for OSGi Registration</a></li>
+<li><a class="reference internal" href="#review-the-foo-interface">Review the <code class="docutils literal notranslate"><span class="pre">Foo</span></code> Interface</a></li>
+<li><a class="reference internal" href="#complete-the">Complete the …</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#conclusion">Conclusion</a></li>
+<li><a class="reference internal" href="#additional-information">Additional Information</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/commerce/developer-guide/tutorial/adding-a-new-notification-template-type.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    </div>
+  </body>
+</html>

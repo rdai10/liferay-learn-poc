@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Creating a Grouped Product &#8212; Liferay Learn</title>
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="creating-a-grouped-product">
+<h1>Creating a Grouped Product<a class="headerlink" href="#creating-a-grouped-product" title="Permalink to this headline">¶</a></h1>
+<p>A Grouped Product in Liferay Commerce is two or more products from the catalog that are packaged together to be sold as a single item. Grouped Products are not tracked in the inventory. Instead, the catalog tracks all of the products contained in the group individually. A Grouped Product can contain simple products, other Grouped Products, or virtual products.</p>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>Before creating a Grouped Product, ensure that the following conditions have been met:</p>
+<ol class="simple">
+<li><p>The individual products to be sold as a Grouped Product have been created in the catalog.</p>
+<ul class="simple">
+<li><p>All SKUs have been generated.</p></li>
+<li><p>All prices have been set.</p></li>
+<li><p>The products can be both simple and virtual.</p></li>
+</ul>
+</li>
+<li><p>The individual products have sufficient quantities in the inventory.</p></li>
+</ol>
+</div>
+<div class="section" id="roadmap">
+<h2>Roadmap<a class="headerlink" href="#roadmap" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="#create-a-grouped-product">Create a Grouped Product</a></p></li>
+<li><p><a class="reference external" href="#associate-products-in-group">Associate Products in Group</a></p></li>
+<li><p><a class="reference external" href="#apply-product-options">Apply Product Options</a></p></li>
+<li><p><a class="reference external" href="#generate-skus">Generate SKUs</a></p></li>
+<li><p><a class="reference external" href="#set-prices-and-quantities-in-the-inventory">Set Prices and Quantities in the Inventory</a></p></li>
+<li><p><a class="reference external" href="#configure-product-specifications">Configure Product Specifications</a></p></li>
+<li><p><a class="reference external" href="#upload-product-images-and-attachments">Upload Product Images and Attachments</a></p></li>
+<li><p><a class="reference external" href="#organize-with-categories">Organize with Categories</a></p></li>
+<li><p><a class="reference external" href="#associate-with-related-products">Associate with Related Products</a></p></li>
+<li><p><a class="reference external" href="#setting-grouped-products">Selling Grouped Products</a></p></li>
+</ul>
+<div class="section" id="create-a-grouped-product">
+<h3>Create a Grouped Product<a class="headerlink" href="#create-a-grouped-product" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Navigate to <em>Control Panel</em> → <em>Commerce</em> → <em>Products</em>.</p></li>
+<li><p>Click the (+) button then <em>Grouped</em>.</p></li>
+<li><p>Enter the following:</p>
+<ul class="simple">
+<li><p><strong>Catalog</strong>: Sahara.com</p></li>
+<li><p><strong>Name</strong>: Dog Grooming Kit</p></li>
+<li><p><strong>Short Description</strong>: Max’s Dog Grooming Kit</p></li>
+<li><p><strong>Friendly URL</strong>: (auto-generated)</p></li>
+<li><p><strong>Meta Title</strong>: Dog Grooming Kit</p></li>
+</ul>
+</li>
+<li><p>Click <em>Publish</em>.</p></li>
+</ol>
+<p>Once the Grouped Product entity has been initially created, store administrators will need to associate the individual products to the grouped product entry.</p>
+</div>
+<div class="section" id="associate-products-in-group">
+<h3>Associate Products in Group<a class="headerlink" href="#associate-products-in-group" title="Permalink to this headline">¶</a></h3>
+<ol>
+<li><p>Click the <em>Grouped</em> sub-tab.</p>
+<p><img alt="Details Sub-Tab" src="../../../_images/0118.png" /></p>
+</li>
+<li><p>Click the (+) button to add a Grouped Entry.</p></li>
+<li><p>Select the following products: <em>Dog Hair Brush</em>, <em>Dog Nail File</em>, and <em>Dog Shampoo</em>.</p></li>
+<li><p>Click <em>Add</em>.</p>
+<p><img alt="Grouped Sub-Tab" src="../../../_images/0213.png" /></p>
+</li>
+</ol>
+<p>Next, specify the priority (the order in which they are displayed), and the quantity sold in each package. Click the <em>3-dot</em> icon then <em>Edit</em> next to any of the products.</p>
+<p><img alt="Adding a Product to a Grouped Product" src="../../../_images/031.png" /></p>
+<p>In the image above, the product has been given priority 1.0 which means it will be listed first. Assign incremental values to the other products.</p>
+<p><img alt="Grouped Product Priority" src="../../../_images/04.png" /></p>
+</div>
+<div class="section" id="apply-product-options">
+<h3>Apply Product Options<a class="headerlink" href="#apply-product-options" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="customizing-your-product-with-product-options.html"><span class="doc">Product Options</span></a> provide an easy and flexible way to offer products that have a variety of options such as size, quantity, and color. Click the <em>Options</em> sub-tab to add various options to the product.</p>
+</div>
+<div class="section" id="generate-skus">
+<h3>Generate SKUs<a class="headerlink" href="#generate-skus" title="Permalink to this headline">¶</a></h3>
+<p>Once you have applied product options to the product, SKUs have to be generated. For more information about how to generate SKUs, see the article <a class="reference internal" href="adding-skus-to-your-products.html"><span class="doc">Adding SKUs to Your Products</span></a>. Click the <em>SKUs</em> sub-tab to generate the SKUs.</p>
+</div>
+<div class="section" id="set-prices-and-quantities-in-the-inventory">
+<h3>Set Prices and Quantities in the Inventory<a class="headerlink" href="#set-prices-and-quantities-in-the-inventory" title="Permalink to this headline">¶</a></h3>
+<p>After the SKUs have been generated, set the base price and quantities in the inventory for each item. Depending on how many SKUs were generated based on the various product options, each SKU can have its own prices. Some products are sold in bulk quantities while others are sold individually.</p>
+<p>To set product prices and quantities:</p>
+<ol>
+<li><p>Click the <em>3-dot</em> icon then <em>Edit</em> next to <em>default</em>. (At this point, you can rename the SKU to something more descriptive like <em>Dog Grooming Kit</em> on the <em>Details</em> menu.)</p></li>
+<li><p>Click <em>Pricing</em> on the left menu.</p></li>
+<li><p>Enter the following:</p>
+<ul>
+<li><p><strong>Price</strong>: 21.00</p></li>
+<li><p><strong>Promo Price</strong>: 0.00</p></li>
+<li><p><strong>Cost</strong>: 0.00</p>
+<p><img alt="Grouped Product Pricing" src="commerce/user-guide/catalog/./images/06.png" /></p>
+</li>
+</ul>
+</li>
+<li><p>Click <em>Save</em>. (If Promo Price and Cost fields are left as 0.00, no discounts or promotions are applied at this point.)</p></li>
+<li><p>Click <em>Price List</em> to apply this product to any existing <a class="reference external" href="../../../managing-price/price-lists/adding-products-to-a-price-list/README">Price Lists</a>.</p></li>
+</ol>
+<blockquote>
+<div><p>To learn more about pricing see: <a class="reference external" href="../../../managing-price/introduction-to-product-pricing-methods/README">Introduction to Product Pricing Methods</a></p>
+</div></blockquote>
+<p>To learn how to configure inventory for your product, see: <a class="reference external" href="../../../managing-inventory/setting-inventory-by-warehouse/README">Setting Inventory by Warehouse</a>.</p>
+</div>
+<div class="section" id="configure-product-specifications">
+<h3>Configure Product Specifications<a class="headerlink" href="#configure-product-specifications" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="specifications.html"><span class="doc">Product specifications</span></a> contain useful pieces of product information about the product, such as dimensions, color, weight, capacity, or almost any other attribute. Click the <em>Specifications</em> sub-tab to add specifications.</p>
+</div>
+<div class="section" id="upload-product-images-and-attachments">
+<h3>Upload Product Images and Attachments<a class="headerlink" href="#upload-product-images-and-attachments" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="product-images.html"><span class="doc">Product images</span></a> help to ensure that customers know what they are buying. Each product variant (SKU) can have their own associated product image. Click the <em>Images</em> sub-tab to add all product images.</p>
+<p>Store administrators can also add attachments that are associated with a particular product. Click the <em>Attachments</em> sub-tab to add documents.</p>
+</div>
+<div class="section" id="organize-with-categories">
+<h3>Organize with Categories<a class="headerlink" href="#organize-with-categories" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="creating-a-new-product-category.html"><span class="doc">Product Categories</span></a> are used to organize products. Product categories may be used to apply discounts or other offers to a set of products, to assist buyers in finding products, or to promote certain products to a specified account or account group.</p>
+</div>
+<div class="section" id="associate-with-related-products">
+<h3>Associate with Related Products<a class="headerlink" href="#associate-with-related-products" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="../../product-information/product-relations/README">Product Relations</a> can be used to connect products. Once connected, a product displays the links to other products. Every related product must be assigned to a Product Relation Type.</p>
+</div>
+<div class="section" id="selling-grouped-products">
+<h3>Selling Grouped Products<a class="headerlink" href="#selling-grouped-products" title="Permalink to this headline">¶</a></h3>
+<p>The new Grouped Product appears in the catalog. As long as each individual product has enough stock in the inventory, buyers can select the Grouped Product for purchase.</p>
+<p><img alt="Dog Grooming Kit" src="../../../_images/05.png" /></p>
+</div>
+</div>
+<div class="section" id="additional-information">
+<h2>Additional Information<a class="headerlink" href="#additional-information" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="introduction-to-product-types.html"><span class="doc">Introduction to Product Types</span></a></p></li>
+<li><p><a class="reference internal" href="creating-a-simple-product.html"><span class="doc">Creating a Simple Product</span></a></p></li>
+<li><p><a class="reference internal" href="creating-a-virtual-product.html"><span class="doc">Creating a Virtual Product</span></a></p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Creating a Grouped Product</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#roadmap">Roadmap</a><ul>
+<li><a class="reference internal" href="#create-a-grouped-product">Create a Grouped Product</a></li>
+<li><a class="reference internal" href="#associate-products-in-group">Associate Products in Group</a></li>
+<li><a class="reference internal" href="#apply-product-options">Apply Product Options</a></li>
+<li><a class="reference internal" href="#generate-skus">Generate SKUs</a></li>
+<li><a class="reference internal" href="#set-prices-and-quantities-in-the-inventory">Set Prices and Quantities in the Inventory</a></li>
+<li><a class="reference internal" href="#configure-product-specifications">Configure Product Specifications</a></li>
+<li><a class="reference internal" href="#upload-product-images-and-attachments">Upload Product Images and Attachments</a></li>
+<li><a class="reference internal" href="#organize-with-categories">Organize with Categories</a></li>
+<li><a class="reference internal" href="#associate-with-related-products">Associate with Related Products</a></li>
+<li><a class="reference internal" href="#selling-grouped-products">Selling Grouped Products</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#additional-information">Additional Information</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/commerce/user-guide/catalog/creating-a-grouped-product.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    </div>
+  </body>
+</html>

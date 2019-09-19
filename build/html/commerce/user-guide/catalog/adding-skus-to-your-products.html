@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Adding SKUs to Your Products &#8212; Liferay Learn</title>
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="adding-skus-to-your-products">
+<h1>Adding SKUs to Your Products<a class="headerlink" href="#adding-skus-to-your-products" title="Permalink to this headline">¶</a></h1>
+<p>SKUs provide a convenient way to inventory and price multiple product variants. This article describes how to automatically generate SKUs once Products and Product Options have been created in the catalog and how to add SKUs manually.</p>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>In order to auto-generate SKUs, the following must be completed:</p>
+<ul class="simple">
+<li><p>Product options templates have been created.</p></li>
+<li><p>Product options have been applied to your product(s).</p></li>
+</ul>
+<p>See <a class="reference internal" href="customizing-your-product-with-product-options.html"><span class="doc">Customizing Your Product with Product Options</span></a> for more information.</p>
+</div>
+<div class="section" id="generating-all-sku-combinations-automatic">
+<h2>Generating All SKU Combinations (Automatic)<a class="headerlink" href="#generating-all-sku-combinations-automatic" title="Permalink to this headline">¶</a></h2>
+<p>The fastest and easiest way to add SKUs to your products is use the <em>Generate All SKU Combinations</em> feature.</p>
+<p>It’s highly recommended all the product options (templates and values) be finalized for your product before using the <em>Generate All SKU Combinations</em> feature.</p>
+<p>Once your product options are created, here’s how to quickly and easily generate SKUs for all product variants:</p>
+<ol>
+<li><p>Navigate to the <em>Control Panel</em> → <em>Commerce</em> → <em>Products</em>.</p></li>
+<li><p>Click on a product (<em>Torque Converters</em> in this example).</p></li>
+<li><p>Click the <em>SKUs</em> sub-tab.</p></li>
+<li><p>Click the (+) button.</p></li>
+<li><p>Click Generate All SKU Combinations.</p>
+<p><img alt="SKUs tab" src="../../../_images/0114.png" /></p>
+</li>
+</ol>
+<p>The SKUs for Black and Gray Product Options have been generated. Repeat the steps for other products as necessary.</p>
+</div>
+<div class="section" id="modifying-a-sku-manual">
+<h2>Modifying a SKU (Manual)<a class="headerlink" href="#modifying-a-sku-manual" title="Permalink to this headline">¶</a></h2>
+<p>When you create a product, a single SKU (named <em>default</em>) is automatically created. You may wish to manually change this generated SKU.</p>
+<p>To modify this SKU:</p>
+<ol>
+<li><p>Navigate to the <em>Control Panel</em> → <em>Commerce</em> → <em>Products</em>.</p></li>
+<li><p>Click on a product (<em>Torque Converters</em> in this example).</p></li>
+<li><p>Click the <em>SKUs</em> tab.</p></li>
+<li><p>Click on a <em>SKU</em> (<em>default</em> in this example).</p></li>
+<li><p>Rename the SKU: <em>GRAY</em>.</p></li>
+<li><p>Leave the Purchasable toggle set to YES.</p>
+<p><img alt="Editing a SKU" src="../../../_images/0210.png" /></p>
+</li>
+<li><p>Click <em>Publish</em>.</p></li>
+</ol>
+<p>The SKU has successfully been renamed.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Adding SKUs to Your Products</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#generating-all-sku-combinations-automatic">Generating All SKU Combinations (Automatic)</a></li>
+<li><a class="reference internal" href="#modifying-a-sku-manual">Modifying a SKU (Manual)</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/commerce/user-guide/catalog/adding-skus-to-your-products.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    </div>
+  </body>
+</html>

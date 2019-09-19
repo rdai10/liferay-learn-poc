@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Using the Variable Rate Shipping Method &#8212; Liferay Learn</title>
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="using-the-variable-rate-shipping-method">
+<h1>Using the Variable Rate Shipping Method<a class="headerlink" href="#using-the-variable-rate-shipping-method" title="Permalink to this headline">¶</a></h1>
+<p>Variable rate shipping allows shipping costs to be calculated using three factors: weight, order subtotal (cost before shipping, taxes, and discounts), and a configurable flat rate. The store administrator may configure the weighting of each factor in the shipping calculation.</p>
+<p>Multiple different shipping options with variable rates may be created. For example, a ‘Standard Ground’ option with a low cost per weight can be created. In contrast, a “Two-Day Air” option can be created that uses the same logic as ‘Standard Ground’, but has a higher cost per weight.</p>
+<div class="section" id="creating-a-variable-rate-shipping-option">
+<h2>Creating a Variable Rate Shipping Option<a class="headerlink" href="#creating-a-variable-rate-shipping-option" title="Permalink to this headline">¶</a></h2>
+<p>Variable-rate shipping costs are determined by the following formula:</p>
+<p><code class="docutils literal notranslate"><span class="pre">shipping</span> <span class="pre">costs</span> <span class="pre">=</span> <span class="pre">[fixed</span> <span class="pre">price]</span> <span class="pre">+</span> <span class="pre">([order</span> <span class="pre">total</span> <span class="pre">weight]</span> <span class="pre">*</span> <span class="pre">[rate</span> <span class="pre">unit</span> <span class="pre">weight</span> <span class="pre">price])</span> <span class="pre">*</span> <span class="pre">([order</span> <span class="pre">subtotal]</span> <span class="pre">x</span> <span class="pre">[rate</span> <span class="pre">percentage])</span></code></p>
+<p>To create a new Variable Rate shipping option:</p>
+<ol>
+<li><p>Navigate to <em>Site Administration</em> → <em>Commerce</em> → <em>Settings</em>.</p></li>
+<li><p>Click the <em>Shipping Methods</em> tab.</p></li>
+<li><p>Click <em>Variable Rate</em>.</p></li>
+<li><p>Click the <em>Shipping Options</em> tab.</p></li>
+<li><p>Click the (+) button to add a new Shipping option:</p></li>
+<li><p>Enter the following:</p>
+<ul class="simple">
+<li><p><strong>Name</strong>: 2 Day Ground</p></li>
+<li><p><strong>Description</strong>: 2 Day Ground</p></li>
+<li><p><strong>Priority</strong>: 3.0</p></li>
+</ul>
+<p><img alt="New 2 Day Ground Shipping Option" src="../../../_images/0190.png" /></p>
+</li>
+<li><p>Click <em>Save</em>.</p></li>
+</ol>
+<p>The new shipping option has been created. To finish configuring this shipping option, apply the variable shipping costs.</p>
+</div>
+<div class="section" id="applying-variable-shipping-costs">
+<h2>Applying Variable Shipping Costs<a class="headerlink" href="#applying-variable-shipping-costs" title="Permalink to this headline">¶</a></h2>
+<ol>
+<li><p>Click the <em>Shipping Option Settings</em> tab.</p></li>
+<li><p>Click the (+) button to add the variable rate costs formula.</p></li>
+<li><p>Fill in the following fields:</p>
+<ul>
+<li><p><strong>Shipping Option</strong>: 2 Day Ground</p></li>
+<li><p><strong>Warehouse</strong>: Select a warehouse if the method should apply only to shipments from one location. Leave blank to use the method for all warehouses.</p></li>
+<li><p><strong>Country</strong>: Use this field if the shipping method should be restricted to the country specified.</p></li>
+<li><p><strong>Region</strong>: Use this field if the shipping method should be restricted to the region specified.</p></li>
+<li><p><strong>Zip</strong>: Use this field if the shipping method should be restricted to the zip specified.</p></li>
+<li><p><strong>Weight From</strong>: Enter a weight minimum for orders that can use this option.</p></li>
+<li><p><strong>Weight To</strong>: Enter a weight maximum for orders that can use this option.</p></li>
+<li><p><strong>Fixed Price</strong>: An entry in this field sets a minimum price and contributes the fixed component of the shipping cost formula. It can be left blank.</p></li>
+<li><p><strong>Rate Unit Weight Price</strong>: An entry in this field imposes a cost per weight. It can be left blank.</p></li>
+<li><p><strong>Rate Percentage</strong>: An entry in this field imposes a shipping cost based on a percentage of the order subtotal. It can be left blank.</p>
+<p><img alt="2 Day Ground Settings" src="../../../_images/0258.png" /></p>
+</li>
+</ul>
+</li>
+<li><p>Click <em>Save</em>.</p></li>
+</ol>
+<p>To create more than one option, return to the <em>Shipping Options</em> tab and repeat steps 2 through 4.</p>
+</div>
+<div class="section" id="activating-a-shipment-method">
+<h2>Activating a Shipment Method<a class="headerlink" href="#activating-a-shipment-method" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Click the <em>Details</em> tab.</p></li>
+<li><p>Toggle the <em>Active</em> button to <em>YES</em>.</p></li>
+<li><p>Click <em>Save</em>.</p></li>
+</ol>
+<p>The shipment method is now active.</p>
+</div>
+<div class="section" id="additional-information">
+<h2>Additional Information<a class="headerlink" href="#additional-information" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="using-the-flat-rate-shipping-method.html"><span class="doc">Using a Flat Rate Shipping Method</span></a></p></li>
+<li><p><a class="reference internal" href="using-fedex-as-a-carrier-method.html"><span class="doc">Using FedEx as a Carrier Method</span></a></p></li>
+<li><p><a class="reference internal" href="applying-shipping-method-restrictions.html"><span class="doc">Applying Shipping Method Restrictions</span></a></p></li>
+<li><p><a class="reference internal" href="measurement-units.html"><span class="doc">Measurement Units</span></a></p></li>
+<li><p><a class="reference internal" href="shipping-method-reference.html"><span class="doc">Shipping Method Reference</span></a></p></li>
+<li><p><a class="reference internal" href="creating-a-shipment.html"><span class="doc">Creating a New Shipment</span></a></p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Using the Variable Rate Shipping Method</a><ul>
+<li><a class="reference internal" href="#creating-a-variable-rate-shipping-option">Creating a Variable Rate Shipping Option</a></li>
+<li><a class="reference internal" href="#applying-variable-shipping-costs">Applying Variable Shipping Costs</a></li>
+<li><a class="reference internal" href="#activating-a-shipment-method">Activating a Shipment Method</a></li>
+<li><a class="reference internal" href="#additional-information">Additional Information</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/commerce/user-guide/sales/using-the-variable-rate-shipping-method.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    </div>
+  </body>
+</html>

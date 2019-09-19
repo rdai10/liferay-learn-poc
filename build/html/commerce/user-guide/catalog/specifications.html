@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Specifications &#8212; Liferay Learn</title>
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="specifications">
+<h1>Specifications<a class="headerlink" href="#specifications" title="Permalink to this headline">¶</a></h1>
+<p>A specification stores a single piece of product information. A product’s dimensions, color, weight, capacity, or almost any other attribute can be recorded as a specification. Specifications make it easy to present product information and simplify the process of comparing similar products.</p>
+<p>To organize specifications and make them easy to display and maintain, specification data is ordered into one of three components: groups, labels, and values.</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#specification-groups">Specification Group</a></td>
+<td>Specifications with common characteristics can be organized into a group.</td>
+</tr>
+<tr>
+<td><a href="#specification-labels">Specification Label</a></td>
+<td>Names a specification.</td>
+</tr>
+<tr>
+<td><a href="#specification-values">Specification Value</a></td>
+<td>Provides product-specific information.</td>
+</tr>
+</tbody>
+</table><div class="section" id="specification-groups">
+<h2>Specification Groups<a class="headerlink" href="#specification-groups" title="Permalink to this headline">¶</a></h2>
+<ol>
+<li><p>Navigate to the <em>Control Panel</em> → <em>Commerce</em> → <em>Products</em>.</p></li>
+<li><p>Click the <em>Specifications</em> tab.</p></li>
+<li><p>Click the <em>Specification Groups</em> sub-tab. By default, there are five Specification Groups included:</p>
+<p><img alt="Specification Groups sub-tab" src="../../../_images/0136.png" /></p>
+</li>
+</ol>
+<p>To add a new Specification Group, click the (+) button.</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Title</td>
+<td>Name of the Specification Group.</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Explanation of what the specifications have in common</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>Establishes the order to display the specification groups. Smaller numbers go first.</td>
+</tr>
+<tr>
+<td>Key</td>
+<td>A unique identifier for referring to this group programmatically.</td>
+</tr>
+</tbody>
+</table><p><img alt="Adding a specification group" src="../../../_images/0222.png" /></p>
+</div>
+<div class="section" id="specification-labels">
+<h2>Specification Labels<a class="headerlink" href="#specification-labels" title="Permalink to this headline">¶</a></h2>
+<p>To create a specification label:</p>
+<ol>
+<li><p>Navigate to the <em>Control Panel</em> → <em>Commerce</em> → <em>Products</em>.</p></li>
+<li><p>Click the <em>Specifications</em> tab.</p></li>
+<li><p>Click the <em>Specifications Labels</em> sub-tab.</p></li>
+<li><p>There are nine Specification Labels included by default:</p>
+<p><img alt="Specification Labels sub-tab" src="../../../_images/037.png" /></p>
+</li>
+</ol>
+<p>To add a new Specification Group, click the (+) button.</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Label</td>
+<td>Name of the Label.</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Explanation of the label.</td>
+</tr>
+<tr>
+<td>Use in Faceted Navigation</td>
+<td>Toggle whether this label is used in faceted navigation.</td>
+</tr>
+<tr>
+<td>Default Specification Group</td>
+<td>Dropdown menu for which group this label is to be associated.</td>
+</tr>
+<tr>
+<td>Key</td>
+<td>A unique identifier for referring to this group programmatically.</td>
+</tr>
+</tbody>
+</table><p><img alt="Adding a specification label" src="../../../_images/046.png" /></p>
+<p>The label has been created, but assigning a value to it must be done on the product level.</p>
+</div>
+<div class="section" id="specification-values">
+<h2>Specification Values<a class="headerlink" href="#specification-values" title="Permalink to this headline">¶</a></h2>
+<p>Specification values are more limited in scope than groups and labels. Groups and labels are scoped to the catalog, which means that once they are created, they can be assigned to any product in the catalog. Values, however, are scoped to the product, and have no impact anywhere but on the product to which they are assigned.</p>
+<p>To create a specification label, you must first assign a label to a product.</p>
+<ol>
+<li><p>Navigate to the <em>Control Panel</em> → <em>Commerce</em> → <em>Products</em>.</p></li>
+<li><p>Click on a product (for example, <em>Torque Converter</em>. This sample product is added when using the Minium accelerator.)</p></li>
+<li><p>Click on the <em>Specifications</em> sub-tab.</p></li>
+<li><p>The following values have been added by default:</p>
+<p><img alt="Specifications sub-tab" src="../../../_images/056.png" /></p>
+</li>
+<li><p>Click the (+) button.</p></li>
+<li><p>Check the boxes for one or more specification labels from the list of specification labels.</p></li>
+<li><p>Click <em>Add</em> to close the pop-up.</p></li>
+</ol>
+<p>This assigns the selected labels to the product.</p>
+<p>Next, edit the label to give it a value.</p>
+<ol class="simple">
+<li><p>Click on the 3-dot icon next to the new label.</p></li>
+<li><p>Click <em>Edit</em>.</p></li>
+</ol>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Value</td>
+<td>Short description of what the product is made of</td>
+</tr>
+<tr>
+<td>Group</td>
+<td>Dropdown menu for which Specification Group.</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>Establishes the order to display the specification groups. Smallest numbers go first.</td>
+</tr>
+</tbody>
+</table><p><img alt="Adding specification details" src="../../../_images/064.png" /></p>
+<p>You can also override the specification group that was selected when the label was created. When editing the label to assign a value, you can choose any group from the <em>Group</em> drop-down box. This change applies only to the current product and has no effect on any other products which use the same label.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Specifications</a><ul>
+<li><a class="reference internal" href="#specification-groups">Specification Groups</a></li>
+<li><a class="reference internal" href="#specification-labels">Specification Labels</a></li>
+<li><a class="reference internal" href="#specification-values">Specification Values</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/commerce/user-guide/catalog/specifications.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    </div>
+  </body>
+</html>

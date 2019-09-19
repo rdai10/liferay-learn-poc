@@ -1,0 +1,357 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Adding a New Discount Rule Type &#8212; Liferay Learn</title>
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="adding-a-new-discount-rule-type">
+<h1>Adding a New Discount Rule Type<a class="headerlink" href="#adding-a-new-discount-rule-type" title="Permalink to this headline">¶</a></h1>
+<p>This tutorial will show you how to add a new discount rule type by implementing two interfaces: <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-discount-api/src/main/java/com/liferay/commerce/discount/rule/type/CommerceDiscountRuleType.java">CommerceDiscountRuleType</a> and <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-discount-api/src/main/java/com/liferay/commerce/discount/rule/type/CommerceDiscountRuleTypeJSPContributor.java">CommerceDiscountRuleTypeJSPContributor</a>.</p>
+<p>Discount rule types define conditions for evaluating when discounts will be applied to an order. Liferay Commerce provides three discount rule types out-of-the-box: <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-discount-rule-added-all/src/main/java/com/liferay/commerce/discount/rule/added/all/internal/AddedAllCommerceDiscountRuleTypeImpl.java">AddedAllCommerceDiscountRuleTypeImpl</a>, <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-discount-rule-added-any/src/main/java/com/liferay/commerce/discount/rule/added/any/internal/AddedAnyCommerceDiscountRuleTypeImpl.java">AddedAnyCommerceDiscountRuleTypeImpl</a>, and <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-discount-rule-cart-total/src/main/java/com/liferay/commerce/discount/rule/cart/total/internal/CartTotalCommerceDiscountRuleTypeImpl.java">CartTotalCommerceDiscountRuleTypeImpl</a>.</p>
+<p><img alt="Out-of-the-box discount rule types" src="../../../_images/01.png" /></p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p><a class="reference external" href="#deploy-an-example"><strong>Deploy an Example</strong></a></p></li>
+<li><p><a class="reference external" href="#walk-through-the-example"><strong>Walk Through the Example</strong></a></p></li>
+<li><p><a class="reference external" href="#additional-information"><strong>Additional Information</strong></a></p></li>
+</ol>
+</div>
+<div class="section" id="deploy-an-example">
+<h2>Deploy an Example<a class="headerlink" href="#deploy-an-example" title="Permalink to this headline">¶</a></h2>
+<p>In this section, we will get an example discount rule type up and running on your instance of Liferay Commerce. Follow these steps:</p>
+<ol>
+<li><p>Start Liferay Commerce.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run -it -p <span class="m">8080</span>:8080 liferay/commerce:2.0.5
+</pre></div>
+</div>
+</li>
+<li><p>Download and unzip <a class="reference external" href="#">Acme Commerce Discount Rule Type</a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl liferay-m6a8.zip
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>unzip liferay-m6a8.zip
+</pre></div>
+</div>
+</li>
+<li><p>Go to <code class="docutils literal notranslate"><span class="pre">liferay-m6a8</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> liferay-m6a8
+</pre></div>
+</div>
+</li>
+<li><p>Build and deploy the example.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./gradlew deploy -Ddeploy.docker.container.id<span class="o">=</span><span class="k">$(</span>docker ps -lq<span class="k">)</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>Note:</strong> This command is the same as copying the deployed jars to /opt/liferay/osgi/modules on the Docker container.</p>
+</div></blockquote>
+</li>
+<li><p>Confirm the deployment in the Liferay Docker container console.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>STARTED com.acme.m6a8.web_1.0.0
+</pre></div>
+</div>
+</li>
+<li><p>Verify that the example discount rule type was added. Open your browser to <code class="docutils literal notranslate"><span class="pre">https://localhost:8080</span></code> and navigate to <em>Control Panel</em> → <em>Commerce</em> → <em>Discounts</em>. Click <em>Edit</em> within the menu for any discount, then navigate to <em>Rules</em> at the top of the screen.</p>
+<p>From there, click the (+) icon to add a new discount rule. The new discount rule type (“Has a minimum number of products”) will be present under the <em>Type</em> dropdown.</p>
+</li>
+</ol>
+<p><img alt="New discount rule type" src="../../../_images/02.png" /></p>
+<p>Congratulations, you’ve successfully built and deployed a new discount rule type that implements <code class="docutils literal notranslate"><span class="pre">CommerceDiscountRuleType</span></code>.</p>
+<p>Next, let’s dive deeper to learn more.</p>
+</div>
+<div class="section" id="walk-through-the-example">
+<h2>Walk Through the Example<a class="headerlink" href="#walk-through-the-example" title="Permalink to this headline">¶</a></h2>
+<p>In this section, we will review the example we deployed. We will create two classes: a discount rule type class and a JSP contributor for a custom UI input. Walk through the following:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#annotate-the-discount-rule-type-class-for-osgi-registration">Annotate the Discount Rule Type Class for OSGi Registration</a></p></li>
+<li><p><a class="reference external" href="#review-the-commercediscountruletype-interface">Review the <code class="docutils literal notranslate"><span class="pre">CommerceDiscountRuleType</span></code> Interface</a></p></li>
+<li><p><a class="reference external" href="#annotate-the-jsp-contributor-class-for-osgi-registration">Annotate the JSP Contributor Class for OSGi Registration</a></p></li>
+<li><p><a class="reference external" href="#review-the-commercediscountruletypejspcontributor-interface">Review the <code class="docutils literal notranslate"><span class="pre">CommerceDiscountRuleTypeJSPContributor</span></code> Interface</a></p></li>
+<li><p><a class="reference external" href="#complete-the-discount-rule-type">Complete the Discount Rule Type</a></p></li>
+</ul>
+<div class="section" id="annotate-the-discount-rule-type-class-for-osgi-registration">
+<h3>Annotate the Discount Rule Type Class for OSGi Registration<a class="headerlink" href="#annotate-the-discount-rule-type-class-for-osgi-registration" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Component</span><span class="o">(</span>
+    <span class="n">immediate</span> <span class="o">=</span> <span class="kc">true</span><span class="o">,</span>
+    <span class="n">property</span> <span class="o">=</span> <span class="o">{</span>
+        <span class="s">&quot;commerce.discount.rule.type.key=&quot;</span> <span class="o">+</span> <span class="n">M6A8CommerceDiscountRuleType</span><span class="o">.</span><span class="na">KEY</span><span class="o">,</span>
+        <span class="s">&quot;commerce.discount.rule.type.order:Integer=51&quot;</span>
+    <span class="o">},</span>
+    <span class="n">service</span> <span class="o">=</span> <span class="n">CommerceDiscountRuleType</span><span class="o">.</span><span class="na">class</span>
+<span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">M6A8CommerceDiscountRuleType</span> <span class="kd">implements</span> <span class="n">CommerceDiscountRuleType</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">KEY</span> <span class="o">=</span> <span class="s">&quot;Example&quot;</span><span class="o">;</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>It is important to provide a distinct key for the discount rule type so that Liferay Commerce can distinguish the new type from others in the <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-discount-service/src/main/java/com/liferay/commerce/discount/internal/rule/type/CommerceDiscountRuleTypeRegistryImpl.java">discount rule type registry</a>. Reusing a key that is already in use will override the existing associated type.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">commerce.discount.rule.type.order</span></code> value indicates how far in the list of available discount rule types this type will appear. For example, the <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-discount-rule-added-all/src/main/java/com/liferay/commerce/discount/rule/added/all/internal/AddedAllCommerceDiscountRuleTypeImpl.java">“added all” discount rule type</a> has a value of 50. Giving our discount rule type a value of 51 ensures that it will appear immediately after the “added all” type.</p>
+</div></blockquote>
+</div>
+<div class="section" id="review-the-commercediscountruletype-interface">
+<h3>Review the <code class="docutils literal notranslate"><span class="pre">CommerceDiscountRuleType</span></code> Interface<a class="headerlink" href="#review-the-commercediscountruletype-interface" title="Permalink to this headline">¶</a></h3>
+<p>Implement the following methods:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">evaluate</span><span class="o">(</span>
+        <span class="n">CommerceDiscountRule</span> <span class="n">commerceDiscountRule</span><span class="o">,</span>
+        <span class="n">CommerceContext</span> <span class="n">commerceContext</span><span class="o">)</span>
+    <span class="kd">throws</span> <span class="n">PortalException</span><span class="o">;</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>This method will be where we implement the business logic for evaluating when the discount rule is applied.</p>
+</div></blockquote>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">String</span> <span class="nf">getKey</span><span class="o">();</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>This provides a unique identifier for the discount rule type in the discount rule type registry. The key can be used to fetch the new type from the registry.</p>
+</div></blockquote>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">String</span> <span class="nf">getLabel</span><span class="o">(</span><span class="n">Locale</span> <span class="n">locale</span><span class="o">);</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>This returns a text label that describes how the discount rule is applied. See the implementation in <a class="reference external" href="./adding-a-new-discount-rule-type/liferay-m6a8.zip/m6a8-web/src/main/java/com/acme/m6a8/web/internal/commerce/discount/rule/type/M6A8CommerceDiscountRuleType.java">M6A8CommerceDiscountRuleType.java</a> for a reference in retrieving the label with a language key.</p>
+</div></blockquote>
+</div>
+<div class="section" id="annotate-the-jsp-contributor-class-for-osgi-registration">
+<h3>Annotate the JSP Contributor Class for OSGi Registration<a class="headerlink" href="#annotate-the-jsp-contributor-class-for-osgi-registration" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Component</span><span class="o">(</span>
+    <span class="n">immediate</span> <span class="o">=</span> <span class="kc">true</span><span class="o">,</span>
+    <span class="n">property</span> <span class="o">=</span> <span class="s">&quot;commerce.discount.rule.type.jsp.contributor.key=&quot;</span> <span class="o">+</span> <span class="n">M6A8CommerceDiscountRuleTypeJSPContributor</span><span class="o">.</span><span class="na">KEY</span><span class="o">,</span>
+    <span class="n">service</span> <span class="o">=</span> <span class="n">CommerceDiscountRuleTypeJSPContributor</span><span class="o">.</span><span class="na">class</span>
+<span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">M6A8CommerceDiscountRuleTypeJSPContributor</span>
+    <span class="kd">implements</span> <span class="n">CommerceDiscountRuleTypeJSPContributor</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">KEY</span> <span class="o">=</span> <span class="s">&quot;Example&quot;</span><span class="o">;</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>It is important to provide a distinct key for the JSP contributor so that Liferay Commerce can distinguish the contributor from others in the <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-discount-api/src/main/java/com/liferay/commerce/discount/rule/type/CommerceDiscountRuleTypeJSPContributorRegistry.java">discount rule type JSP contributor registry</a>. Reusing a key that is already in use will override the existing associated type.</p>
+</div></blockquote>
+</div>
+<div class="section" id="review-the-commercediscountruletypejspcontributor-interface">
+<h3>Review the <code class="docutils literal notranslate"><span class="pre">CommerceDiscountRuleTypeJSPContributor</span></code> Interface<a class="headerlink" href="#review-the-commercediscountruletypejspcontributor-interface" title="Permalink to this headline">¶</a></h3>
+<p>Implement the following method:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">render</span><span class="o">(</span>
+        <span class="kt">long</span> <span class="n">l</span><span class="o">,</span> <span class="kt">long</span> <span class="n">l1</span><span class="o">,</span> <span class="n">HttpServletRequest</span> <span class="n">httpServletRequest</span><span class="o">,</span>
+        <span class="n">HttpServletResponse</span> <span class="n">httpServletResponse</span><span class="o">)</span>
+    <span class="kd">throws</span> <span class="n">Exception</span><span class="o">;</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>This is where we will add the code to render a custom UI input for our discount rule type.</p>
+</div></blockquote>
+</div>
+<div class="section" id="complete-the-discount-rule-type">
+<h3>Complete the Discount Rule Type<a class="headerlink" href="#complete-the-discount-rule-type" title="Permalink to this headline">¶</a></h3>
+<p>The discount rule type is comprised of backend logic for evaluating when to apply a discount rule to an order, logic to render UI inputs for the discount rule type, and the custom UI inputs themselves. Do the following:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#configure-the-servletcontext-for-the-module">Configure the <code class="docutils literal notranslate"><span class="pre">ServletContext</span></code> for the module.</a></p></li>
+<li><p><a class="reference external" href="#implement-the-commercediscountruletypejspcontributors-render-method">Implement the <code class="docutils literal notranslate"><span class="pre">CommerceDiscountRuleTypeJSPContributor</span></code>’s <code class="docutils literal notranslate"><span class="pre">render</span></code> method.</a></p></li>
+<li><p><a class="reference external" href="#add-the-evaluation-logic-to-evaluate">Add the evaluation logic to <code class="docutils literal notranslate"><span class="pre">evaluate</span></code>.</a></p></li>
+<li><p><a class="reference external" href="#add-a-jsp-to-render-the-custom-ui-input">Add a JSP to render the custom UI input.</a></p></li>
+<li><p><a class="reference external" href="#add-the-language-keys-to-languageproperties">Add the language keys to <code class="docutils literal notranslate"><span class="pre">Language.properties</span></code>.</a></p></li>
+</ul>
+<div class="section" id="configure-the-servletcontext-for-the-module">
+<h4>Configure the <code class="docutils literal notranslate"><span class="pre">ServletContext</span></code> for the Module<a class="headerlink" href="#configure-the-servletcontext-for-the-module" title="Permalink to this headline">¶</a></h4>
+<p>Define the <code class="docutils literal notranslate"><span class="pre">ServletContext</span></code> in our JSP contributor class using the symbolic name of our bundle so that it can find the JSP in our module:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Reference</span><span class="o">(</span><span class="n">target</span> <span class="o">=</span> <span class="s">&quot;(osgi.web.symbolicname=com.acme.m6a8.web)&quot;</span><span class="o">)</span>
+<span class="kd">private</span> <span class="n">ServletContext</span> <span class="n">_servletContext</span><span class="o">;</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>The value we set for <code class="docutils literal notranslate"><span class="pre">osgi.web.symbolicname</span></code> matches the value for <code class="docutils literal notranslate"><span class="pre">Bundle-SymbolicName</span></code> in our <a class="reference external" href="./adding-a-new-discount-rule-type/liferay-m6a8.zip/m6a8-web/bnd.bnd">bnd.bnd file</a>. These values must match for the <code class="docutils literal notranslate"><span class="pre">ServletContext</span></code> to locate the JSP.</p>
+<p>We declare a unique value for <code class="docutils literal notranslate"><span class="pre">Web-ContextPath</span></code> in our bnd.bnd file so the <code class="docutils literal notranslate"><span class="pre">ServletContext</span></code> is correctly generated. In our example, <code class="docutils literal notranslate"><span class="pre">Web-ContextPath</span></code> is set to <code class="docutils literal notranslate"><span class="pre">/m6a8-web</span></code>. See <a class="reference external" href="./adding-a-new-discount-rule-type/liferay-m6a8.zip/m6a8-web/bnd.bnd">bnd.bnd</a> for a reference on these values.</p>
+</div></blockquote>
+</div>
+<div class="section" id="implement-the-commercediscountruletypejspcontributor-s-render-method">
+<h4>Implement the <code class="docutils literal notranslate"><span class="pre">CommerceDiscountRuleTypeJSPContributor</span></code>’s <code class="docutils literal notranslate"><span class="pre">render</span></code> Method<a class="headerlink" href="#implement-the-commercediscountruletypejspcontributor-s-render-method" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">render</span><span class="o">(</span>
+        <span class="kt">long</span> <span class="n">l</span><span class="o">,</span> <span class="kt">long</span> <span class="n">l1</span><span class="o">,</span> <span class="n">HttpServletRequest</span> <span class="n">httpServletRequest</span><span class="o">,</span>
+        <span class="n">HttpServletResponse</span> <span class="n">httpServletResponse</span><span class="o">)</span>
+    <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+
+    <span class="n">_jspRenderer</span><span class="o">.</span><span class="na">renderJSP</span><span class="o">(</span>
+        <span class="n">_servletContext</span><span class="o">,</span> <span class="n">httpServletRequest</span><span class="o">,</span> <span class="n">httpServletResponse</span><span class="o">,</span>
+        <span class="s">&quot;/view.jsp&quot;</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>Use a <code class="docutils literal notranslate"><span class="pre">JSPRenderer</span></code> to render the JSP for our discount rule type’s custom UI input (in our example, <a class="reference external" href="./adding-a-new-discount-rule-type/liferay-m6a8.zip/m6a8-web/src/main/resources/META-INF/resources/view.jsp">view.jsp</a>). Provide the <code class="docutils literal notranslate"><span class="pre">ServletContext</span></code> as a parameter to find the JSP we have created.</p>
+</div></blockquote>
+</div>
+<div class="section" id="add-the-evaluation-logic-to-evaluate">
+<h4>Add the Evaluation Logic to <code class="docutils literal notranslate"><span class="pre">evaluate</span></code><a class="headerlink" href="#add-the-evaluation-logic-to-evaluate" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">evaluate</span><span class="o">(</span>
+        <span class="n">CommerceDiscountRule</span> <span class="n">commerceDiscountRule</span><span class="o">,</span>
+        <span class="n">CommerceContext</span> <span class="n">commerceContext</span><span class="o">)</span>
+    <span class="kd">throws</span> <span class="n">PortalException</span> <span class="o">{</span>
+
+    <span class="n">CommerceOrder</span> <span class="n">commerceOrder</span> <span class="o">=</span> <span class="n">commerceContext</span><span class="o">.</span><span class="na">getCommerceOrder</span><span class="o">();</span>
+
+    <span class="k">if</span> <span class="o">(</span><span class="n">commerceOrder</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="n">String</span> <span class="n">settingsProperty</span> <span class="o">=</span> <span class="n">commerceDiscountRule</span><span class="o">.</span><span class="na">getSettingsProperty</span><span class="o">(</span>
+        <span class="n">commerceDiscountRule</span><span class="o">.</span><span class="na">getType</span><span class="o">());</span>
+
+    <span class="kt">int</span> <span class="n">minimumProducts</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">settingsProperty</span><span class="o">);</span>
+
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">CommerceOrderItem</span><span class="o">&gt;</span> <span class="n">commerceOrderItems</span> <span class="o">=</span>
+        <span class="n">commerceOrder</span><span class="o">.</span><span class="na">getCommerceOrderItems</span><span class="o">();</span>
+
+    <span class="k">if</span> <span class="o">(</span><span class="n">commerceOrderItems</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">&gt;=</span> <span class="n">minimumProducts</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>Implement any conditions here that must be true for a discount rule to be applied. In our example, we check that the order contains at least a minimum number of items. We use a minimum value defined by a custom UI input (stored as a String within the <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-discount-service/src/main/java/com/liferay/commerce/discount/model/impl/CommerceDiscountRuleImpl.java">CommerceDiscountRule</a>).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">CommerceOrder</span></code> object represents a variety of information about the order being evaluated. See <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-api/src/main/java/com/liferay/commerce/model/CommerceOrder.java">CommerceOrder.java</a> and <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-api/src/main/java/com/liferay/commerce/model/CommerceOrderModel.java">CommerceOrderModel.java</a> to find more information you can get from a <code class="docutils literal notranslate"><span class="pre">CommerceOrder</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="add-a-jsp-to-render-the-custom-ui-input">
+<h4>Add a JSP to Render the Custom UI Input<a class="headerlink" href="#add-a-jsp-to-render-the-custom-ui-input" title="Permalink to this headline">¶</a></h4>
+<p>In our example, we add a JSP with a numeric input for a minimum number of products.</p>
+<div class="highlight-jsp notranslate"><div class="highlight"><pre><span></span><span class="k">&lt;%@</span> <span class="n">taglib</span> <span class="n">uri</span><span class="o">=</span><span class="s">&quot;http://liferay.com/tld/aui&quot;</span> <span class="n">prefix</span><span class="o">=</span><span class="s">&quot;aui&quot;</span> <span class="k">%&gt;</span>
+
+<span class="nt">&lt;aui:input</span> <span class="na">label=</span><span class="s">&quot;minimum-number-of-products&quot;</span> <span class="na">name=</span><span class="s">&quot;typeSettings&quot;</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;aui:validator</span> <span class="na">name=</span><span class="s">&quot;digits&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;aui:validator</span> <span class="na">name=</span><span class="s">&quot;min&quot;</span><span class="nt">&gt;</span>1<span class="nt">&lt;/aui:validator&gt;</span>
+<span class="nt">&lt;/aui:input&gt;</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>Implement any UI elements to present when defining a discount rule. These will appear immediately after selecting the discount rule type is selected. Defining an input will cause the saved value to be stored in the discount rule’s settings properties.</p>
+<p>See <a class="reference external" href="https://help.liferay.com/hc/en-us/articles/360020189212-Using-AUI-Taglibs">Using AUI Taglibs</a> for more information on using AUI inputs.</p>
+</div></blockquote>
+</div>
+<div class="section" id="add-the-language-keys-to-language-properties">
+<h4>Add the Language Keys to <code class="docutils literal notranslate"><span class="pre">Language.properties</span></code><a class="headerlink" href="#add-the-language-keys-to-language-properties" title="Permalink to this headline">¶</a></h4>
+<p>Add the language keys and their values to a <a class="reference external" href="./adding-a-new-discount-rule-type/liferay-m6a8.zip/m6a8-web/src/main/resources/content/Language.properties">Language.properties</a> file within the module:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">has</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="n">minimum</span><span class="o">-</span><span class="n">number</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">products</span><span class="o">=</span><span class="n">Has</span> <span class="n">a</span> <span class="n">minimum</span> <span class="n">number</span> <span class="n">of</span> <span class="n">products</span>
+<span class="n">minimum</span><span class="o">-</span><span class="n">number</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">products</span><span class="o">=</span><span class="n">Minimum</span> <span class="n">Number</span> <span class="n">of</span> <span class="n">Products</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>See <a class="reference external" href="https://help.liferay.com/hc/en-us/articles/360018168251-Localizing-Your-Application">Localizing Your Application</a> for more information.</p>
+</div></blockquote>
+</div>
+</div>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>Congratulations! You now know the basics for implementing the <code class="docutils literal notranslate"><span class="pre">CommerceDiscountRuleType</span></code> interface, and have added a new discount rule type with a custom UI input to Liferay Commerce.</p>
+</div>
+<div class="section" id="additional-information">
+<h2>Additional Information<a class="headerlink" href="#additional-information" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../user-guide/marketing/adding-discounts-by-product.html"><span class="doc">Adding Discounts by Product</span></a></p></li>
+<li><p><a class="reference external" href="https://help.liferay.com/hc/en-us/articles/360018168251-Localizing-Your-Application">Localizing Your Application</a></p></li>
+<li><p><a class="reference external" href="https://help.liferay.com/hc/en-us/articles/360020189212-Using-AUI-Taglibs">Using AUI Taglibs</a></p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Adding a New Discount Rule Type</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#deploy-an-example">Deploy an Example</a></li>
+<li><a class="reference internal" href="#walk-through-the-example">Walk Through the Example</a><ul>
+<li><a class="reference internal" href="#annotate-the-discount-rule-type-class-for-osgi-registration">Annotate the Discount Rule Type Class for OSGi Registration</a></li>
+<li><a class="reference internal" href="#review-the-commercediscountruletype-interface">Review the <code class="docutils literal notranslate"><span class="pre">CommerceDiscountRuleType</span></code> Interface</a></li>
+<li><a class="reference internal" href="#annotate-the-jsp-contributor-class-for-osgi-registration">Annotate the JSP Contributor Class for OSGi Registration</a></li>
+<li><a class="reference internal" href="#review-the-commercediscountruletypejspcontributor-interface">Review the <code class="docutils literal notranslate"><span class="pre">CommerceDiscountRuleTypeJSPContributor</span></code> Interface</a></li>
+<li><a class="reference internal" href="#complete-the-discount-rule-type">Complete the Discount Rule Type</a><ul>
+<li><a class="reference internal" href="#configure-the-servletcontext-for-the-module">Configure the <code class="docutils literal notranslate"><span class="pre">ServletContext</span></code> for the Module</a></li>
+<li><a class="reference internal" href="#implement-the-commercediscountruletypejspcontributor-s-render-method">Implement the <code class="docutils literal notranslate"><span class="pre">CommerceDiscountRuleTypeJSPContributor</span></code>’s <code class="docutils literal notranslate"><span class="pre">render</span></code> Method</a></li>
+<li><a class="reference internal" href="#add-the-evaluation-logic-to-evaluate">Add the Evaluation Logic to <code class="docutils literal notranslate"><span class="pre">evaluate</span></code></a></li>
+<li><a class="reference internal" href="#add-a-jsp-to-render-the-custom-ui-input">Add a JSP to Render the Custom UI Input</a></li>
+<li><a class="reference internal" href="#add-the-language-keys-to-language-properties">Add the Language Keys to <code class="docutils literal notranslate"><span class="pre">Language.properties</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#conclusion">Conclusion</a></li>
+<li><a class="reference internal" href="#additional-information">Additional Information</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/commerce/developer-guide/tutorial/adding-a-new-discount-rule-type.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    </div>
+  </body>
+</html>

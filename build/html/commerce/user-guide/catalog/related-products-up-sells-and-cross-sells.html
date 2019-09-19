@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Related Products, Up-Sells, and Cross-Sells &#8212; Liferay Learn</title>
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="related-products-up-sells-and-cross-sells">
+<h1>Related Products, Up-Sells, and Cross-Sells<a class="headerlink" href="#related-products-up-sells-and-cross-sells" title="Permalink to this headline">¶</a></h1>
+<p>Product relations can be used to connect products. Once connected, a product displays the links to other products. Every related product must be assigned to a Product Relation Type. These products can then be displayed by a Product Publisher widget configured to source data from the appropriate type.</p>
+<p>When more than one Product Publisher widget is placed on a product detail page, multiple sets of related products may be shown. For instance, one widget might display a set of products that are alternatives to the product featured on the page, while another might display products that are accessories to the featured product.</p>
+<p>Note: If your site was built using an accelerator, then a number of product relation types are already in place. Here is a list of default Product Relations:</p>
+<ul class="simple">
+<li><p><strong>Up-Sell</strong>: Display products that are comparable to the featured product but have a higher sale value.</p></li>
+<li><p><strong>Spare</strong>: Display products that are spare parts or components for the featured product.</p></li>
+<li><p><strong>Related</strong>: A catch-all set.</p></li>
+<li><p><strong>Accessories</strong>: Display add-on products for use in conjunction with the featured products.</p></li>
+<li><p><strong>Cross-Sell</strong>: Display products complementary to the featured product.</p></li>
+</ul>
+<p><img alt="Product Relations: Brake Rotors and Fluid" src="../../../_images/055.png" /></p>
+<p>In the image above, the two related products are displayed in the Product Publisher widget at the bottom. You have the option to add more Product Publisher widgets configured with other types of Product Relations.</p>
+<div class="section" id="adding-a-new-product-relation-type">
+<h2>Adding a New Product Relation Type<a class="headerlink" href="#adding-a-new-product-relation-type" title="Permalink to this headline">¶</a></h2>
+<p>More Product Relation types may be added as necessary. This includes intangibles such as warranties. To add a new Product Relation:</p>
+<ol>
+<li><p>Navigate to the <em>Control Panel</em> → <em>Configuration</em> → <em>System Settings</em>.</p></li>
+<li><p>Click <em>Catalog</em> in the <em>Commerce</em> section.</p></li>
+<li><p>Click <em>Product Relations</em> on the left menu.</p></li>
+<li><p>Click the <em>Add</em> button.</p></li>
+<li><p>Enter the new Product Relation in the <em>Type</em> field: Warranties.</p></li>
+<li><p>Click <em>Save</em>.</p>
+<p><img alt="Creating a New Product Relation" src="../../../_images/0133.png" /></p>
+</li>
+</ol>
+<p>The new Product Relation Type has been added.</p>
+</div>
+<div class="section" id="creating-relationships-between-products">
+<h2>Creating Relationships Between Products<a class="headerlink" href="#creating-relationships-between-products" title="Permalink to this headline">¶</a></h2>
+<ol>
+<li><p>Navigate to the <em>Control Panel</em> → <em>Commerce</em> → <em>Products</em>.</p></li>
+<li><p>Select any product; for example, <em>Brake Pads</em>.</p></li>
+<li><p>Click on the <em>Product Relations</em> sub-tab.</p></li>
+<li><p>Click on <em>Related</em> in the left menu.</p>
+<p><img alt="Related Menu" src="../../../_images/0221.png" /></p>
+</li>
+<li><p>Click the (+) button to add one or more relationships. In this example, select <em>Brake Rotors</em> and <em>Brake Fluid</em>.</p></li>
+<li><p>Click <em>Add</em>.</p>
+<p><img alt="Adding Two Products" src="../../../_images/045.png" /></p>
+</li>
+</ol>
+<p>These two products are now associated with <em>Brake Pads</em>. Note that this relationship is unidirectional; in other words, when viewing <em>Brake Pads</em> the new product relations will be visible but when viewing the <em>Brake Rotors</em> or <em>Brake Fluid</em> products, <em>Brake Pads</em> will <em>not</em> be listed as as a related product.</p>
+<p>Once the product relationships have been created, configure the Product Publisher widget to display the relations.</p>
+</div>
+<div class="section" id="displaying-product-relations">
+<h2>Displaying Product Relations<a class="headerlink" href="#displaying-product-relations" title="Permalink to this headline">¶</a></h2>
+<p>You can display product relations on a product display page by configuring a Product Publisher widget. You must have a <a class="reference external" href="https://help.liferay.com/hc/en-us/articles/360017870292-Displaying-Product-Pages-">product display page</a> in place first.</p>
+<ol>
+<li><p>Search for a product (for example <em>Brake Pads</em>).</p></li>
+<li><p>Click <em>Brake Pads</em> to view the Product Details.</p></li>
+<li><p>Scroll to the bottom of the page to view the related products listed in the <em>Product Publisher</em> widget.</p>
+<p><img alt="Configuration Menu" src="../../../_images/063.png" /></p>
+</li>
+<li><p>Click the <em>3-dot</em> icon (Options) → <em>Configuration</em>.</p></li>
+<li><p>Select <em>Product Relations related</em> from the <em>Data Source</em> dropdown menu.</p>
+<p><img alt="Choosing a Data Source" src="../../../_images/036.png" /></p>
+</li>
+<li><p>Click <em>Save</em> and close the dialog box.</p>
+<p><img alt="Product Relations: Brake Rotors and Fluid" src="../../../_images/055.png" /></p>
+</li>
+</ol>
+<p>The example above shows how different products could be related, ensuring that customers can see the full range of products that may also be potentially useful.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Related Products, Up-Sells, and Cross-Sells</a><ul>
+<li><a class="reference internal" href="#adding-a-new-product-relation-type">Adding a New Product Relation Type</a></li>
+<li><a class="reference internal" href="#creating-relationships-between-products">Creating Relationships Between Products</a></li>
+<li><a class="reference internal" href="#displaying-product-relations">Displaying Product Relations</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/commerce/user-guide/catalog/related-products-up-sells-and-cross-sells.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    </div>
+  </body>
+</html>

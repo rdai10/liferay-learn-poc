@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Maintenance Versions &#8212; Liferay Learn</title>
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="maintenance-versions">
+<h1>Maintenance Versions<a class="headerlink" href="#maintenance-versions" title="Permalink to this headline">¶</a></h1>
+<p>Periodically, Liferay will release updates (maintenance versions) to Liferay Commerce for both open source and enterprise subscribers. These updates contain bug fixes and resolves any security issues. Updating to a new maintenance version is very similar to upgrading to a new major version of Liferay Commerce.</p>
+<p>To update to a new maintenance version:</p>
+<div class="section" id="download-and-deploy">
+<h2>Download and Deploy<a class="headerlink" href="#download-and-deploy" title="Permalink to this headline">¶</a></h2>
+<ol>
+<li><p>Download the latest Liferay Commerce <code class="docutils literal notranslate"><span class="pre">LPKG</span></code>.</p>
+<ul class="simple">
+<li><p>Enterprise subscribers can download the latest <code class="docutils literal notranslate"><span class="pre">LPKG</span></code> from <a class="reference external" href="https://customer.liferay.com/downloads?p_p_id=com_liferay_osb_customer_downloads_display_web_DownloadsDisplayPortlet&amp;_com_liferay_osb_customer_downloads_display_web_DownloadsDisplayPortlet_productAssetCategoryId=118190997&amp;_com_liferay_osb_customer_downloads_display_web_DownloadsDisplayPortlet_fileTypeAssetCategoryId=118191001">Help Center</a>.</p>
+<ul>
+<li><p>Subscribers also need an order number or activation key for Liferay Commerce. See <a class="reference external" href="https://help.liferay.com/hc/en-us/articles/360018427391">Activating a Marketplace App Through a Proxy Server</a>.</p></li>
+</ul>
+</li>
+<li><p>The latest open source <code class="docutils literal notranslate"><span class="pre">LPKG</span></code> may be obtained from the <a class="reference external" href="https://commerce.liferay.dev/download">Liferay Commerce Community Site</a>.</p></li>
+</ul>
+</li>
+<li><p>Deploy the <code class="docutils literal notranslate"><span class="pre">LPKG</span></code> to the <code class="docutils literal notranslate"><span class="pre">${liferay.home}/deploy</span></code> folder.</p></li>
+<li><p>Verify that that the following message appears in the application server console:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2019</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">12</span> <span class="mi">21</span><span class="p">:</span><span class="mi">53</span><span class="p">:</span><span class="mf">43.847</span> <span class="n">INFO</span>  <span class="p">[</span><span class="n">com</span><span class="o">.</span><span class="n">liferay</span><span class="o">.</span><span class="n">portal</span><span class="o">.</span><span class="n">kernel</span><span class="o">.</span><span class="n">deploy</span><span class="o">.</span><span class="n">auto</span><span class="o">.</span><span class="n">AutoDeployScanner</span><span class="p">][</span><span class="n">AutoDeployDir</span><span class="p">:</span><span class="mi">261</span><span class="p">]</span> <span class="n">Processing</span> <span class="n">Liferay</span> <span class="n">Commerce</span> <span class="n">Enterprise</span> <span class="mf">2.0</span><span class="o">.</span><span class="mf">5.</span><span class="n">lpkg</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">13</span> <span class="mi">18</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="mf">56.713</span> <span class="n">INFO</span>  <span class="p">[</span><span class="n">fileinstall</span><span class="o">-/../../</span><span class="n">liferay</span><span class="o">-</span><span class="n">commerce</span><span class="o">-</span><span class="n">enterprise</span><span class="o">-</span><span class="mf">1.1</span><span class="o">.</span><span class="mi">6</span><span class="o">/</span><span class="n">osgi</span><span class="o">/</span><span class="n">marketplace</span><span class="p">][</span><span class="n">LPKGArtifactInstaller</span><span class="p">:</span><span class="mi">202</span><span class="p">]</span> <span class="n">The</span> <span class="n">portal</span> <span class="n">instance</span> <span class="n">needs</span> <span class="n">to</span> <span class="n">be</span> <span class="n">restarted</span> <span class="n">to</span> <span class="n">complete</span> <span class="n">the</span> <span class="n">installation</span> <span class="n">of</span> <span class="n">file</span><span class="p">:</span><span class="o">/../../</span><span class="n">liferay</span><span class="o">-</span><span class="n">commerce</span><span class="o">-</span><span class="n">enterprise</span><span class="o">-</span><span class="mf">1.1</span><span class="o">.</span><span class="mi">6</span><span class="o">/</span><span class="n">osgi</span><span class="o">/</span><span class="n">marketplace</span><span class="o">/</span><span class="n">Liferay</span><span class="o">%</span><span class="mi">20</span><span class="n">Commerce</span><span class="o">%</span><span class="mi">20</span><span class="o">-%</span><span class="mi">20</span><span class="n">API</span><span class="o">.</span><span class="n">lpkg</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">13</span> <span class="mi">18</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="mf">56.715</span> <span class="n">INFO</span>  <span class="p">[</span><span class="n">fileinstall</span><span class="o">-/../../</span><span class="n">liferay</span><span class="o">-</span><span class="n">commerce</span><span class="o">-</span><span class="n">enterprise</span><span class="o">-</span><span class="mf">1.1</span><span class="o">.</span><span class="mi">6</span><span class="o">/</span><span class="n">osgi</span><span class="o">/</span><span class="n">marketplace</span><span class="p">][</span><span class="n">LPKGArtifactInstaller</span><span class="p">:</span><span class="mi">202</span><span class="p">]</span> <span class="n">The</span> <span class="n">portal</span> <span class="n">instance</span> <span class="n">needs</span> <span class="n">to</span> <span class="n">be</span> <span class="n">restarted</span> <span class="n">to</span> <span class="n">complete</span> <span class="n">the</span> <span class="n">installation</span> <span class="n">of</span> <span class="n">file</span><span class="p">:</span><span class="o">/../../</span><span class="n">liferay</span><span class="o">-</span><span class="n">commerce</span><span class="o">-</span><span class="n">enterprise</span><span class="o">-</span><span class="mf">1.1</span><span class="o">.</span><span class="mi">6</span><span class="o">/</span><span class="n">osgi</span><span class="o">/</span><span class="n">marketplace</span><span class="o">/</span><span class="n">Liferay</span><span class="o">%</span><span class="mi">20</span><span class="n">Commerce</span><span class="o">%</span><span class="mi">20</span><span class="o">-%</span><span class="mi">20</span><span class="n">Impl</span><span class="o">.</span><span class="n">lpkg</span>
+</pre></div>
+</div>
+</li>
+<li><p>Shut down the application server.</p></li>
+</ol>
+</div>
+<div class="section" id="clear-stale-data-and-restart-the-server">
+<h2>Clear Stale Data and Restart the Server<a class="headerlink" href="#clear-stale-data-and-restart-the-server" title="Permalink to this headline">¶</a></h2>
+<ol>
+<li><p>Delete the <code class="docutils literal notranslate"><span class="pre">${liferay.home}/osgi/state</span></code> folder.</p>
+<blockquote>
+<div><p>To learn more about OSGi folders, see <a class="reference external" href="https://help.liferay.com/hc/en-us/articles/360017895412-Installing-Apps-Manually#using-your-file-system-to-install-apps">Installing Apps Manually</a>.</p>
+</div></blockquote>
+</li>
+<li><p>Start the application server.</p></li>
+<li><p>Verify that the the upgrade process has begun by looking for messages similar to this in your application server console logs:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2019</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">13</span> <span class="mi">18</span><span class="p">:</span><span class="mi">26</span><span class="p">:</span><span class="mf">26.082</span> <span class="n">INFO</span>  <span class="p">[</span><span class="n">main</span><span class="p">][</span><span class="n">UpgradeProcess</span><span class="p">:</span><span class="mi">93</span><span class="p">]</span> <span class="n">Upgrading</span> <span class="n">com</span><span class="o">.</span><span class="n">liferay</span><span class="o">.</span><span class="n">commerce</span><span class="o">.</span><span class="n">account</span><span class="o">.</span><span class="n">internal</span><span class="o">.</span><span class="n">upgrade</span><span class="o">.</span><span class="n">v1_2_0</span><span class="o">.</span><span class="n">CommerceAccountGroupCommerceAccountRelUpgradeProcess</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">13</span> <span class="mi">18</span><span class="p">:</span><span class="mi">26</span><span class="p">:</span><span class="mf">26.106</span> <span class="n">INFO</span>  <span class="p">[</span><span class="n">main</span><span class="p">][</span><span class="n">UpgradeProcess</span><span class="p">:</span><span class="mi">107</span><span class="p">]</span> <span class="n">Completed</span> <span class="n">upgrade</span> <span class="n">process</span> <span class="n">com</span><span class="o">.</span><span class="n">liferay</span><span class="o">.</span><span class="n">commerce</span><span class="o">.</span><span class="n">account</span><span class="o">.</span><span class="n">internal</span><span class="o">.</span><span class="n">upgrade</span><span class="o">.</span><span class="n">v1_2_0</span><span class="o">.</span><span class="n">CommerceAccountGroupCommerceAccountRelUpgradeProcess</span> <span class="ow">in</span> <span class="mi">24</span> <span class="n">ms</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">13</span> <span class="mi">18</span><span class="p">:</span><span class="mi">26</span><span class="p">:</span><span class="mf">26.116</span> <span class="n">INFO</span>  <span class="p">[</span><span class="n">main</span><span class="p">][</span><span class="n">UpgradeProcess</span><span class="p">:</span><span class="mi">93</span><span class="p">]</span> <span class="n">Upgrading</span> <span class="n">com</span><span class="o">.</span><span class="n">liferay</span><span class="o">.</span><span class="n">commerce</span><span class="o">.</span><span class="n">account</span><span class="o">.</span><span class="n">internal</span><span class="o">.</span><span class="n">upgrade</span><span class="o">.</span><span class="n">v1_2_0</span><span class="o">.</span><span class="n">CommerceAccountGroupRelUpgradeProcess</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">13</span> <span class="mi">18</span><span class="p">:</span><span class="mi">26</span><span class="p">:</span><span class="mf">26.124</span> <span class="n">INFO</span>  <span class="p">[</span><span class="n">main</span><span class="p">][</span><span class="n">UpgradeProcess</span><span class="p">:</span><span class="mi">107</span><span class="p">]</span> <span class="n">Completed</span> <span class="n">upgrade</span> <span class="n">process</span> <span class="n">com</span><span class="o">.</span><span class="n">liferay</span><span class="o">.</span><span class="n">commerce</span><span class="o">.</span><span class="n">account</span><span class="o">.</span><span class="n">internal</span><span class="o">.</span><span class="n">upgrade</span><span class="o">.</span><span class="n">v1_2_0</span><span class="o">.</span><span class="n">CommerceAccountGroupRelUpgradeProcess</span> <span class="ow">in</span> <span class="mi">8</span> <span class="n">ms</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">13</span> <span class="mi">18</span><span class="p">:</span><span class="mi">26</span><span class="p">:</span><span class="mf">26.130</span> <span class="n">INFO</span>  <span class="p">[</span><span class="n">main</span><span class="p">][</span><span class="n">UpgradeProcess</span><span class="p">:</span><span class="mi">93</span><span class="p">]</span> <span class="n">Upgrading</span> <span class="n">com</span><span class="o">.</span><span class="n">liferay</span><span class="o">.</span><span class="n">commerce</span><span class="o">.</span><span class="n">account</span><span class="o">.</span><span class="n">internal</span><span class="o">.</span><span class="n">upgrade</span><span class="o">.</span><span class="n">v1_2_0</span><span class="o">.</span><span class="n">CommerceAccountGroupUpgradeProcess</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">13</span> <span class="mi">18</span><span class="p">:</span><span class="mi">26</span><span class="p">:</span><span class="mf">26.142</span> <span class="n">INFO</span>  <span class="p">[</span><span class="n">main</span><span class="p">][</span><span class="n">UpgradeProcess</span><span class="p">:</span><span class="mi">107</span><span class="p">]</span> <span class="n">Completed</span> <span class="n">upgrade</span> <span class="n">process</span> <span class="n">com</span><span class="o">.</span><span class="n">liferay</span><span class="o">.</span><span class="n">commerce</span><span class="o">.</span><span class="n">account</span><span class="o">.</span><span class="n">internal</span><span class="o">.</span><span class="n">upgrade</span><span class="o">.</span><span class="n">v1_2_0</span><span class="o">.</span><span class="n">CommerceAccountGroupUpgradeProcess</span> <span class="ow">in</span> <span class="mi">12</span> <span class="n">ms</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">13</span> <span class="mi">18</span><span class="p">:</span><span class="mi">26</span><span class="p">:</span><span class="mf">26.148</span> <span class="n">INFO</span>  <span class="p">[</span><span class="n">main</span><span class="p">][</span><span class="n">UpgradeProcess</span><span class="p">:</span><span class="mi">93</span><span class="p">]</span> <span class="n">Upgrading</span> <span class="n">com</span><span class="o">.</span><span class="n">liferay</span><span class="o">.</span><span class="n">commerce</span><span class="o">.</span><span class="n">account</span><span class="o">.</span><span class="n">internal</span><span class="o">.</span><span class="n">upgrade</span><span class="o">.</span><span class="n">v1_3_0</span><span class="o">.</span><span class="n">CommerceAccountNameUpgradeProcess</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">13</span> <span class="mi">18</span><span class="p">:</span><span class="mi">26</span><span class="p">:</span><span class="mf">26.160</span> <span class="n">INFO</span>  <span class="p">[</span><span class="n">main</span><span class="p">][</span><span class="n">LoggingTimer</span><span class="p">:</span><span class="mi">83</span><span class="p">]</span> <span class="n">Starting</span> <span class="n">com</span><span class="o">.</span><span class="n">liferay</span><span class="o">.</span><span class="n">portal</span><span class="o">.</span><span class="n">kernel</span><span class="o">.</span><span class="n">upgrade</span><span class="o">.</span><span class="n">UpgradeProcess</span><span class="c1">#alter</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">13</span> <span class="mi">18</span><span class="p">:</span><span class="mi">26</span><span class="p">:</span><span class="mf">26.200</span> <span class="n">INFO</span>  <span class="p">[</span><span class="n">main</span><span class="p">][</span><span class="n">LoggingTimer</span><span class="p">:</span><span class="mi">43</span><span class="p">]</span> <span class="n">Completed</span> <span class="n">com</span><span class="o">.</span><span class="n">liferay</span><span class="o">.</span><span class="n">portal</span><span class="o">.</span><span class="n">kernel</span><span class="o">.</span><span class="n">upgrade</span><span class="o">.</span><span class="n">UpgradeProcess</span><span class="c1">#alter in 40 ms</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">13</span> <span class="mi">18</span><span class="p">:</span><span class="mi">26</span><span class="p">:</span><span class="mf">26.208</span> <span class="n">INFO</span>  <span class="p">[</span><span class="n">main</span><span class="p">][</span><span class="n">UpgradeProcess</span><span class="p">:</span><span class="mi">107</span><span class="p">]</span> <span class="n">Completed</span> <span class="n">upgrade</span> <span class="n">process</span> <span class="n">com</span><span class="o">.</span><span class="n">liferay</span><span class="o">.</span><span class="n">commerce</span><span class="o">.</span><span class="n">account</span><span class="o">.</span><span class="n">internal</span><span class="o">.</span><span class="n">upgrade</span><span class="o">.</span><span class="n">v1_3_0</span><span class="o">.</span><span class="n">CommerceAccountNameUpgradeProcess</span> <span class="ow">in</span> <span class="mi">60</span> <span class="n">ms</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">13</span> <span class="mi">18</span><span class="p">:</span><span class="mi">26</span><span class="p">:</span><span class="mf">26.246</span> <span class="n">INFO</span>  <span class="p">[</span><span class="n">main</span><span class="p">][</span><span class="n">LoggingTimer</span><span class="p">:</span><span class="mi">83</span><span class="p">]</span> <span class="n">Starting</span> <span class="n">com</span><span class="o">.</span><span class="n">liferay</span><span class="o">.</span><span class="n">portal</span><span class="o">.</span><span class="n">upgrade</span><span class="o">.</span><span class="n">internal</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">updater</span><span class="o">.</span><span class="n">IndexUpdaterUtil</span><span class="c1">#updateIndexes#Updating database indexes for com.liferay.commerce.account.service</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">13</span> <span class="mi">18</span><span class="p">:</span><span class="mi">26</span><span class="p">:</span><span class="mf">26.346</span> <span class="n">INFO</span>  <span class="p">[</span><span class="n">main</span><span class="p">][</span><span class="n">BaseDB</span><span class="p">:</span><span class="mi">812</span><span class="p">]</span> <span class="n">Dropping</span> <span class="n">stale</span> <span class="n">indexes</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">13</span> <span class="mi">18</span><span class="p">:</span><span class="mi">26</span><span class="p">:</span><span class="mf">26.400</span> <span class="n">INFO</span>  <span class="p">[</span><span class="n">main</span><span class="p">][</span><span class="n">BaseDB</span><span class="p">:</span><span class="mi">84</span><span class="p">]</span> <span class="n">Adding</span> <span class="n">indexes</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2019</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">13</span> <span class="mi">18</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mf">19.439</span> <span class="n">INFO</span>  <span class="p">[</span><span class="n">main</span><span class="p">][</span><span class="n">VerifyProcess</span><span class="p">:</span><span class="mi">65</span><span class="p">]</span> <span class="n">Verifying</span> <span class="n">com</span><span class="o">.</span><span class="n">liferay</span><span class="o">.</span><span class="n">commerce</span><span class="o">.</span><span class="n">product</span><span class="o">.</span><span class="n">internal</span><span class="o">.</span><span class="n">verify</span><span class="o">.</span><span class="n">CommerceCatalogServiceVerifyProcess</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">13</span> <span class="mi">18</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mf">19.443</span> <span class="n">INFO</span>  <span class="p">[</span><span class="n">main</span><span class="p">][</span><span class="n">LoggingTimer</span><span class="p">:</span><span class="mi">83</span><span class="p">]</span> <span class="n">Starting</span> <span class="n">com</span><span class="o">.</span><span class="n">liferay</span><span class="o">.</span><span class="n">commerce</span><span class="o">.</span><span class="n">product</span><span class="o">.</span><span class="n">internal</span><span class="o">.</span><span class="n">verify</span><span class="o">.</span><span class="n">CommerceCatalogServiceVerifyProcess</span><span class="c1">#verifyMasterCommerceCatalog</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">13</span> <span class="mi">18</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mf">19.445</span> <span class="n">INFO</span>  <span class="p">[</span><span class="n">main</span><span class="p">][</span><span class="n">LoggingTimer</span><span class="p">:</span><span class="mi">43</span><span class="p">]</span> <span class="n">Completed</span> <span class="n">com</span><span class="o">.</span><span class="n">liferay</span><span class="o">.</span><span class="n">commerce</span><span class="o">.</span><span class="n">product</span><span class="o">.</span><span class="n">internal</span><span class="o">.</span><span class="n">verify</span><span class="o">.</span><span class="n">CommerceCatalogServiceVerifyProcess</span><span class="c1">#verifyMasterCommerceCatalog in 2 ms</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">13</span> <span class="mi">18</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mf">19.446</span> <span class="n">INFO</span>  <span class="p">[</span><span class="n">main</span><span class="p">][</span><span class="n">VerifyProcess</span><span class="p">:</span><span class="mi">80</span><span class="p">]</span> <span class="n">Completed</span> <span class="n">verification</span> <span class="n">process</span> <span class="n">com</span><span class="o">.</span><span class="n">liferay</span><span class="o">.</span><span class="n">commerce</span><span class="o">.</span><span class="n">product</span><span class="o">.</span><span class="n">internal</span><span class="o">.</span><span class="n">verify</span><span class="o">.</span><span class="n">CommerceCatalogServiceVerifyProcess</span> <span class="ow">in</span> <span class="mi">7</span> <span class="n">ms</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">13</span> <span class="mi">18</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mf">32.471</span> <span class="n">INFO</span>  <span class="p">[</span><span class="n">main</span><span class="p">][</span><span class="n">ThemeHotDeployListener</span><span class="p">:</span><span class="mi">108</span><span class="p">]</span> <span class="mi">1</span> <span class="n">theme</span> <span class="k">for</span> <span class="n">admin</span><span class="o">-</span><span class="n">theme</span> <span class="ow">is</span> <span class="n">available</span> <span class="k">for</span> <span class="n">use</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">13</span> <span class="mi">18</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mf">34.296</span> <span class="n">INFO</span>  <span class="p">[</span><span class="n">main</span><span class="p">][</span><span class="n">ThemeHotDeployListener</span><span class="p">:</span><span class="mi">108</span><span class="p">]</span> <span class="mi">1</span> <span class="n">theme</span> <span class="k">for</span> <span class="n">classic</span><span class="o">-</span><span class="n">theme</span> <span class="ow">is</span> <span class="n">available</span> <span class="k">for</span> <span class="n">use</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">13</span> <span class="mi">18</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mf">38.667</span> <span class="n">INFO</span>  <span class="p">[</span><span class="n">main</span><span class="p">][</span><span class="n">ThemeHotDeployListener</span><span class="p">:</span><span class="mi">108</span><span class="p">]</span> <span class="mi">1</span> <span class="n">theme</span> <span class="k">for</span> <span class="n">minium</span><span class="o">-</span><span class="n">theme</span> <span class="ow">is</span> <span class="n">available</span> <span class="k">for</span> <span class="n">use</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>The Liferay Commerce instance has been updated. There is no need to reindex and all the data remains unchanged.</p>
+</div>
+<div class="section" id="additional-information">
+<h2>Additional Information<a class="headerlink" href="#additional-information" title="Permalink to this headline">¶</a></h2>
+<p>Liferay Commerce is built on Liferay DXP 7.1. Occasionally, it is necessary to update the core Liferay DXP platform, are a requirement to updating to the latest maintenance version. Fixes to Liferay Commerce are independent from Liferay.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../get-help/commerce-enterprise-support/liferay-commerce-fix-delivery-method.html"><span class="doc">Liferay Commerce Fix Delivery Method</span></a></p></li>
+<li><p><a class="reference internal" href="upgrading-from-liferay-commerce-1.1.x.html"><span class="doc">Upgrading from Liferay Commerce 1.1.x</span></a></p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Maintenance Versions</a><ul>
+<li><a class="reference internal" href="#download-and-deploy">Download and Deploy</a></li>
+<li><a class="reference internal" href="#clear-stale-data-and-restart-the-server">Clear Stale Data and Restart the Server</a></li>
+<li><a class="reference internal" href="#additional-information">Additional Information</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/commerce/installation-and-upgrades/upgrades-and-updates/maintenance-versions.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    </div>
+  </body>
+</html>

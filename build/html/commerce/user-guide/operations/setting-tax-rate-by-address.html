@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Setting Tax Rates by Address &#8212; Liferay Learn</title>
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="setting-tax-rates-by-address">
+<h1>Setting Tax Rates by Address<a class="headerlink" href="#setting-tax-rates-by-address" title="Permalink to this headline">¶</a></h1>
+<p>Liferay Commerce supports two types of tax calculations: fixed rates and by address. The fixed method applies the same rate to a product each time it is purchased, while the by address method applies only to buyers within a specified geographical region.</p>
+<p>Calculating taxes by address sets rates for geographical areas independently. You can apply several by address rates to a single tax category. When a product from that category is purchased, the tax rate appropriate to the buyer’s location is used.</p>
+<ol>
+<li><p>Go to <em>Site Administration</em> → <em>Commerce</em> → <em>Settings</em>.</p></li>
+<li><p>Click the <em>Taxes</em> tab and then the <em>Tax Calculations</em> sub-tab.</p></li>
+<li><p>Click <em>By Address</em>.</p></li>
+<li><p>Switch the <em>Percentage</em> toggle to <em>YES</em> if you want the tax to be defined as a percentage of the purchase price. Leave the toggle disabled to define the tax as a fixed amount.</p></li>
+<li><p>Switch the <em>Active</em> toggle to <em>YES</em>.</p>
+<p><img alt="Enabling tax rates by address" src="../../../_images/0171.png" /></p>
+</li>
+<li><p>Click <em>Save</em>.</p></li>
+</ol>
+<p>Next, set the Tax Rate by Category and by Address:</p>
+<ol>
+<li><p>Click the <em>Tax Rate Settings</em> sub-tab and then on the <em>Add Tax Rate Setting</em> button.</p></li>
+<li><p>Select the <em>Tax Category</em> from the <em>Tax Category</em> field.</p></li>
+<li><p>Enter the tax rate in the <em>Rate</em> field.</p></li>
+<li><p>Select the country, region, enter the Zip code.</p>
+<p><img alt="Configuring tax rate settings" src="../../../_images/0247.png" /></p>
+</li>
+<li><p>Click <em>Save</em>.</p></li>
+</ol>
+<p>Your store now applies this particular tax rate for all goods whose billing address is in the assigned country; in this example, 16% tax applied to buyers from Belgium.</p>
+<div class="section" id="additional-information">
+<h2>Additional Information<a class="headerlink" href="#additional-information" title="Permalink to this headline">¶</a></h2>
+<p><strong>Note 1</strong>: The tax rate applies only to buyers located in the area you designate. To designate an entire country, leave <em>Region</em> and <em>Zip</em> blank; to designate an entire region, leave <em>Zip</em> blank.</p>
+<p><strong>Note 2</strong>: If you assign multiple settings to a single tax category (but specify different geographical areas), the rate appropriate to the buyer’s location is used. If you assign both a by address rate and a fixed rate to a single tax category, both rates will be applied.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="setting-tax-rate-by-fixed-rate.html"><span class="doc">Setting Tax Rates by Fixed Rate</span></a></p></li>
+<li><p><a class="reference internal" href="creating-tax-categories.html"><span class="doc">Creating Tax Categories</span></a></p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Setting Tax Rates by Address</a><ul>
+<li><a class="reference internal" href="#additional-information">Additional Information</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/commerce/user-guide/operations/setting-tax-rate-by-address.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Liferay Learn</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    </div>
+  </body>
+</html>
