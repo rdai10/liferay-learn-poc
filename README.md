@@ -36,6 +36,12 @@ npm install
 
 ## Generating Files
 
+<!-- TO DO: use Make to compile css -->
+To build css for the theme, run
+```
+npm run compile-css
+```
+
 To generate `HTML`, run
 
 ```

@@ -55,8 +55,8 @@ html_title = 'Liferay Learn'
 html_favicon = '_static/img/favicon.ico'
 # html_logo
 # html_theme_path
-# html_css_files
-# html_js_files
+html_css_files = ['main.css']
+# html_js_files = []
 
 html_show_copyright = False
 
