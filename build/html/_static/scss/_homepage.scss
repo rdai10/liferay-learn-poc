@@ -1,0 +1,10 @@
+header {
+	background-color: $brand-secondary;
+	color: $white;
+	display: flex;
+	justify-content: space-between;
+
+	a {
+		color: $white;
+	}
+}
