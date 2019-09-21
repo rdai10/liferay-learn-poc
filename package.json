@@ -18,6 +18,7 @@
   },
   "private": true,
   "scripts": {
-    "compile-css": "node compile-css.js"
+    "compile-css": "node compile-css.js",
+    "css:watch": "node-sass -w --include-path node_modules/clay-css/src/scss source/_static/scss/main.scss source/_static/main.css"
   }
 }

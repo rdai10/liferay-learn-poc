@@ -1,0 +1,32 @@
+{%- extends "basic/layout.html" %}
+
+{% block header %}
+<header role="navigation">
+    <div class="brand">
+        {%- if logo %}
+        <a class="company-logo" href="{{ pathto(master_doc) }}" title="Home">
+            <img src="{{ pathto('_static/' + logo, 1) }}" alt="Logo" />
+        </a>
+        {%- endif %}
+        {%- block headertitle %}
+        <h2 class="header-title">
+            <a href="{{ pathto(master_doc) }}">{{ shorttitle|e }}</a>
+        </h2>
+        {%- endblock %}
+    </div>
+    <div class="header-links" role="navigation" aria-label="related navigation">
+        <a href="www.liferay.com">
+            {% trans %}Liferay.com{% endtrans %}
+        </a>
+        <a href="">
+            {% trans %}Training{% endtrans %}
+        </a>
+        <a href="">
+            {% trans %}Community{% endtrans %}
+        </a>
+        <a href="help.liferay.com">
+            {% trans %}Help Center{% endtrans %}
+        </a>
+    </div>
+</header>
+{% endblock %}

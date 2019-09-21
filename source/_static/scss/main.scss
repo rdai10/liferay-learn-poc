@@ -1,6 +1,7 @@
 @import "functions/_global-functions";
 
 // Custom Variables
+@import "_custom-variable";
 
 // Clay Base-Variables
 
@@ -44,3 +45,7 @@
 @import "components/_navbar";
 @import "components/_panels";
 @import "components/_tables";
+
+// Custom Components
+
+@import "_homepage";
