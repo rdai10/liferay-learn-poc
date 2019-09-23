@@ -1,0 +1,141 @@
+{% extends "layout.html" %}
+
+{% set title = _('Documentation!') %}
+{% block body %}
+<div class="container-fluid homepage">
+    <div class="row">
+        <section class="banner col-12">
+            <h1 class="display">{{ _('Welcome to Liferay Docs') }}</h1>
+
+            <div class="sub-heading">{%trans%}Practical resources for learning Liferay{%endtrans%}</div>
+
+            <input class="homepage-search" type="search" name="query" id="query" placeholder="Search Docs"
+                aria-label="Search">
+        </section>
+
+        <section class="col-md-8 justify-content-center offset-md-2 products">
+            <h2 class="display">{%trans%}Browse by Product{%endtrans%}</h2>
+
+            <div class="col-md-12 row">
+                <div class="col-lg-4">
+                    <a class="autofit-row autofit-row-center product-card" href="/">
+                        <div class="autofit-col">
+                            <svg class="icon">
+                                <use xlink:href="#dxp-logo"></use>
+                            </svg>
+                        </div>
+
+                        <div class="autofit-col autofit-col-expand">
+                            <h4 class="title">
+                                {%trans%}DXP{%endtrans%}
+                            </h4>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-4">
+                    <a class="autofit-row autofit-row-center product-card" href="/">
+                        <div class="autofit-col">
+                            <svg class="icon">
+                                <use xlink:href="#analytics-cloud-logo"></use>
+                            </svg>
+                        </div>
+
+                        <div class="autofit-col autofit-col-expand">
+                            <h4 class="title">
+                                {%trans%}Analytics Cloud{%endtrans%}
+                            </h4>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-4">
+                    <a class="autofit-row autofit-row-center product-card" href="/">
+                        <div class="autofit-col">
+                            <svg class="icon">
+                                <use xlink:href="#commerce-logo"></use>
+                            </svg>
+                        </div>
+
+                        <div class="autofit-col autofit-col-expand">
+                            <h4 class="title">
+                                {%trans%}Commerce{%endtrans%}
+                            </h4>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-4">
+                    <a class="autofit-row autofit-row-center product-card" href="/">
+                        <div class="autofit-col">
+                            <svg class="icon">
+                                <use xlink:href="#dxp-cloud-logo"></use>
+                            </svg>
+                        </div>
+
+                        <div class="autofit-col autofit-col-expand">
+                            <h4 class="title">
+                                {%trans%}DXP Cloud{%endtrans%}
+                            </h4>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="col-md-8 justify-content-center offset-md-2 resources">
+            <h3>{%trans%}More Resources{%endtrans%}</h3>
+
+            <ul class="col-md-12 cta-links row">
+                <li class="col-lg-3 col-md-6">
+                    <a class="cta-card" href="">
+                        <svg class="icon">
+                            <use xlink:href="#lrdc" />
+                        </svg>
+
+                        <h4 class="title">
+                            {%trans%}Liferay.com{%endtrans%}
+                        </h4>
+                    </a>
+                </li>
+
+                <li class="col-lg-3 col-md-6">
+                    <a class="cta-card" href="">
+                        <svg class="icon">
+                            <use xlink:href="#training" />
+                        </svg>
+
+                        <h4 class="title">
+                            {%trans%}Training{%endtrans%}
+                        </h4>
+                    </a>
+                </li>
+
+                <li class="col-lg-3 col-md-6">
+                    <a class="cta-card" href="">
+                        <svg class="icon">
+                            <use xlink:href="#community" />
+                        </svg>
+
+                        <h4 class="title">
+                            {%trans%}Community{%endtrans%}
+                        </h4>
+                    </a>
+                </li>
+
+                <li class="col-lg-3 col-md-6">
+                    <a class="cta-card" href="">
+                        <svg class="icon">
+                            <use xlink:href="#helpcenter" />
+                        </svg>
+
+                        <h4 class="title">
+                            {%trans%}Help Center{%endtrans%}
+                        </h4>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </div>
+</div>
+{% endblock %}
