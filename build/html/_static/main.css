@@ -3165,7 +3165,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "Source Sans Pro", "Source Serif Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -3418,22 +3418,22 @@ h1, h2, h3, h4, h5, h6,
   line-height: 1.2; }
 
 h1, .h1 {
-  font-size: 2.5rem; }
-
-h2, .h2 {
   font-size: 2rem; }
 
-h3, .h3 {
-  font-size: 1.75rem; }
-
-h4, .h4 {
+h2, .h2 {
   font-size: 1.5rem; }
 
+h3, .h3 {
+  font-size: 1rem; }
+
+h4, .h4 {
+  font-size: 1rem; }
+
 h5, .h5 {
-  font-size: 1.25rem; }
+  font-size: 0.875rem; }
 
 h6, .h6 {
-  font-size: 1rem; }
+  font-size: 0.75rem; }
 
 .lead {
   font-size: 1.25rem;
@@ -3467,7 +3467,7 @@ hr {
 
 small,
 .small {
-  font-size: 80%;
+  font-size: 0.75rem;
   font-weight: 400; }
 
 mark,
@@ -3498,7 +3498,7 @@ mark,
 
 .blockquote-footer {
   display: block;
-  font-size: 80%;
+  font-size: 0.75rem;
   color: #6c757d; }
   .blockquote-footer::before {
     content: "\2014\00A0"; }
@@ -4487,7 +4487,7 @@ textarea.form-control {
   display: none;
   width: 100%;
   margin-top: 0.25rem;
-  font-size: 80%;
+  font-size: 0.75rem;
   color: #28a745; }
 
 .valid-tooltip {
@@ -4584,7 +4584,7 @@ textarea.form-control {
   display: none;
   width: 100%;
   margin-top: 0.25rem;
-  font-size: 80%;
+  font-size: 0.75rem;
   color: #dc3545; }
 
 .invalid-tooltip {
@@ -6669,7 +6669,7 @@ button.label {
 
 .navbar-title {
   font-size: 1.25rem;
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 0; }
 
 .navbar-text {
@@ -7359,7 +7359,7 @@ button.label {
   padding: 0.75rem 1.25rem; }
 
 .panel-title {
-  font-weight: 500; }
+  font-weight: 600; }
 
 .panel-group {
   border-radius: 0.25rem; }
@@ -7605,7 +7605,7 @@ th {
 
 .table-title {
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.5;
   margin-bottom: 0; }
 
@@ -7779,7 +7779,7 @@ th {
 
 .table-list-title {
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.2;
   margin-bottom: 0; }
 
@@ -8014,12 +8014,74 @@ th {
   max-width: none;
   width: auto; }
 
+h1 {
+  font-size: 2rem; }
+  h1.display {
+    font-size: 3rem;
+    line-height: 1.17; }
+  h1.title {
+    margin-bottom: 0.5rem; }
+  @media (max-width: 767.98px) {
+    h1 {
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem; }
+      h1.display, h1.title {
+        margin-bottom: 0; }
+      h1.display {
+        font-size: 2rem;
+        line-height: 1.5; } }
+
+h1,
+h2 {
+  line-height: 40px; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  margin: 0; }
+
+h2.display {
+  margin-bottom: 1rem; }
+
+h3,
+h4 {
+  line-height: 1.5; }
+
+h3,
+h6 {
+  text-transform: uppercase; }
+
+h2 {
+  font-size: 1.5rem;
+  margin-top: 1.5rem; }
+
+h3 {
+  margin-top: 0.75rem; }
+
+h5 {
+  font-size: 0.875rem;
+  line-height: 20px; }
+
+h6 {
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  line-height: 16px; }
+
+.secondary-font {
+  font-size: 0.875rem;
+  line-height: 1.429; }
+
+.semi-bold {
+  font-weight: 600; }
+
+.small {
+  line-height: 1.5; }
+
 header {
   align-items: center;
   background-color: #134194;
   color: #fff;
   display: flex;
-  height: 56px;
+  height: 3.5rem;
   justify-content: space-between; }
   header a {
     color: #fff; }
@@ -8029,10 +8091,107 @@ header {
     align-items: center;
     display: flex; }
     header .brand h2 {
-      margin-bottom: 0; }
+      margin: 0; }
   header .company-logo {
-    margin-left: 18px;
-    margin-right: 8px; }
+    margin-left: 1.125rem;
+    margin-right: 0.5rem; }
   header .header-links a {
-    font-size: 14px;
-    margin-right: 52px; }
+    font-size: 0.875rem;
+    margin-right: 3.25rem; }
+
+.homepage .banner,
+.homepage .products h2,
+.homepage .resources h3 {
+  text-align: center; }
+
+.homepage .banner {
+  background-color: #f5f7fa;
+  padding: 5rem 0 11.875rem; }
+
+.homepage .cta-card,
+.homepage .product-card {
+  background-color: #fff;
+  border: 1px solid rgba(9, 16, 24, 0.12);
+  border-radius: 0.25rem;
+  box-shadow: 0 6px 15px -6px rgba(9, 16, 29, 0.06);
+  transition: transform 0.2s ease; }
+  .homepage .cta-card:hover,
+  .homepage .product-card:hover {
+    border-bottom: 3px solid #0b5fff;
+    box-shadow: 0 6px 11px 0 rgba(9, 16, 29, 0.09);
+    margin-bottom: -3px;
+    text-decoration: none;
+    transform: translateY(-4px); }
+  .homepage .cta-card a:hover,
+  .homepage .product-card a:hover {
+    text-decoration: none; }
+  .homepage .cta-card .description,
+  .homepage .product-card .description {
+    font-size: 0.875rem;
+    margin-bottom: 0; }
+  .homepage .cta-card .title,
+  .homepage .product-card .title {
+    margin: 0; }
+
+.homepage .cta-card {
+  display: block;
+  padding: 1.5rem;
+  text-align: center; }
+  @media (max-width: 991.98px) {
+    .homepage .cta-card {
+      margin-bottom: 1.5rem; }
+      .homepage .cta-card:hover {
+        margin-bottom: 22px; } }
+  .homepage .cta-card .icon {
+    height: 2.5rem;
+    width: 2.5rem; }
+
+.homepage .cta-links {
+  justify-content: center; }
+  .homepage .cta-links li {
+    display: flex;
+    flex-direction: column; }
+  .homepage .cta-links ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+  .homepage .cta-links .cta-card {
+    flex-grow: 1; }
+
+.homepage .homepage-search {
+  background-position: right 1.5rem center;
+  background-size: 1rem;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'%3E%3Cpath%20class='lexicon-icon-outline'%20d='M503.254%20467.861L369.609%20334.216c27.671-35.13%2044.344-79.327%2044.344-127.415C413.953%2093.017%20321.375.439%20207.591.439S1.229%2093.017%201.229%20206.801s92.578%20206.362%20206.362%20206.362c47.268%200%2090.735-16.146%20125.572-42.969l133.851%20133.851c5.002%205.002%2011.554%207.488%2018.106%207.488s13.104-2.486%2018.106-7.488c10.004-10.003%2010.004-26.209.029-36.183zM52.446%20206.801c0-85.558%2069.616-155.173%20155.173-155.173s155.174%2069.616%20155.174%20155.173-69.616%20155.173-155.173%20155.173S52.447%20292.358%2052.447%20206.801z'%20fill='%230b5fff'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  border: 1px solid #0b5fff;
+  border-radius: 0.25rem;
+  color: #fff;
+  height: 2.75rem;
+  padding: 0.75rem 1rem;
+  width: 45vw; }
+
+.homepage .product-card {
+  margin-right: 1.5rem;
+  margin-top: 1.5rem;
+  padding: 1.25rem 1.5rem; }
+  .homepage .product-card .icon {
+    height: 2rem;
+    margin-right: 1rem;
+    width: 2rem; }
+
+.homepage .products {
+  margin-bottom: 5rem;
+  margin-top: -9.25rem; }
+
+.homepage .resources h3 {
+  text-transform: uppercase;
+  margin-bottom: 2.125rem; }
+
+.homepage .sub-heading {
+  margin: 1.5rem 0 1.5rem; }
+
+.document .body {
+  max-width: initial; }

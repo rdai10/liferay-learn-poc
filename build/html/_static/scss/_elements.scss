@@ -1,0 +1,91 @@
+h1 {
+	font-size: $h1-font-size;
+
+	&.display {
+		font-size: $h1-display-font-size;
+		line-height: 1.17;
+	}
+
+	&.title {
+		margin-bottom: 0.5rem;
+	}
+
+	@include media-breakpoint-down(sm) {
+		font-size: $mobile-font-size;
+		margin-bottom: $spacing-default;
+
+		&.display,
+		&.title {
+			margin-bottom: 0;
+		}
+
+		&.display {
+			font-size: $h1-font-size;
+			line-height: 1.5;
+		}
+	}
+}
+
+h1,
+h2 {
+	line-height: 40px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: $font-weight-semi-bold;
+	margin: 0;
+}
+
+h2 {
+	&.display {
+		margin-bottom: $spacing-md;
+	}
+}
+
+h3,
+h4 {
+	line-height: $line-height-base;
+}
+
+h3,
+h6 {
+	text-transform: uppercase;
+}
+
+h2 {
+	font-size: $h2-font-size;
+	margin-top: $spacing-default;
+}
+
+h3 {
+	margin-top: $spacing-sm;
+}
+
+h5 {
+	font-size: $h5-font-size;
+	line-height: 20px;
+}
+
+h6 {
+	font-size: $h6-font-size;
+	letter-spacing: 1px;
+	line-height: $h6-line-height;
+}
+
+.secondary-font {
+	font-size: $font-size-sm;
+	line-height: $secondary-text-line-height;
+}
+
+.semi-bold {
+	font-weight: $font-weight-semi-bold;
+}
+
+.small {
+	line-height: $line-height-sm;
+}
