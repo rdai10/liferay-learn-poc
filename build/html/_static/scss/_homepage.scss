@@ -1,10 +1,37 @@
 header {
+	align-items: center;
 	background-color: $brand-secondary;
 	color: $white;
 	display: flex;
+	height: 56px;
 	justify-content: space-between;
 
 	a {
 		color: $white;
+
+		&:hover {
+			color: $white;
+		}
+	}
+
+	.brand {
+		align-items: center;
+		display: flex;
+
+		h2 {
+			margin-bottom: 0;
+		}
+	}
+
+	.company-logo {
+		margin-left: 18px;
+		margin-right: 8px;
+	}
+
+	.header-links {
+		a {
+			font-size: 14px;
+			margin-right: 52px;
+		}
 	}
 }

@@ -8019,8 +8019,20 @@ header {
   background-color: #134194;
   color: #fff;
   display: flex;
+  height: 56px;
   justify-content: space-between; }
   header a {
     color: #fff; }
     header a:hover {
       color: #fff; }
+  header .brand {
+    align-items: center;
+    display: flex; }
+    header .brand h2 {
+      margin-bottom: 0; }
+  header .company-logo {
+    margin-left: 18px;
+    margin-right: 8px; }
+  header .header-links a {
+    font-size: 14px;
+    margin-right: 52px; }
