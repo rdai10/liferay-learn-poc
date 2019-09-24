@@ -6,7 +6,7 @@
 	}
 
 	.banner {
-		background-color: #f5f7fa;
+		background-color: #F4F6F9;
 		padding: 5rem 0 11.875rem;
 	}
 
@@ -16,6 +16,7 @@
 		border: 1px solid rgba(9, 16, 24, 0.12);
 		border-radius: $border-radius;
 		box-shadow: 0 6px 15px -6px rgba(9, 16, 29, 0.06);
+		color: $color-default;
 		transition: transform 0.2s ease;
 
 		&:hover {
@@ -26,19 +27,9 @@
 			transform: translateY(-4px);
 		}
 
-		a {
-			&:hover {
-				text-decoration: none;
-			}
-		}
-
 		.description {
 			font-size: $h5-font-size;
 			margin-bottom: 0;
-		}
-
-		.title {
-			margin: 0;
 		}
 	}
 
@@ -58,6 +49,10 @@
 		.icon {
 			height: 2.5rem;
 			width: 2.5rem;
+		}
+
+		.title {
+			margin-top: $spacing-default;
 		}
 	}
 
@@ -99,7 +94,12 @@
 	.product-card {
 		margin-right: $spacing-default;
 		margin-top: $spacing-default;
+		min-height: 90px;
 		padding: 1.25rem $spacing-default;
+
+		@include media-breakpoint-down(md) {
+			min-height: auto;
+		}
 
 		.icon {
 			height: 2rem;

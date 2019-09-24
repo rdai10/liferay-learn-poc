@@ -8014,6 +8014,21 @@ th {
   max-width: none;
   width: auto; }
 
+.documentations .doc-body {
+  padding-top: 1.5rem; }
+
+.documentations .doc-nav,
+.documentations .product-version-selector {
+  background-color: #f4f6f9; }
+
+.documentations .general-info {
+  display: flex;
+  justify-content: space-between; }
+
+.documentations .info-bar {
+  border-bottom: 1px solid #ebeef2;
+  height: 77px; }
+
 h1 {
   font-size: 2rem; }
   h1.display {
@@ -8066,6 +8081,9 @@ h6 {
   letter-spacing: 1px;
   line-height: 16px; }
 
+.documentations h1 {
+  margin-bottom: 1rem; }
+
 .secondary-font {
   font-size: 0.875rem;
   line-height: 1.429; }
@@ -8105,7 +8123,7 @@ header {
   text-align: center; }
 
 .homepage .banner {
-  background-color: #f5f7fa;
+  background-color: #F4F6F9;
   padding: 5rem 0 11.875rem; }
 
 .homepage .cta-card,
@@ -8114,6 +8132,7 @@ header {
   border: 1px solid rgba(9, 16, 24, 0.12);
   border-radius: 0.25rem;
   box-shadow: 0 6px 15px -6px rgba(9, 16, 29, 0.06);
+  color: #09101D;
   transition: transform 0.2s ease; }
   .homepage .cta-card:hover,
   .homepage .product-card:hover {
@@ -8122,16 +8141,10 @@ header {
     margin-bottom: -3px;
     text-decoration: none;
     transform: translateY(-4px); }
-  .homepage .cta-card a:hover,
-  .homepage .product-card a:hover {
-    text-decoration: none; }
   .homepage .cta-card .description,
   .homepage .product-card .description {
     font-size: 0.875rem;
     margin-bottom: 0; }
-  .homepage .cta-card .title,
-  .homepage .product-card .title {
-    margin: 0; }
 
 .homepage .cta-card {
   display: block;
@@ -8145,6 +8158,8 @@ header {
   .homepage .cta-card .icon {
     height: 2.5rem;
     width: 2.5rem; }
+  .homepage .cta-card .title {
+    margin-top: 1.5rem; }
 
 .homepage .cta-links {
   justify-content: center; }
@@ -8176,7 +8191,11 @@ header {
 .homepage .product-card {
   margin-right: 1.5rem;
   margin-top: 1.5rem;
+  min-height: 90px;
   padding: 1.25rem 1.5rem; }
+  @media (max-width: 991.98px) {
+    .homepage .product-card {
+      min-height: auto; } }
   .homepage .product-card .icon {
     height: 2rem;
     margin-right: 1rem;
@@ -8194,4 +8213,5 @@ header {
   margin: 1.5rem 0 1.5rem; }
 
 .document .body {
+  color: #09101D;
   max-width: initial; }

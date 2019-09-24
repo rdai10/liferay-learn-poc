@@ -1,0 +1,21 @@
+.documentations {
+	.doc-body {
+		padding-top: $spacing-default;
+	}
+
+	.doc-nav,
+	.product-version-selector {
+		background-color: #f4f6f9;
+	}
+
+    
+	.info {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.info-bar {
+		border-bottom: 1px solid #ebeef2;
+		height: 77px;
+	}
+}

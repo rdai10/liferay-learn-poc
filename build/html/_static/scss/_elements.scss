@@ -77,6 +77,12 @@ h6 {
 	line-height: $h6-line-height;
 }
 
+.documentations {
+	h1 {
+		margin-bottom: $spacing-md;
+	}
+}
+
 .secondary-font {
 	font-size: $font-size-sm;
 	line-height: $secondary-text-line-height;
