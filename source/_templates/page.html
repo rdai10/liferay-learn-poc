@@ -1,0 +1,31 @@
+{%- extends "layout.html" %}
+
+{% block body %}
+<div class="container-fluid documentations">
+    <div class="row">
+        <div class="col-md-12 info-bar">
+            <div class="col-md-2 product-version-selector">
+            </div>
+
+            <div class="col-md-10 general-info">
+                <div class="info">
+                    <div class="breadcrumb">
+                        breadcrumb
+                    </div>
+
+                    <div class="actions">
+                        <svg>
+                            <use xlink:href="#github"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 doc-nav"></div>
+
+        <div class="col-md-7 doc-body offset-md-1">{{ body }}</div>
+
+        <div class="col-md-2 toc"></div>
+    </div>
+</div>
+{% endblock %}

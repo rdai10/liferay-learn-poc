@@ -8014,6 +8014,21 @@ th {
   max-width: none;
   width: auto; }
 
+.documentations .doc-body {
+  padding-top: 1.5rem; }
+
+.documentations .doc-nav,
+.documentations .product-version-selector {
+  background-color: #f4f6f9; }
+
+.documentations .general-info {
+  display: flex;
+  justify-content: space-between; }
+
+.documentations .info-bar {
+  border-bottom: 1px solid #ebeef2;
+  height: 77px; }
+
 h1 {
   font-size: 2rem; }
   h1.display {
@@ -8065,6 +8080,9 @@ h6 {
   font-size: 0.75rem;
   letter-spacing: 1px;
   line-height: 16px; }
+
+.documentations h1 {
+  margin-bottom: 1rem; }
 
 .secondary-font {
   font-size: 0.875rem;
