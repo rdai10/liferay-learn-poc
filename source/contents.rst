@@ -8,7 +8,6 @@ Welcome to Liferay Learn's documentation!
 
 .. toctree::
    :hidden:
-   :maxdepth: 2
    :caption: Contents:
 
    commerce/developer-guide/*

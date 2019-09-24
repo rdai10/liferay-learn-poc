@@ -36,27 +36,37 @@ npm install
 
 ## Generating Files
 
-<!-- TO DO: use Make to compile css -->
-To compile sass to css during development, run
-```
-npm run css:watch
-```
-
-To generate `HTML`, run
+To generate `HTML` in the `build/html` directory, run
 
 ```
 make html
 ```
-The generated html files will be in the `build/html` directory. 
 
-To generate `pdf`, run
+To generate `pdf` in the `build/latex` directory, run
 ```
 make latexpdf
 ```
-The generated pdf files will be in the `build/latex` directory. 
 
-To generate `epub`, run
+To generate `epub` in the `build/epub` directory, run
 ```
 make epub
 ```
-The generated epub files will be in the `build/epub` directory.
+
+## Live Reload 
+
+First, install `sphinx-autobuild` with 
+```
+pip install sphinx-autobuild
+```
+
+<!-- TO DO: use Make to compile css -->
+Run a watch task to compile css as you make changes:
+```
+npm run css:watch
+```
+
+In a separate terminal, run 
+```
+make livehtml
+```
+The site will be served at http://127.0.0.1:8000
