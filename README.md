@@ -20,13 +20,23 @@ Please also install [node](https://nodejs.org/en/).
 
 ### Installation
 
-Since the documentations here are written in `markdown`, you will also need to install _recommonmark_ via:
+Since the documentations here are written in `markdown`, you will need to install `recommonmark` via:
 ```
-pip install --upgrade recommonmark
+pip install recommonmark
 ```
-We are also using _sphinx-markdown-tables_ since markdown tables are not supported in Sphinx. To install, run:
+We are also using `sphinx-markdown-tables` since markdown tables are not supported in Sphinx. To install, run:
 ```
 pip install sphinx-markdown-tables
+```
+To generate files for localization, we need `sphinx-intl` by running:
+```
+pip install sphinx-intl
+```
+
+If you would like to take advantage of the live update feature, install `sphinx-autobuild` with:
+
+```
+pip install sphinx-autobuild
 ```
 
 Finally, run:
@@ -54,12 +64,6 @@ make epub
 
 ## Live Reload 
 
-First, install `sphinx-autobuild` with 
-```
-pip install sphinx-autobuild
-```
-
-<!-- TO DO: use Make to compile css -->
 Run a watch task to compile css as you make changes:
 ```
 npm run css:watch
@@ -75,13 +79,12 @@ The site will be served at http://127.0.0.1:8000
 
 Read about Sphinx's internationalization [details here](http://www.sphinx-doc.org/en/master/usage/advanced/intl.html).
 
-To generate the `pot` files in the `build/gettext` directory, run `make gettext`.
+To generate the `pot` files in the `build/gettext` directory, run:
+```
+make gettext
+```
 
-To generate the `po` files for translation in the `source/locale` directory, install `sphinx-intl` with:
-```
-pip sphinx-intl
-```
-Then generate the directory structure under the specified locale, for example `zh_CN`, by running:
+Then generate the directory structure under the specified locale inside the `source/locale` directory by running:
 
 ```
 make po locale='zh_CN'
