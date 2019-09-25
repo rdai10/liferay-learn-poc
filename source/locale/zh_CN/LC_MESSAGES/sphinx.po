@@ -23,7 +23,7 @@ msgid "Documentation"
 msgstr ""
 
 #: ../../source/_templates/index.html:9
-msgid "Welcome to Liferay Docs"
+msgid "欢迎来到 Liferay Docs"
 msgstr ""
 
 #: ../../source/_templates/index.html:11
@@ -51,7 +51,7 @@ msgid "DXP Cloud"
 msgstr ""
 
 #: ../../source/_templates/index.html:88
-msgid "More Resources"
+msgid "更多资源"
 msgstr ""
 
 #: ../../source/_templates/index.html:98 ../../source/_templates/layout.html:21

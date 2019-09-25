@@ -27,7 +27,7 @@ msgstr ""
 #: ../../source/commerce/developer-guide/introduction/introduction-to-the-liferay-commerce-developer-guide.md:7
 #: ../../source/commerce/developer-guide/introduction/introduction-to-the-liferay-commerce-developer-guide.md:11
 #: ../../source/commerce/user-guide/README.md:3
-msgid "Getting Started"
+msgid "入门"
 msgstr ""
 
 #: ../../source/commerce/README.md:5
