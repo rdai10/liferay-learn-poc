@@ -70,3 +70,20 @@ In a separate terminal, run
 make livehtml
 ```
 The site will be served at http://127.0.0.1:8000
+
+## Internationalization
+
+Read about Sphinx's internationalization [details here](http://www.sphinx-doc.org/en/master/usage/advanced/intl.html).
+
+To generate the `pot` files in the `build/gettext` directory, run `make gettext`.
+
+To generate the `po` files for translation in the `source/locale` directory, install `sphinx-intl` with:
+```
+pip sphinx-intl
+```
+Then generate the directory structure under the specified locale, for example `zh_CN`, by running:
+
+```
+make po locale='zh_CN'
+```
+The resulting `po` files can be translated. 
