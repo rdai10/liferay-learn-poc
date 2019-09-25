@@ -15,10 +15,14 @@ help:
 
 .PHONY: help Makefile
 
+.PHONY: livehtml
+
 livehtml:
 	sphinx-autobuild "$(SOURCEDIR)" "$(BUILDDIR)/html"
 
-po:
+.PHONY: po $(locale)
+
+po $(locale): 
 	sphinx-intl update -p "$(BUILDDIR)/gettext" -l $(locale)
 
 # Catch-all target: route all unknown targets to Sphinx using the new
