@@ -9,8 +9,7 @@ SOURCEDIR     = source
 BUILDDIR      = build
 locale        = 
 
-# Put it first so that "make" without argument is like "make help".
-# Default Target
+# Default Target for now, should aim for a `make all`
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
@@ -30,3 +29,6 @@ livehtml:
 
 po $(locale): 
 	sphinx-intl update -p "$(BUILDDIR)/gettext" -l $(locale)
+
+build/html_%:
+	sphinx-build -b html -D language=$(filter-out 'build/html_', $@) $(SOURCEDIR) $@
