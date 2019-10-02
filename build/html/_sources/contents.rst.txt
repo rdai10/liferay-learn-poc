@@ -3,20 +3,26 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Liferay Learn's documentation!
-=========================================
+Contents
+========
+
+.. toctree::
+   :caption: Commerce
+   :glob:
+   :titlesonly:
+
+   commerce/developer-guide/*
+   commerce/get-help/*
+   commerce/installation-and-upgrades/*
+   commerce/user-guide/*
 
 .. toctree::
    :hidden:
-   :caption: Contents:
 
-   commerce/developer-guide/*
    commerce/developer-guide/*/*
    commerce/get-help/*/*
-   commerce/installation-and-upgrades/*
    commerce/installation-and-upgrades/*/*
    commerce/user-guide/*/*
-
 
 Indices and tables
 ==================
