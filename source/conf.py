@@ -30,7 +30,7 @@ author = 'Liferay'
 extensions = ['recommonmark', 'sphinx_markdown_tables']
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+templates_path = ['../_templates']
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -45,7 +45,7 @@ source_suffix = ['.rst', '.md']
 master_doc = 'contents'
 
 language = 'en'
-locale_dirs = ['locale/']
+locale_dirs = ['../_locale']
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -57,8 +57,8 @@ html_theme = 'basic'
 # The “title” for HTML documentation generated with Sphinx’s own templates. This is appended to the <title> tag of individual pages, and used in the navigation bar as the “topmost” element. It defaults to '<project> v<revision> documentation'.
 html_title = 'Liferay Learn'
 html_short_title = 'Documentation'
-html_favicon = '_static/img/favicon.ico'
-html_logo = '_static/img/liferay-waffle.svg'
+html_favicon = '../_static/img/favicon.ico'
+html_logo = '../_static/img/liferay-waffle.svg'
 # html_theme_path
 html_css_files = ['main.css']
 # html_js_files = []
@@ -70,7 +70,7 @@ html_show_sphinx = False
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path = ['../_static']
 
 html_additional_pages = {
     'index': 'index.html'

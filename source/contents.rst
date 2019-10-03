@@ -11,18 +11,18 @@ Contents
    :glob:
    :titlesonly:
 
-   commerce/developer-guide/*
-   commerce/get-help/*
-   commerce/installation-and-upgrades/*
-   commerce/user-guide/*
+   en/commerce/developer-guide/*
+   en/commerce/get-help/*
+   en/commerce/installation-and-upgrades/*
+   en/commerce/user-guide/*
 
 .. toctree::
    :hidden:
 
-   commerce/developer-guide/*/*
-   commerce/get-help/*/*
-   commerce/installation-and-upgrades/*/*
-   commerce/user-guide/*/*
+   en/commerce/developer-guide/*/*
+   en/commerce/get-help/*/*
+   en/commerce/installation-and-upgrades/*/*
+   en/commerce/user-guide/*/*
 
 Indices and tables
 ==================
