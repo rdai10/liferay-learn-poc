@@ -53,11 +53,12 @@ npm install
 
 ## Generating Files
 
-To generate `HTML` in the `build/html` directory, run
+To generate `HTML` 
 
 ```
-make html
+make build/html_zh_CN
 ```
+_Substitue "zh_CN" for the desired locale name._
 
 To generate `pdf` in the `build/latex` directory, run
 
@@ -105,9 +106,3 @@ make po locale='zh_CN'
 
 The resulting `po` files can be translated.
 
-To generate html from the translated files, run:
-
-```
-make build/html_zh_CN
-```
-Substitue "zh_CN" for the desired locale name.
