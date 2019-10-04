@@ -30,5 +30,5 @@ livehtml:
 po $(locale): 
 	sphinx-intl update -p "$(BUILDDIR)/gettext" -l $(locale)
 
-build/html_%:
-	sphinx-build -b html -D language=$(subst build/html_,,$@) "$(SOURCEDIR)/$(subst build/html_,,$@)" $@
+build/html/%:
+	sphinx-build -b html -D language=$(subst build/html_,,$@) "$(SOURCEDIR)/$(subst build/html/,,$@)" $@
