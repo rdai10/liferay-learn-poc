@@ -17,14 +17,19 @@ For Commerce and DXP Cloud docs, the workflow could look something like:
 
 - If any of the docs from the `liferay-learn-${product}` repos require a build step, build now.
 - Then we want to move the doc dumps to the corresponding locale folder in the `source` directory. For example, contents of `liferay-learn-dxp-cloud/docs/en` should be copied to `source/en/dxp-cloud`.
+- We also want to **copy** both the `conf.py` file and `contents.rst` file to the root of each locale folder under `source` because Sphinx doesn't allow multiple source folders.
   
   After moving all the files, the source directory should look like:
 ```
 ├───source
 │   ├───en
+│   | |───conf.py
+│   | |───contents.rst
 │   | |───Commerce
 │   | └───DXP Cloud
 │   └───ja
+│   | |───conf.py
+│   | |───contents.rst
 │   | |───Commerce
 │   | └───DXP Cloud
 ```
