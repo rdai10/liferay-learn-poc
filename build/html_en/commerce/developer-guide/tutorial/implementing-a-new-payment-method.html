@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="build/html_en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta charset="utf-8" />
     <title>Implementing a New Payment Method &#8212; Liferay Learn</title>
@@ -230,8 +230,8 @@
 <p><img alt="New payment method" src="../../../_images/026.png" /></p>
 </li>
 </ol>
-<p>Congratulations, you've successfully built and deployed a new payment method that implements <code class="docutils literal notranslate"><span class="pre">CommercePaymentMethod</span></code>.</p>
-<p>Next, let's dive deeper to learn more.</p>
+<p>Congratulations, you’ve successfully built and deployed a new payment method that implements <code class="docutils literal notranslate"><span class="pre">CommercePaymentMethod</span></code>.</p>
+<p>Next, let’s dive deeper to learn more.</p>
 </div>
 <div class="section" id="walk-through-the-example">
 <h2>Walk Through the Example<a class="headerlink" href="#walk-through-the-example" title="Permalink to this headline">¶</a></h2>
@@ -259,7 +259,7 @@
 </pre></div>
 </div>
 <blockquote>
-<div><p>This populates the &quot;Description&quot; column in the <em>Payment Methods</em> administration page. See the implementation in <a class="reference external" href="./implementing-a-new-payment-method/liferay-b1c3.zip/b1c3-impl/src/main/java/com/acme/b1c3/internal/commerce/payment/method/B1C3CommercePaymentMethod.java">B1C3CommercePaymentMethod.java</a> for a reference in retrieving the description with a language key.</p>
+<div><p>This populates the “Description” column in the <em>Payment Methods</em> administration page. See the implementation in <a class="reference external" href="./implementing-a-new-payment-method/liferay-b1c3.zip/b1c3-impl/src/main/java/com/acme/b1c3/internal/commerce/payment/method/B1C3CommercePaymentMethod.java">B1C3CommercePaymentMethod.java</a> for a reference in retrieving the description with a language key.</p>
 </div></blockquote>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span>	<span class="kd">public</span> <span class="n">String</span> <span class="nf">getKey</span><span class="o">();</span>
 </pre></div>
@@ -271,7 +271,7 @@
 </pre></div>
 </div>
 <blockquote>
-<div><p>This populates the &quot;Name&quot; column in the <em>Payment Methods</em> administration page. It works similarly to the <code class="docutils literal notranslate"><span class="pre">getDescription</span></code> method.</p>
+<div><p>This populates the “Name” column in the <em>Payment Methods</em> administration page. It works similarly to the <code class="docutils literal notranslate"><span class="pre">getDescription</span></code> method.</p>
 </div></blockquote>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span>	<span class="kd">public</span> <span class="kt">int</span> <span class="nf">getPaymentType</span><span class="o">();</span>
 </pre></div>

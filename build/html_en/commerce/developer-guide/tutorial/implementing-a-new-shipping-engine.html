@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="build/html_en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta charset="utf-8" />
     <title>Implementing a New Shipping Engine &#8212; Liferay Learn</title>
@@ -229,11 +229,11 @@
 </pre></div>
 </div>
 </li>
-<li><p>Verify that the example shipping engine was added. Open your browser to <code class="docutils literal notranslate"><span class="pre">https://localhost:8080</span></code> and navigate to <em>Site Administration</em> → <em>Commerce</em> → <em>Settings</em> → <em>Shipping Methods</em>. The new shipping method (&quot;Discounted Rate&quot;) representing our shipping engine will be present on this screen.</p></li>
+<li><p>Verify that the example shipping engine was added. Open your browser to <code class="docutils literal notranslate"><span class="pre">https://localhost:8080</span></code> and navigate to <em>Site Administration</em> → <em>Commerce</em> → <em>Settings</em> → <em>Shipping Methods</em>. The new shipping method (“Discounted Rate”) representing our shipping engine will be present on this screen.</p></li>
 </ol>
 <p><img alt="New shipping method" src="../../../_images/027.png" /></p>
-<p>Congratulations, you've successfully built and deployed a new shipping engine that implements <code class="docutils literal notranslate"><span class="pre">CommerceShippingEngine</span></code>.</p>
-<p>Next, let's dive deeper to learn more.</p>
+<p>Congratulations, you’ve successfully built and deployed a new shipping engine that implements <code class="docutils literal notranslate"><span class="pre">CommerceShippingEngine</span></code>.</p>
+<p>Next, let’s dive deeper to learn more.</p>
 </div>
 <div class="section" id="walk-through-the-example">
 <h2>Walk Through the Example<a class="headerlink" href="#walk-through-the-example" title="Permalink to this headline">¶</a></h2>
@@ -296,7 +296,7 @@
 <li><p><a class="reference external" href="#call-processing-logic-from-getcommerceshippingoptions">Call processing logic from <code class="docutils literal notranslate"><span class="pre">getCommerceShippingOptions</span></code>.</a></p></li>
 <li><p><a class="reference external" href="#add-the-language-keys-to-languageproperties">Add the language keys to <code class="docutils literal notranslate"><span class="pre">Language.properties</span></code>.</a></p></li>
 </ul>
-<p>Liferay Commerce's <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-shipping-engine-fixed-web/src/main/java/com/liferay/commerce/shipping/engine/fixed/web/internal/FixedCommerceShippingEngine.java">fixed rate shipping engine</a> is a good reference to see what processing steps are a good baseline to start with. Our example will follow the same steps.</p>
+<p>Liferay Commerce’s <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-shipping-engine-fixed-web/src/main/java/com/liferay/commerce/shipping/engine/fixed/web/internal/FixedCommerceShippingEngine.java">fixed rate shipping engine</a> is a good reference to see what processing steps are a good baseline to start with. Our example will follow the same steps.</p>
 <div class="section" id="implement-getting-the-available-shipping-options">
 <h4>Implement Getting the Available Shipping Options<a class="headerlink" href="#implement-getting-the-available-shipping-options" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">CommerceShippingFixedOption</span><span class="o">&gt;</span> <span class="nf">_getCommerceShippingFixedOptions</span><span class="o">(</span>
@@ -318,7 +318,7 @@
 </pre></div>
 </div>
 <blockquote>
-<div><p>First, use <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-service/src/main/java/com/liferay/commerce/service/impl/CommerceShippingMethodLocalServiceImpl.java">CommerceShippingMethodLocalService</a> to get the &quot;shipping method&quot; (representing our shipping engine), and then use <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-shipping-engine-fixed-service/src/main/java/com/liferay/commerce/shipping/engine/fixed/service/impl/CommerceShippingFixedOptionLocalServiceImpl.java">CommerceShippingFixedOptionLocalService</a> to get the available options.</p>
+<div><p>First, use <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-service/src/main/java/com/liferay/commerce/service/impl/CommerceShippingMethodLocalServiceImpl.java">CommerceShippingMethodLocalService</a> to get the “shipping method” (representing our shipping engine), and then use <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-shipping-engine-fixed-service/src/main/java/com/liferay/commerce/shipping/engine/fixed/service/impl/CommerceShippingFixedOptionLocalServiceImpl.java">CommerceShippingFixedOptionLocalService</a> to get the available options.</p>
 </div></blockquote>
 </div>
 <div class="section" id="implement-address-restriction-checking">
@@ -338,8 +338,8 @@
 </pre></div>
 </div>
 <blockquote>
-<div><p>The next step determines whether a particular shipping option is restricted for the order's shipping address. A restricted option will not presented as an option to choose from.</p>
-<p>Use <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-service/src/main/java/com/liferay/commerce/service/impl/CommerceAddressRestrictionLocalServiceImpl.java">CommerceAddressRestrictionLocalService</a> to determine if the option is restricted for the order's address. Use <code class="docutils literal notranslate"><span class="pre">CommerceOrder</span></code> to get the address information; the <code class="docutils literal notranslate"><span class="pre">CommerceOrder</span></code> object represents all kinds of information about the order being shipped. See <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-api/src/main/java/com/liferay/commerce/model/CommerceOrder.java">CommerceOrder.java</a> and <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-api/src/main/java/com/liferay/commerce/model/CommerceOrderModel.java">CommerceOrderModel.java</a> to find more methods you can use with a <code class="docutils literal notranslate"><span class="pre">CommerceOrder</span></code>.</p>
+<div><p>The next step determines whether a particular shipping option is restricted for the order’s shipping address. A restricted option will not presented as an option to choose from.</p>
+<p>Use <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-service/src/main/java/com/liferay/commerce/service/impl/CommerceAddressRestrictionLocalServiceImpl.java">CommerceAddressRestrictionLocalService</a> to determine if the option is restricted for the order’s address. Use <code class="docutils literal notranslate"><span class="pre">CommerceOrder</span></code> to get the address information; the <code class="docutils literal notranslate"><span class="pre">CommerceOrder</span></code> object represents all kinds of information about the order being shipped. See <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-api/src/main/java/com/liferay/commerce/model/CommerceOrder.java">CommerceOrder.java</a> and <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-api/src/main/java/com/liferay/commerce/model/CommerceOrderModel.java">CommerceOrderModel.java</a> to find more methods you can use with a <code class="docutils literal notranslate"><span class="pre">CommerceOrder</span></code>.</p>
 </div></blockquote>
 </div>
 <div class="section" id="implement-a-loop-to-process-the-options">

@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="build/html_en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta charset="utf-8" />
     <title>Implementing a Custom Order Validator &#8212; Liferay Learn</title>
@@ -181,7 +181,7 @@
         <div class="col-md-7 doc-body offset-md-1"><div class="section" id="implementing-a-custom-order-validator">
 <h1>Implementing a Custom Order Validator<a class="headerlink" href="#implementing-a-custom-order-validator" title="Permalink to this headline">¶</a></h1>
 <p>This tutorial will show you how to add a custom order validator by implementing the <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-api/src/main/java/com/liferay/commerce/order/CommerceOrderValidator.java">CommerceOrderValidator</a> interface.</p>
-<p>An order validator is a class that validates items in a customer's cart when proceeding through checkout. Liferay Commerce provides multiple out-of-the-box order validators, including a <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-service/src/main/java/com/liferay/commerce/internal/order/DefaultCommerceOrderValidatorImpl.java">default</a>, as well as validators to check <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-service/src/main/java/com/liferay/commerce/internal/order/VersionCommerceOrderValidatorImpl.java">item versions</a> and <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-service/src/main/java/com/liferay/commerce/internal/order/SubscriptionCommerceOrderValidatorImpl.java">recurring items (subscriptions)</a>.</p>
+<p>An order validator is a class that validates items in a customer’s cart when proceeding through checkout. Liferay Commerce provides multiple out-of-the-box order validators, including a <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-service/src/main/java/com/liferay/commerce/internal/order/DefaultCommerceOrderValidatorImpl.java">default</a>, as well as validators to check <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-service/src/main/java/com/liferay/commerce/internal/order/VersionCommerceOrderValidatorImpl.java">item versions</a> and <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-service/src/main/java/com/liferay/commerce/internal/order/SubscriptionCommerceOrderValidatorImpl.java">recurring items (subscriptions)</a>.</p>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
@@ -226,12 +226,12 @@
 </div>
 </li>
 <li><p>Verify that the example order validator was added by viewing the failure message. Open your browser to <code class="docutils literal notranslate"><span class="pre">https://localhost:8080</span></code> and navigate to a catalog with at least one item priced over $100. If no such product exists yet, add it yourself; see <a class="reference external" href="../../../user-guide/catalog/creating-and-managing-products/product-types/creating-a-simple-product">Creating a Simple Product</a> for more information.</p>
-<p>From the catalog, find the item with this price, then click &quot;Add to Cart&quot;. Increase the quantity to 11 or more, then click the arrow to continue. The error message that appears shows that the custom order validator successfully rejected adding the item.</p>
+<p>From the catalog, find the item with this price, then click “Add to Cart”. Increase the quantity to 11 or more, then click the arrow to continue. The error message that appears shows that the custom order validator successfully rejected adding the item.</p>
 <p><img alt="New order validation error message" src="../../../_images/015.png" /></p>
 </li>
 </ol>
-<p>Congratulations, you've successfully built and deployed a new order validator that implements <code class="docutils literal notranslate"><span class="pre">CommerceOrderValidator</span></code>.</p>
-<p>Next, let's dive deeper to learn more.</p>
+<p>Congratulations, you’ve successfully built and deployed a new order validator that implements <code class="docutils literal notranslate"><span class="pre">CommerceOrderValidator</span></code>.</p>
+<p>Next, let’s dive deeper to learn more.</p>
 </div>
 <div class="section" id="walk-through-the-example">
 <h2>Walk Through the Example<a class="headerlink" href="#walk-through-the-example" title="Permalink to this headline">¶</a></h2>
@@ -347,7 +347,7 @@
 </pre></div>
 </div>
 <blockquote>
-<div><p>Add the same validation logic to this method, since it will be called for the items in the customer's cart. The main difference in this case is we get the information from a <code class="docutils literal notranslate"><span class="pre">CommerceOrderItem</span></code> object; see <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-api/src/main/java/com/liferay/commerce/model/CommerceOrderItem.java">CommerceOrderItem</a> and <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-api/src/main/java/com/liferay/commerce/model/CommerceOrderItemModel.java">CommerceOrderItemModel</a> to find more methods you can use with a <code class="docutils literal notranslate"><span class="pre">CommerceOrderItem</span></code>.</p>
+<div><p>Add the same validation logic to this method, since it will be called for the items in the customer’s cart. The main difference in this case is we get the information from a <code class="docutils literal notranslate"><span class="pre">CommerceOrderItem</span></code> object; see <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-api/src/main/java/com/liferay/commerce/model/CommerceOrderItem.java">CommerceOrderItem</a> and <a class="reference external" href="https://github.com/liferay/com-liferay-commerce/blob/2.0.5/commerce-api/src/main/java/com/liferay/commerce/model/CommerceOrderItemModel.java">CommerceOrderItemModel</a> to find more methods you can use with a <code class="docutils literal notranslate"><span class="pre">CommerceOrderItem</span></code>.</p>
 </div></blockquote>
 </div>
 <div class="section" id="add-the-language-keys-to-language-properties">

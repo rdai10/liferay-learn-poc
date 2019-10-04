@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="build/html_en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta charset="utf-8" />
     <title>Automating Store Emails by Using Notification Templates &#8212; Liferay Learn</title>
@@ -182,7 +182,7 @@
 <h1>Automating Store Emails by Using Notification Templates<a class="headerlink" href="#automating-store-emails-by-using-notification-templates" title="Permalink to this headline">¶</a></h1>
 <p>Notifications are automated emails sent to users. To send email notifications, first create a <em>Notification Template</em>. Notification Templates define the notification sender, trigger, and content of an email notification.</p>
 <blockquote>
-<div><p><strong>Note:</strong> To use Liferay Commerce's Notifications feature, system administrators <em>first</em> have to configure the Mail settings for Liferay Digital Experience Platform (DXP). See <a class="reference external" href="https://help.liferay.com/hc/en-us/articles/360017896652-Installing-Liferay-DXP#configuring-mail">User Subscriptions and Mailing Lists</a> for more information.</p>
+<div><p><strong>Note:</strong> To use Liferay Commerce’s Notifications feature, system administrators <em>first</em> have to configure the Mail settings for Liferay Digital Experience Platform (DXP). See <a class="reference external" href="https://help.liferay.com/hc/en-us/articles/360017896652-Installing-Liferay-DXP#configuring-mail">User Subscriptions and Mailing Lists</a> for more information.</p>
 </div></blockquote>
 <p>Once the Mail settings have been configured, follow these steps to create a notification for a received order:</p>
 <ol>
@@ -195,7 +195,7 @@
 <li><p><strong>Name</strong>: New Orders</p></li>
 <li><p><strong>Description</strong>: New orders template</p></li>
 <li><p><strong>Account Groups</strong>: (leave blank or designate an <strong>optional</strong> account group)</p></li>
-<li><p><strong>From Address</strong>: Your store's email address (for example: <em>orders&#64;yourstore.com</em>)</p></li>
+<li><p><strong>From Address</strong>: Your store’s email address (for example: <em>orders&#64;yourstore.com</em>)</p></li>
 <li><p><strong>From Name</strong>: Name of the store or a customer service representative</p></li>
 <li><p><strong>Type</strong>: Order Placed</p></li>
 <li><p><strong>Enabled</strong>: Switch the Toggle to <em>YES</em></p></li>
@@ -209,7 +209,7 @@
 <p>The new Notification Template has been saved and your store will send an automated email to buyers after the store has received their order. Once the template is created, a new notification is added to the notification queue whenever an order is placed. Check the <em>Notifications Queue</em> sub-tab when an order has been placed. Liferay Commerce checks the queue at specified intervals to send any unsent notifications.</p>
 <div class="section" id="additional-notifications">
 <h2>Additional Notifications<a class="headerlink" href="#additional-notifications" title="Permalink to this headline">¶</a></h2>
-<p><strong>Note 1</strong>: * Liferay Commerce offers two snippets to insert programmatically the order creator's name and the order ID.</p>
+<p><strong>Note 1</strong>: * Liferay Commerce offers two snippets to insert programmatically the order creator’s name and the order ID.</p>
 <ul class="simple">
 <li><p>[%ORDER_CREATOR%] inserts the user who created the order</p></li>
 <li><p>[%ORDER_CREATOR%] inserts the Order ID</p></li>
