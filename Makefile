@@ -3,11 +3,11 @@
 
 # You can set these variables from the command line, and also
 # from the environment for the first two.
-SPHINXOPTS    =
-SPHINXBUILD   = sphinx-build
-SOURCEDIR     = source
-BUILDDIR      = build
-locale        = 
+SPHINXOPTS    :=
+SPHINXBUILD   := sphinx-build
+SOURCEDIR     := source
+BUILDDIR      := build
+locale        := 
 
 # Default Target for now, should aim for a `make all`
 help:
