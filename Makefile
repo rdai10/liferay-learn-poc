@@ -31,4 +31,4 @@ po $(locale):
 	sphinx-intl update -p "$(BUILDDIR)/gettext" -l $(locale)
 
 build/html/%:
-	sphinx-build -b html -D language=$(subst build/html_,,$@) "$(SOURCEDIR)/$(subst build/html/,,$@)" $@
+	sphinx-build -b html -D language=$(subst $(wordlist s,e,text),,$@) "$(SOURCEDIR)/$(subst build/html/,,$@)" $@
