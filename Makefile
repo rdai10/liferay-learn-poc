@@ -7,6 +7,7 @@ SPHINXOPTS    :=
 SPHINXBUILD   := sphinx-build
 SOURCEDIR     := source
 BUILDDIR      := build
+file          :=
 locale        := 
 
 # Default Target for now, should aim for a `make all`
@@ -22,8 +23,8 @@ help:
 
 .PHONY: livehtml
 
-livehtml:
-	sphinx-autobuild "$(SOURCEDIR)" "$(BUILDDIR)/html"
+livehtml $(file):
+	sphinx-autobuild "$(SOURCEDIR)/$(file)" "$(BUILDDIR)/html/$(file)"
 
 .PHONY: po $(locale)
 
