@@ -53,23 +53,25 @@ npm install
 
 ## Generating Files
 
+To generate a file for a specific product and version, pass the name of the directory in the `FILE` parameter.
+
 To generate `HTML` 
 
 ```
-make build/html_zh_CN
+make build/html/zh_CN/commerce-en
 ```
 _Substitue "zh_CN" for the desired locale name._
 
-To generate `pdf` in the `build/latex` directory, run
+To generate `pdf` in the `build/latexpdf` directory, run
 
 ```
-make latexpdf
+make latexpdf FILE=commerce-en
 ```
 
 To generate `epub` in the `build/epub` directory, run
 
 ```
-make epub
+make epub FILE=commerce-en
 ```
 
 ## Live Reload
@@ -83,7 +85,7 @@ npm run css:watch
 In a separate terminal, run
 
 ```
-make livehtml
+make livehtml FILE=commerce-en
 ```
 
 The site will be served at http://127.0.0.1:8000
@@ -105,4 +107,3 @@ make po locale='zh_CN'
 ```
 
 The resulting `po` files can be translated.
-
