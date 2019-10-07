@@ -95,7 +95,7 @@ Read about Sphinx's internationalization [details here](http://www.sphinx-doc.or
 To generate the `pot` files in the `build/gettext` directory, run:
 
 ```
-make gettext
+make gettext FILE=commerce-en
 ```
 
 Then generate the directory structure under the specified locale inside the `source/locale` directory by running:

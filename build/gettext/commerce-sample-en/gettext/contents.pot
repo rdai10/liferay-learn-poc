@@ -1,0 +1,43 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, Liferay
+# This file is distributed under the same license as the Liferay Learn package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Liferay Learn 0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-10-07 10:51-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../../source/commerce-sample-en/contents.rst:9
+#: ../../../../source/commerce-sample-en/contents.rst:9
+msgid "Commerce"
+msgstr ""
+
+#: ../../../../source/commerce-sample-en/contents.rst:7
+msgid "Contents"
+msgstr ""
+
+#: ../../../../source/commerce-sample-en/contents.rst:28
+msgid "Indices and tables"
+msgstr ""
+
+#: ../../../../source/commerce-sample-en/contents.rst:30
+msgid ":ref:`genindex`"
+msgstr ""
+
+#: ../../../../source/commerce-sample-en/contents.rst:31
+msgid ":ref:`modindex`"
+msgstr ""
+
+#: ../../../../source/commerce-sample-en/contents.rst:32
+msgid ":ref:`search`"
+msgstr ""
+
