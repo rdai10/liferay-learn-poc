@@ -58,7 +58,7 @@ To generate a file for a specific product and version, pass the name of the dire
 To generate `HTML` 
 
 ```
-make build/html/commerce-en
+make html FILE=commerce-en
 ```
 To generate `pdf` in the `build/latexpdf` directory, run
 
