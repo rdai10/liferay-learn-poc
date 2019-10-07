@@ -58,10 +58,8 @@ To generate a file for a specific product and version, pass the name of the dire
 To generate `HTML` 
 
 ```
-make build/html/zh_CN/commerce-en
+make build/html/commerce-en
 ```
-_Substitue "zh_CN" for the desired locale name._
-
 To generate `pdf` in the `build/latexpdf` directory, run
 
 ```
@@ -103,7 +101,7 @@ make gettext
 Then generate the directory structure under the specified locale inside the `source/locale` directory by running:
 
 ```
-make po locale='zh_CN'
+make po LOCALE='zh_CN'
 ```
 
 The resulting `po` files can be translated.
