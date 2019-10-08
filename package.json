@@ -18,6 +18,6 @@
   },
   "private": true,
   "scripts": {
-    "css:watch": "node-sass -w --include-path node_modules/clay-css/src/scss source/_static/scss/main.scss source/_static/main.css"
+    "css:watch": "node-sass -w --include-path node_modules/clay-css/src/scss _static/scss/main.scss _static/main.css"
   }
 }
