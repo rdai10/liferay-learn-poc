@@ -58,18 +58,18 @@ To generate a file for a specific product and version, pass the name of the dire
 To generate `HTML` 
 
 ```
-make html FILE=commerce-en
+make html FILE=commerce-sample-en
 ```
 To generate `pdf` in the `build/latexpdf` directory, run
 
 ```
-make latexpdf FILE=commerce-en
+make latexpdf FILE=commerce-sample-en
 ```
 
 To generate `epub` in the `build/epub` directory, run
 
 ```
-make epub FILE=commerce-en
+make epub FILE=commerce-sample-en
 ```
 
 ## Live Reload
@@ -83,7 +83,7 @@ npm run css:watch
 In a separate terminal, run
 
 ```
-make livehtml FILE=commerce-en
+make livehtml FILE=commerce-sample-en
 ```
 
 The site will be served at http://127.0.0.1:8000
@@ -95,7 +95,7 @@ Read about Sphinx's internationalization [details here](http://www.sphinx-doc.or
 To generate the `pot` files in the `build/gettext` directory, run:
 
 ```
-make gettext FILE=commerce-en
+make gettext FILE=commerce-sample-en
 ```
 
 Then generate the directory structure under the specified locale inside the `source/locale` directory by running:
