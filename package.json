@@ -5,7 +5,7 @@
   "license": "ISC",
   "dependencies": {
     "clay-css": "^2.18.1",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "prettier": "^1.18.2"
   },
   "prettier": {
